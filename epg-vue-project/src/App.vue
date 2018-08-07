@@ -1,16 +1,19 @@
 <template>
   <main id="app">
     <navigation-bar/>
+    <grid-view/>
   </main>
 </template>
 
 <script>
 import navigationBar from './components/navigationBar.vue'
+import GridView from './components/GridView.vue'
 
 export default {
   name: 'app',
   components: {
-    navigationBar
+    navigationBar,
+    GridView
   }
 }
 </script>
