@@ -1,10 +1,10 @@
 <template>
-    <nav>
+    <nav tabindex="1">
         <ul>
-            <li>now</li>
-            <li>tonight</li>
-            <li>category</li>
-            <li>channel</li>
+            <li tabindex="-1"> now</li>
+            <li tabindex="-1">tonight</li>
+            <li tabindex="-1">category</li>
+            <li tabindex="-1">channel</li>
         </ul>
     </nav>
 </template>

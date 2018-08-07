@@ -18,7 +18,7 @@ export default {
 <style scoped lang="less">
 
 div {
-  background-color:white;  
+  background-color:white;
 }
 
 </style>
