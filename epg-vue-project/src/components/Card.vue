@@ -3,8 +3,11 @@
         <img>
     </div>
 </template>
-<script>
 
+<script>
+export default {
+  name: 'Card'
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -13,7 +16,7 @@
 div {
   width: 224px;
   height: 294px;
-  background-color:dimgray;  
+  background-color:dimgray;
 }
 img {
   max-width: 100%;
@@ -21,7 +24,7 @@ img {
   border-radius: 5%;
   transition: transform 2s;
   &:hover {
-    border: 2px solid @yellow;
+    border: 2px solid yellow;
   }
 }
 </style>
