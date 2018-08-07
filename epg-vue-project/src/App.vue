@@ -7,14 +7,14 @@
 </template>
 
 <script>
-import navigationBar from './components/navigationBar.vue'
+import NavigationBar from './components/NavigationBar.vue'
 import GridView from './components/GridView.vue'
 import ProgramDetail from './components/ProgramDetail.vue'
 
 export default {
   name: 'app',
   components: {
-    navigationBar,
+    NavigationBar,
     GridView,
     ProgramDetail
   }
