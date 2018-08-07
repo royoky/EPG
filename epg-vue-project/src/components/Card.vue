@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img>
+      <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/>
     </div>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 div {
   width: 224px;
   height: 294px;
-  background-color:dimgray;
+  background-color:black;
 }
 img {
   max-width: 100%;
