@@ -1,6 +1,6 @@
 <template>
     <aside id='detail'>
-        <img src=https://fusion.molotov.tv/v1/magik/?vignette=99ff4864c44db98cfc0140fbe304c4ad9af18b48.jpg&size=446x588&overlay1=49788638ca37ebc06a3c02f6d560a348b450a188 alt="Program Title" height="300">
+        <img src="https://fusion.molotov.tv/v1/magik/?vignette=99ff4864c44db98cfc0140fbe304c4ad9af18b48.jpg&size=446x588&overlay1=49788638ca37ebc06a3c02f6d560a348b450a188" alt="Program Title" height="300">
         <h4>Program Title</h4>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         <button>Record</button>
