@@ -17,7 +17,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.detail {
+#detail {
     /*display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
