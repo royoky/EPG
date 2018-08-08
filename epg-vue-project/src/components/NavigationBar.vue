@@ -6,12 +6,34 @@
             <li tabindex="-1">category</li>
             <li tabindex="-1">channel</li>
         </ul>
+        <ul>
+            <li @click="selectCategory(100)">100</li>
+            <li>10</li>
+            <li>50</li>
+            <li>60</li>
+            <li>90</li>
+            <li>40</li>
+        </ul>
     </nav>
 </template>
 
 <script>
+import { category } from '../states/navigationState'
 export default {
-  name: 'navigationBar'
+  name: 'navigationBar',
+  methods: {
+      selectCategory(cat) {
+        this.selectedCat = cat
+        console.log(this.selectedCat);
+        
+      }
+  },
+  data () {
+    return {
+      category,
+      loading: false
+    }
+  },
 }
 </script>
 
