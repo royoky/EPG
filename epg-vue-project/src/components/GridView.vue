@@ -1,17 +1,23 @@
 <template>
     <main>
-        <Row
-          />
+        <Row/>
+        <ProgramDetail v-if="eventState.selectedEvent"/>
     </main>
 </template>
 
 <script>
 import Row from './Row.vue'
+import ProgramDetail from './ProgramDetail.vue'
+import { eventState } from '../states/event-state'
 
 export default {
   name: 'GridView',
   components: {
-    Row
+    Row,
+    ProgramDetail
+  },
+  data () {
+    return { eventState }
   }
 }
 </script>

@@ -2,21 +2,18 @@
   <main id="app">
     <navigation-bar/>
     <grid-view/>
-    <program-detail/>
   </main>
 </template>
 
 <script>
 import NavigationBar from './components/NavigationBar.vue'
 import GridView from './components/GridView.vue'
-import ProgramDetail from './components/ProgramDetail.vue'
 
 export default {
   name: 'app',
   components: {
     NavigationBar,
-    GridView,
-    ProgramDetail
+    GridView
   }
 }
 </script>
