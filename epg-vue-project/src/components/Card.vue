@@ -1,12 +1,22 @@
 <template>
-    <div>
+    <div @click="displayDetail()">
       <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/>
     </div>
 </template>
 
 <script>
+import { eventState } from '../states/event-state'
+
 export default {
-  name: 'Card'
+  name: 'Card',
+  data () {
+    return { eventState }
+  },
+  methods: {
+    displayDetail () {
+      this.eventState.selectedEvent = true
+    }
+  }
 }
 </script>
 
@@ -24,7 +34,9 @@ img {
   border-radius: 5%;
   transition: transform 2s;
   &:hover {
-    border: 2px solid yellow;
+    border: 2px solid black;
+    transform: scale(1.05);
+    cursor: pointer;
   }
 }
 </style>
