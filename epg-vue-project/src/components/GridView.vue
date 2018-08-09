@@ -1,16 +1,19 @@
 <template>
     <main>
-        <Row
-          />
+        <Row/>
+        <ProgramDetail v-if="eventState.selectedEvent"/>
     </main>
 </template>
 
 <script>
 import Row from './Row.vue'
+import ProgramDetail from './ProgramDetail.vue'
+import { eventState } from '../states/event-state'
 
 export default {
   name: 'GridView',
   components: {
+<<<<<<< HEAD
     Row
   },
   async created () {
@@ -38,6 +41,13 @@ export default {
       movies: null,
       loading: false
     }
+=======
+    Row,
+    ProgramDetail
+  },
+  data () {
+    return { eventState }
+>>>>>>> 00cb5e38738aa5d34e754e5831f0ad13640ef53b
   }
 }
 </script>
