@@ -8,32 +8,30 @@
         </ul>
         <ul>
             <li @click="selectCategory(100)">100</li>
-            <li>10</li>
-            <li>50</li>
-            <li>60</li>
-            <li>90</li>
-            <li>40</li>
+            <li @click="selectCategory(10 )">10</li>
+            <li @click="selectCategory(50 )">50</li>
+            <li @click="selectCategory(60 )">60</li>
+            <li @click="selectCategory(90 )">90</li>
+            <li @click="selectCategory(40 )">40</li>
         </ul>
     </nav>
 </template>
 
 <script>
-import { category } from '../states/navigationState'
+import { navigationState } from '../states/navigation-state'
 export default {
   name: 'navigationBar',
   methods: {
-      selectCategory(cat) {
-        this.selectedCat = cat
-        console.log(this.selectedCat);
-        
-      }
+    selectCategory (cat) {
+      this.navigationState.selectedCategory = cat
+      console.log(this.navigationState.selectedCategory)
+    }
   },
   data () {
     return {
-      category,
-      loading: false
+      navigationState
     }
-  },
+  }
 }
 </script>
 
