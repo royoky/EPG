@@ -12,17 +12,17 @@
 </template>
 
 <script>
-import { eventState } from "../states/event-state";
+import { eventState } from '../states/event-state'
 export default {
-    name: 'ProgramDetail',
-    data () {
-        return { eventState }
-    },
-    methods: {
-        closePopup () {
-        eventState.selectedEvent = null
-        }
+  name: 'ProgramDetail',
+  data () {
+    return { eventState }
+  },
+  methods: {
+    closePopup () {
+      eventState.selectedEvent = null
     }
+  }
 }
 </script>
 
