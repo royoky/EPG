@@ -1,6 +1,9 @@
 <template>
     <div>
-      <Card/>
+      <Card v-for="(event, index) in events" 
+          :key="index" 
+          :event="event" 
+          :selectEvent="selectEvent"/>
     </div>
 </template>
 <script>
@@ -10,7 +13,26 @@ export default {
   name: 'Row',
   components: {
     Card
-  }
+  }, 
+  data () { 
+    return { 
+      events: null, 
+      selectedEvent: null 
+    } 
+  }, 
+  async created () { 
+    try { 
+      let response = await fetch('data/GenericEvents.json') 
+      this.events = await response.json()
+    } catch (error) { 
+      console.error(error) 
+    } 
+  }, 
+  methods: { 
+    selectEvent (event) { 
+      this.selectedEvent = event 
+    } 
+  } 
 }
 </script>
 
@@ -18,6 +40,7 @@ export default {
 <style scoped lang="less">
 
 div {
+  display: flex;
   background-color:white;
 }
 
