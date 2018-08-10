@@ -1,7 +1,7 @@
 <template>
     <main>
-        <Row
-          />
+        <Row v-for="n in 10"
+        :key="n.id"/>         
     </main>
 </template>
 
@@ -21,8 +21,5 @@ export default {
 main {
   background-color: white;
   display: flex;
-}
-.row{
-  flex-direction: row;
 }
 </style>

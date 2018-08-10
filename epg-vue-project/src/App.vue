@@ -1,9 +1,9 @@
 <template>
-  <main id="app">
+  <div id="app">
     <navigation-bar/>
     <grid-view/>
     <program-detail/>
-  </main>
+  </div>
 </template>
 
 <script>
