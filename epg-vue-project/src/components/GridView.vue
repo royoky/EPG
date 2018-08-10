@@ -25,6 +25,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 main {
-  background-color: white
+  background-color: white;
+  position: relative;
 }
 </style>

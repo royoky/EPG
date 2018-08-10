@@ -3,4 +3,3 @@ export const eventState = {
     selectedEvent: false,
     numberOfEvents: 0
   }
-
