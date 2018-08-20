@@ -23,10 +23,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 
-div {
-  width: 224px;
-  height: 294px;
-  background-color:black;
+div{
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 img {
   max-width: 100%;

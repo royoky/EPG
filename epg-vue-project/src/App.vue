@@ -1,8 +1,8 @@
 <template>
-  <main id="app">
+  <div id="app">
     <navigation-bar/>
     <grid-view/>
-  </main>
+  </div>
 </template>
 
 <script>
