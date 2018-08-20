@@ -40,7 +40,9 @@ export default {
         listOfEvents.map(element => {
           return newList = element.concat(newList)
         })
-        console.log(newList);
+        console.log(newList)
+        this.navigationState.programList = newList
+        console.log(this.navigationState.programList)
       } catch (error) {
         console.log(error)
       }

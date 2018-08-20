@@ -1,3 +1,4 @@
 export const navigationState = {
-  selectedCategory: null
+  selectedCategory: null,
+  programList: null
 }

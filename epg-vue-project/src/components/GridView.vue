@@ -1,9 +1,11 @@
 <template>
-    <main>
-        <Card  v-for="(event, index ) in events" 
+    <main v-if="navigationState.programList !=null">
+        <Card  v-for="(event, index ) in navigationState.programList" 
           :key="index" 
           :event="event" 
-          :selectEvent="selectEvent"/>         
+          :program-title="event.name"
+          :selectEvent="selectEvent"/>
+          <ProgramDetail v-if="eventState.selectedEvent"/>      
     </main>
 </template>
 
@@ -26,15 +28,15 @@ export default {
       events: null
     } 
   }, 
-  async created () { 
-    try { 
-      let response = await fetch('data/GenericEvents.json') 
-      this.events = await response.json() 
-      console.log(this.events)
-    } catch (error) { 
-      console.error(error) 
-    } 
-  }, 
+  // async updated () { 
+  //   try { 
+  //     let response = await fetch('data/GenericEvents.json') 
+  //     this.events = await response.json() 
+  //     console.log(this.events)
+  //   } catch (error) { 
+  //     console.error(error) 
+  //   } 
+  // }, 
   methods: { 
     selectEvent (event) { 
       this.eventState.selectedEvent = event 

@@ -1,6 +1,7 @@
 <template>
     <div @click="displayDetail()">
-      <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/>
+      <p>{{programTitle}}</p>
+      <!-- <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/> -->
     </div>
 </template>
 
@@ -9,6 +10,9 @@ import { eventState } from '../states/event-state'
 
 export default {
   name: 'Card',
+  props: {
+    programTitle: String
+  },
   data () {
     return { eventState }
   },
@@ -24,6 +28,10 @@ export default {
 <style scoped lang="less">
 
 div{
+  width: 226px;
+  height: 296px;
+  border: 1px grey solid;
+  border-radius: 5%;
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
