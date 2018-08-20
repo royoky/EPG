@@ -17,26 +17,6 @@ export default {
     Row,
     ProgramDetail
   },
-  // methods : {
-  //   async getEventByCat () {
-  //     try {
-  //       const categories = await fetch('data/GenericCategories.json')
-  //       let listOfCategories = await categories.json()
-  //       listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory)
-  //       listOfCategories = listOfCategories.map(element => element.id)
-  //       const events = await fetch('data/GenericEvents.json')
-  //       let listOfEvents = await events.json()
-  //       listOfEvents =  listOfCategories.forEach(categoryId => {
-  //         listOfEvents.find(function (event) {
-  //           event.id === categoryId.id
-  //         })
-  //       })
-  //       console.log(listOfEvents)
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  // },
   data () {
     return { eventState, navigationState }
   }

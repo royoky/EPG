@@ -7,12 +7,12 @@
             <li tabindex="-1">channel</li>
         </ul>
         <ul>
-            <li @click="selectCategory(100)">100</li>
-            <li @click="selectCategory(10 )">10</li>
-            <li @click="selectCategory(50 )">50</li>
-            <li @click="selectCategory(60 )">60</li>
-            <li @click="selectCategory(90 )">90</li>
-            <li @click="test()">40</li>
+            <li @click="getEventByCat(100)">100</li>
+            <li @click="getEventByCat(10 )">10</li>
+            <li @click="getEventByCat(50 )">50</li>
+            <li @click="getEventByCat(60 )">60</li>
+            <li @click="getEventByCat(90 )">documentaire</li>
+            <li @click="getEventByCat(40)">sport</li>
         </ul>
     </nav>
 </template>
@@ -22,17 +22,11 @@ import { navigationState } from '../states/navigation-state'
 export default {
   name: 'navigationBar',
   methods: {
-    async test () {
-        this.selectCategory(40)
-        await this.getEventByCat()
-    },
-    selectCategory (cat) {
+    async getEventByCat (cat) {
       this.navigationState.selectedCategory = cat
       console.log(this.navigationState.selectedCategory)
-    },
-    async getEventByCat () {
       try {
-         const categories = await fetch('data/GenericCategories.json')
+        const categories = await fetch('data/GenericCategories.json')
         let listOfCategories = await categories.json()
         listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory)
         listOfCategories = listOfCategories.map(element => element.id)
@@ -42,10 +36,8 @@ export default {
          return listOfEvents.filter(event => event.category_id === element)
         })
         listOfEvents = listOfEvents.filter(element => element.length > 0)
-        console.log(listOfEvents)
         let newList = []
         listOfEvents.map(element => {
-          console.log(`l'élement : ${element} est concatené à ${newList}, ce qui donne : ${element.concat(newList)}`)
           return newList = element.concat(newList)
         })
         console.log(newList);
