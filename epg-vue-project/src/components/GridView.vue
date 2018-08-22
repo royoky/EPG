@@ -1,11 +1,12 @@
 <template>
     <main v-if="navigationState.programList !=null">
-        <Card  v-for="(event, index ) in navigationState.programList" 
-          :key="index" 
-          :event="event" 
+        <Card  v-for="(event, index ) in navigationState.programList"
+          :key="index"
+          :event="event"
           :program-title="event.name"
+          :program-start-time="event.start_date"
           :selectEvent="selectEvent"/>
-          <ProgramDetail v-if="eventState.selectedEvent"/>      
+          <ProgramDetail v-if="eventState.selectedEvent"/>
     </main>
 </template>
 
@@ -20,28 +21,19 @@ export default {
   components: {
     Card,
     ProgramDetail
-  }, 
-  data () { 
-    return { 
+  },
+  data () {
+    return {
       eventState,
       navigationState,
       events: null
-    } 
-  }, 
-  // async updated () { 
-  //   try { 
-  //     let response = await fetch('data/GenericEvents.json') 
-  //     this.events = await response.json() 
-  //     console.log(this.events)
-  //   } catch (error) { 
-  //     console.error(error) 
-  //   } 
-  // }, 
-  methods: { 
-    selectEvent (event) { 
-      this.eventState.selectedEvent = event 
-    } 
-  } 
+    }
+  },
+  methods: {
+    selectEvent (event) {
+      this.eventState.selectedEvent = event
+    }
+  }
 }
 </script>
 

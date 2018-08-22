@@ -14,28 +14,28 @@
 <script>
 import { eventState } from '../states/event-state'
 export default {
-    name: 'ProgramDetail',
-    data () {
-        return { eventState }
+  name: 'ProgramDetail',
+  data () {
+    return { eventState }
+  },
+  methods: {
+    closeDetail () {
+      eventState.selectedEvent = null
     },
-    methods: {
-        closeDetail () {
-        eventState.selectedEvent = null
-        },
-        // Function to detect the Escape key and close the detail window
-        detectEscapeKey (event) {
-            if (event.keyCode === 27) {
-                this.closeDetail()
-            }
-        }
-    },
-    created () {
-        window.addEventListener('keydown', this.detectEscapeKey)
-    },
-    beforeDestroy () {
-        window.removeEventListener('keydown', this.detectEscapeKey)
+    // Function to detect the Escape key and close the detail window
+    detectEscapeKey (event) {
+      if (event.keyCode === 27) {
+        this.closeDetail()
+      }
     }
+  },
+  created () {
+    window.addEventListener('keydown', this.detectEscapeKey)
+  },
+  beforeDestroy () {
+    window.removeEventListener('keydown', this.detectEscapeKey)
   }
+}
 
 </script>
 
