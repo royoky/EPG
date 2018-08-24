@@ -26,17 +26,15 @@ export default {
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
       const now = new Date().getHours()
-      function getHours(timeStamp) {
+      function compareHours (timeStamp) {
         let hours = new Date(timeStamp * 1000).getHours()
         return hours === now
       }
-      listOfEvents.filter(element => getHours(element.start_date))
-      console.log(listOfEvents);
+      listOfEvents = listOfEvents.filter(element => !compareHours(element.start_date))
       this.navigationState.programList = listOfEvents
     },
     async getEventByCat (cat) {
       this.navigationState.selectedCategory = cat
-      console.log(this.navigationState.selectedCategory)
       try {
         const categories = await fetch('data/GenericCategories.json')
         let listOfCategories = await categories.json()
@@ -52,8 +50,8 @@ export default {
         listOfEvents.map(element => {
           newList = element.concat(newList)
         })
-        newList.sort(function(a, b) { 
-          return a.start_date - b.start_date;
+        newList.sort(function (a, b) {
+          return a.start_date - b.start_date
         })
         this.navigationState.programList = newList
       } catch (error) {

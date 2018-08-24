@@ -1,7 +1,10 @@
 <template>
     <div @click="displayDetail()">
-      <p>{{programTitle}}</p>
-      <p>{{programStartTime}}</p>
+      <p>{{event.name}}</p>
+      <p>{{displayDate ()}}</p>
+      <p>{{displayTime ()}}</p>
+      <p>{{displayDuration ()}}</p>
+      <p>{{event.service_id}}</p>
       <!-- <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/> -->
     </div>
 </template>
@@ -12,8 +15,7 @@ import { eventState } from '../states/event-state'
 export default {
   name: 'Card',
   props: {
-    programTitle: String,
-    programStartTime: Number
+    event: Object
   },
   data () {
     return { eventState }
@@ -21,6 +23,15 @@ export default {
   methods: {
     displayDetail () {
       this.eventState.selectedEvent = true
+    },
+    displayDate () {
+      return new Date(this.event.start_date * 1000).toLocaleDateString()
+    },
+    displayTime () {
+      return new Date(this.event.start_date * 1000).toLocaleTimeString()
+    },
+    displayDuration () {
+      return `${(this.event.end_date - this.event.start_date) / 60} min`
     }
   }
 }
@@ -49,5 +60,9 @@ img {
     transform: scale(1.05);
     cursor: pointer;
   }
+}
+p {
+  display: block;
+  width: 100%;
 }
 </style>
