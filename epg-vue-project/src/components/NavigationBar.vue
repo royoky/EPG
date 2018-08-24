@@ -32,13 +32,13 @@ export default {
         listOfCategories = listOfCategories.map(element => element.id)
         const events = await fetch('data/GenericEvents.json')
         let listOfEvents = await events.json()
-        listOfEvents =  listOfCategories.map(element => {
-         return listOfEvents.filter(event => event.category_id === element)
+        listOfEvents = listOfCategories.map(element => {
+          return listOfEvents.filter(event => event.category_id === element)
         })
         listOfEvents = listOfEvents.filter(element => element.length > 0)
         let newList = []
         listOfEvents.map(element => {
-          return newList = element.concat(newList)
+          newList = element.concat(newList)
         })
         console.log(newList)
         this.navigationState.programList = newList

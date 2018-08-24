@@ -36,6 +36,7 @@ div{
   flex-direction: column;
   flex-wrap: wrap;
   flex-direction: row;
+  flex-basis: 15%;
 }
 img {
   max-width: 100%;

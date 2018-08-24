@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <navigation-bar/>
-    <grid-view/>    
+    <grid-view/>
   </div>
 </template>
 
