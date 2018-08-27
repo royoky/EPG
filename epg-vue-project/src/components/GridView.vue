@@ -2,8 +2,7 @@
     <main v-if="navigationState.programList !=null">
         <Card  v-for="(event, index ) in navigationState.programList"
           :key="index"
-          :event="event"
-          :selectEvent="selectEvent"/>
+          :event="event"/>
           <ProgramDetail v-if="eventState.selectedEvent"/>
     </main>
 </template>
@@ -25,11 +24,6 @@ export default {
       eventState,
       navigationState,
       events: null
-    }
-  },
-  methods: {
-    selectEvent (event) {
-      this.eventState.selectedEvent = event
     }
   }
 }

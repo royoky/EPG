@@ -5,7 +5,6 @@
       <p>{{displayTime ()}}</p>
       <p>{{displayDuration ()}}</p>
       <p>{{event.service_id}}</p>
-      <!-- <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/> -->
     </div>
 </template>
 
@@ -22,7 +21,7 @@ export default {
   },
   methods: {
     displayDetail () {
-      this.eventState.selectedEvent = true
+      this.eventState.selectedEvent = this.event
     },
     displayDate () {
       return new Date(this.event.start_date * 1000).toLocaleDateString()

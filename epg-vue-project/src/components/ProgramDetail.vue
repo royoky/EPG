@@ -1,8 +1,8 @@
 <template>
     <aside id='detail'>
         <span class='close' @click="closeDetail">&times;</span>
-        <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg" alt="Program Title" height="300">
-        <h4>Program Title</h4>
+        <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg" alt="event Title" height="300">
+        <h4>{{eventState.selectedEvent.name}}</h4>
         <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         <button>Record</button>
         <button>Bookmark</button>
@@ -15,6 +15,9 @@
 import { eventState } from '../states/event-state'
 export default {
   name: 'ProgramDetail',
+  props: {
+    event: Object
+  },
   data () {
     return { eventState }
   },
