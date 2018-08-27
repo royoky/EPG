@@ -1,5 +1,5 @@
 <template>
-    <div @click="displayDetail()">
+    <div @click="displayDetail()" :class="{ 'focus': $hasFocus() }">
       <p>{{programTitle}}</p>
       <!-- <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/> -->
     </div>
@@ -7,12 +7,14 @@
 
 <script>
 import { eventState } from '../states/event-state'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'Card',
   props: {
     programTitle: String
   },
+  mixins: [keyboardNavigation],
   data () {
     return { eventState }
   },
@@ -37,6 +39,9 @@ div{
   flex-wrap: wrap;
   flex-direction: row;
   flex-basis: 15%;
+  &.focus {
+    background-color: chartreuse;
+  }
 }
 img {
   max-width: 100%;

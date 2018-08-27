@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <navigation-bar/>
-    <grid-view/>
+    <navigation-bar ref="navbar"/>
+    <grid-view ref="grid"/>
   </div>
 </template>
 
@@ -9,15 +9,20 @@
 import NavigationBar from './components/NavigationBar.vue'
 import GridView from './components/GridView.vue'
 import { eventState } from './states/event-state'
+import { keyboardNavigation } from './mixins/keyboard-navigation'
 
 export default {
   name: 'app',
+  mixins: [keyboardNavigation],
   components: {
     NavigationBar,
     GridView
   },
   data () {
     return { eventState }
+  },
+  mounted () {
+    this.$movePositionInGrid(1, 1)
   }
 }
 </script>
