@@ -1,5 +1,5 @@
 <template>
-    <nav tabindex="1">
+    <nav tabindex="1" :class="{ 'focused': $setFocus() }">
         <ul>
             <li tabindex="-1" @click="getEventNow()"> now</li>
             <li tabindex="-1">tonight</li>
@@ -19,8 +19,11 @@
 
 <script>
 import { navigationState } from '../states/navigation-state'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
+
 export default {
   name: 'navigationBar',
+  mixins: [keyboardNavigation],
   methods: {
     async getEventNow () {
       const events = await fetch('data/GenericEvents.json')
@@ -57,6 +60,9 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    },
+    created () {
+      this.setFocus()
     }
   },
   data () {
@@ -68,6 +74,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
+nav {
+  &.focus {
+    background-color: chartreuse;
+  }
+}
 ul {
     list-style-type: none;
     margin: 0;

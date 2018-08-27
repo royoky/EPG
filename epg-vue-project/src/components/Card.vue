@@ -1,5 +1,5 @@
 <template>
-    <div @click="displayDetail()">
+    <div @click="displayDetail()" :class="{ 'focus': $hasFocus() }">
       <p>{{ event.name }}</p>
       <p>{{ displayDate () }}</p>
       <p>{{ displayTime () }}</p>
@@ -10,12 +10,14 @@
 
 <script>
 import { eventState } from '../states/event-state'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'Card',
   props: {
     event: { type: Object, required: true }
   },
+  mixins: [keyboardNavigation],
   data () {
     return { eventState }
   },
@@ -49,6 +51,9 @@ div{
   flex-wrap: wrap;
   flex-direction: row;
   flex-basis: 15%;
+  &.focus {
+    background-color: chartreuse;
+  }
 }
 img {
   max-width: 100%;
