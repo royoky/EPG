@@ -2,7 +2,7 @@
     <nav tabindex="1">
         <ul>
             <li tabindex="-1" @click="getEventNow()"> now</li>
-            <li tabindex="-1">tonight</li>
+            <li tabindex="-1" @click="getEventTonight()">tonight</li>
             <li tabindex="-1">category</li>
             <li tabindex="-1">channel</li>
         </ul>
@@ -30,7 +30,13 @@ export default {
         let hours = new Date(timeStamp * 1000).getHours()
         return hours === now
       }
-      listOfEvents = listOfEvents.filter(element => !compareHours(element.start_date))
+      listOfEvents = listOfEvents.filter(element => compareHours(element.start_date))
+      this.navigationState.programList = listOfEvents
+    },
+    async getEventTonight () {
+      const events = await fetch('data/GenericEvents.json')
+      let listOfEvents = await events.json()
+      listOfEvents = listOfEvents.filter(element => new Date(element.start_date * 1000).getHours() <= 23 && new Date(element.start_date * 1000).getHours() >= 20)
       this.navigationState.programList = listOfEvents
     },
     async getEventByCat (cat) {
