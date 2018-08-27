@@ -1,8 +1,8 @@
 <template>
     <div>
-      <Card v-for="(event, index ) in events.slice(0,5)" 
-          :key="index" 
-          :event="event" 
+      <Card v-for="(event, index ) in events.slice(0,5)"
+          :key="index"
+          :event="event"
           :selectEvent="selectEvent"/>
     </div>
 </template>
@@ -13,27 +13,27 @@ export default {
   name: 'Row',
   components: {
     Card
-  }, 
-  data () { 
-    return { 
-      events: null, 
-      selectedEvent: null 
-    } 
-  }, 
-  async created () { 
-    try { 
-      let response = await fetch('data/GenericEvents.json') 
-      this.events = await response.json() 
+  },
+  data () {
+    return {
+      events: null,
+      selectedEvent: null
+    }
+  },
+  async created () {
+    try {
+      let response = await fetch('data/GenericEvents.json')
+      this.events = await response.json()
       console.log(this.events)
-    } catch (error) { 
-      console.error(error) 
-    } 
-  }, 
-  methods: { 
-    selectEvent (event) { 
-      this.selectedEvent = event 
-    } 
-  } 
+    } catch (error) {
+      console.error(error)
+    }
+  },
+  methods: {
+    selectEvent (event) {
+      this.selectedEvent = event
+    }
+  }
 }
 </script>
 

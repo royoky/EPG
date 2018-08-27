@@ -1,7 +1,7 @@
 <template>
     <nav tabindex="1">
         <ul>
-            <li tabindex="-1"> now</li>
+            <li tabindex="-1" @click="getEventNow()"> now</li>
             <li tabindex="-1">tonight</li>
             <li tabindex="-1">category</li>
             <li tabindex="-1">channel</li>
@@ -22,9 +22,19 @@ import { navigationState } from '../states/navigation-state'
 export default {
   name: 'navigationBar',
   methods: {
+    async getEventNow () {
+      const events = await fetch('data/GenericEvents.json')
+      let listOfEvents = await events.json()
+      const now = new Date().getHours()
+      function compareHours (timeStamp) {
+        let hours = new Date(timeStamp * 1000).getHours()
+        return hours === now
+      }
+      listOfEvents = listOfEvents.filter(element => !compareHours(element.start_date))
+      this.navigationState.programList = listOfEvents
+    },
     async getEventByCat (cat) {
       this.navigationState.selectedCategory = cat
-      console.log(this.navigationState.selectedCategory)
       try {
         const categories = await fetch('data/GenericCategories.json')
         let listOfCategories = await categories.json()
@@ -32,17 +42,18 @@ export default {
         listOfCategories = listOfCategories.map(element => element.id)
         const events = await fetch('data/GenericEvents.json')
         let listOfEvents = await events.json()
-        listOfEvents =  listOfCategories.map(element => {
-         return listOfEvents.filter(event => event.category_id === element)
+        listOfEvents = listOfCategories.map(element => {
+          return listOfEvents.filter(event => event.category_id === element)
         })
         listOfEvents = listOfEvents.filter(element => element.length > 0)
         let newList = []
         listOfEvents.map(element => {
-          return newList = element.concat(newList)
+          newList = element.concat(newList)
         })
-        console.log(newList)
+        newList.sort(function (a, b) {
+          return a.start_date - b.start_date
+        })
         this.navigationState.programList = newList
-        console.log(this.navigationState.programList)
       } catch (error) {
         console.log(error)
       }
