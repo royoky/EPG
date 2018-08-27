@@ -1,6 +1,6 @@
 <template>
     <div @click="displayDetail()">
-      <p>{{programTitle}}</p>
+      <p>{{event.programTitle}}</p>
       <!-- <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/> -->
     </div>
 </template>
@@ -11,14 +11,15 @@ import { eventState } from '../states/event-state'
 export default {
   name: 'Card',
   props: {
-    programTitle: String
+    event: { type: Object, required: true }
   },
   data () {
     return { eventState }
   },
   methods: {
     displayDetail () {
-      this.eventState.selectedEvent = true
+      console.log(this.event)
+      this.eventState.selectedEvent = this.event
     }
   }
 }

@@ -1,5 +1,5 @@
 export const eventState = {
   events: null,
-  selectedEvent: false,
+  selectedEvent: null,
   numberOfEvents: 0
 }

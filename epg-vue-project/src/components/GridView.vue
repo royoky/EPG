@@ -3,8 +3,7 @@
         <Card  v-for="(event, index ) in navigationState.programList" 
           :key="index" 
           :event="event" 
-          :program-title="event.name"
-          :selectEvent="selectEvent"/>
+          :program-title="event.name"/>
           <ProgramDetail v-if="eventState.selectedEvent"/>      
     </main>
 </template>
