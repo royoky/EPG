@@ -1,5 +1,5 @@
 <template>
-    <div @click="displayDetail()" :class="{ 'focus': $hasFocus() }">
+    <div v-bind:class="{ focus: isFocused }" @click="displayDetail()">
       <p>{{programTitle}}</p>
       <!-- <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg"/> -->
     </div>
@@ -7,20 +7,28 @@
 
 <script>
 import { eventState } from '../states/event-state'
-import { keyboardNavigation } from '../mixins/keyboard-navigation'
+// import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'Card',
   props: {
     programTitle: String
   },
-  mixins: [keyboardNavigation],
   data () {
-    return { eventState }
+    return {
+      eventState,
+      isFocused: false
+    }
   },
   methods: {
     displayDetail () {
       this.eventState.selectedEvent = true
+    },
+    setfocus () {
+      this.isFocused = true
+    },
+    unsetfocus () {
+      this.isFocused = false
     }
   }
 }
@@ -39,9 +47,9 @@ div{
   flex-wrap: wrap;
   flex-direction: row;
   flex-basis: 15%;
-  &.focus {
-    background-color: chartreuse;
-  }
+}
+.focus {
+  background-color: chartreuse !important;
 }
 img {
   max-width: 100%;
