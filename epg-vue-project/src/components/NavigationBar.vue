@@ -1,7 +1,7 @@
 <template>
-    <nav tabindex="1" :class="{ 'focused': $setFocus() }">
-        <ul>
-            <li tabindex="-1" @click="getEventNow()"> now</li>
+    <nav tabindex="1" v-bind:class="{ focus: isFocused }">
+        <ul v-bind:class="{ focus: isFocused }">
+            <li tabindex="-1"> now</li>
             <li tabindex="-1">tonight</li>
             <li tabindex="-1">category</li>
             <li tabindex="-1">channel</li>
@@ -19,11 +19,15 @@
 
 <script>
 import { navigationState } from '../states/navigation-state'
-import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'navigationBar',
-  mixins: [keyboardNavigation],
+  data () {
+    return {
+      isFocused: false,
+      navigationState
+    }
+  },
   methods: {
     async getEventNow () {
       const events = await fetch('data/GenericEvents.json')
@@ -61,24 +65,23 @@ export default {
         console.log(error)
       }
     },
+    setfocus () {
+      this.isFocused = true
+    },
+    unsetfocus () {
+      this.isFocused = false
+    },
     created () {
       this.setFocus()
-    }
-  },
-  data () {
-    return {
-      navigationState
     }
   }
 }
 </script>
 
 <style lang="less" scoped>
-nav {
-  &.focus {
+.focus {
     background-color: chartreuse;
   }
-}
 ul {
     list-style-type: none;
     margin: 0;

@@ -1,5 +1,5 @@
 <template>
-    <div @click="displayDetail()" :class="{ 'focus': $hasFocus() }">
+    <div v-bind:class="{ focus: isFocused }" @click="displayDetail()">
       <p>{{ event.name }}</p>
       <p>{{ displayDate () }}</p>
       <p>{{ displayTime () }}</p>
@@ -10,16 +10,18 @@
 
 <script>
 import { eventState } from '../states/event-state'
-import { keyboardNavigation } from '../mixins/keyboard-navigation'
+// import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'Card',
   props: {
     event: { type: Object, required: true }
   },
-  mixins: [keyboardNavigation],
   data () {
-    return { eventState }
+    return {
+      eventState,
+      isFocused: false
+    }
   },
   methods: {
     displayDetail () {
@@ -33,6 +35,12 @@ export default {
     },
     displayDuration () {
       return `${(this.event.end_date - this.event.start_date) / 60} min`
+    },
+    setfocus () {
+      this.isFocused = true
+    },
+    unsetfocus () {
+      this.isFocused = false
     }
   }
 }
@@ -51,9 +59,9 @@ div{
   flex-wrap: wrap;
   flex-direction: row;
   flex-basis: 15%;
-  &.focus {
-    background-color: chartreuse;
-  }
+}
+.focus {
+  background-color: chartreuse !important;
 }
 img {
   max-width: 100%;

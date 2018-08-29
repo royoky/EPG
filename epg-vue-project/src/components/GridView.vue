@@ -12,7 +12,7 @@
           :event="event"
           :program-title="event.name"
           :selectEvent="selectEvent"
-          :ref="$registerInGrid(index + 1, 1)"/>
+          ref="card"/>
           <ProgramDetail v-if="eventState.selectedEvent"/>
     </main>
 </template>
@@ -35,12 +35,19 @@ export default {
     return {
       eventState,
       navigationState,
-      events: null
+      events: null,
+      isFocused: false
     }
   },
   methods: {
     selectEvent (event) {
       this.eventState.selectedEvent = event
+    },
+    setfocus () {
+      this.isFocused = true
+    },
+    unsetfocus () {
+      this.isFocused = false
     }
   }
 }
@@ -61,5 +68,8 @@ main {
     justify-content: flex-start;
     overflow: scroll;
   }
+}
+.focus {
+  background-color: chartreuse;
 }
 </style>

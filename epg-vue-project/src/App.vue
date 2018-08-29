@@ -9,20 +9,53 @@
 import NavigationBar from './components/NavigationBar.vue'
 import GridView from './components/GridView.vue'
 import { eventState } from './states/event-state'
-import { keyboardNavigation } from './mixins/keyboard-navigation'
 
 export default {
   name: 'app',
-  mixins: [keyboardNavigation],
   components: {
     NavigationBar,
     GridView
   },
   data () {
-    return { eventState }
+    return {
+      eventState,
+      i: 0,
+      switchRow: 6
+    }
+  },
+  methods: {
+    arrowKeysListener (event) {
+      console.log(event.keyCode)
+      switch (event.keyCode) {
+        // Down key
+        case 40:
+          this.$refs.navbar.unsetfocus()
+          this.$refs.grid.$refs.card[this.i].setfocus()
+          break
+        // Up key
+        case 38:
+          this.$refs.navbar.unsetfocus()
+          break
+        // Right key
+        case 39:
+          this.$refs.grid.$refs.card[this.i].unsetfocus()
+          this.$refs.grid.$refs.card[this.i + 1].setfocus()
+          this.i++
+          break
+        // Left key
+        case 37:
+          if (this.i !== 0) {
+            this.$refs.grid.$refs.card[this.i].unsetfocus()
+            this.$refs.grid.$refs.card[this.i - 1].setfocus()
+            this.i--
+          }
+          break
+      }
+    }
   },
   mounted () {
-    this.$movePositionInGrid(1, 1)
+    this.$refs.navbar.setfocus()
+    document.addEventListener('keydown', this.arrowKeysListener)
   }
 }
 </script>
