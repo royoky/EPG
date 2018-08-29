@@ -1,0 +1,273 @@
+Delivered-To: ronan.marzin@gmail.com
+Received: by 2002:a67:4342:0:0:0:0:0 with SMTP id q63-v6csp5600818vsa;
+        Mon, 27 Aug 2018 08:31:52 -0700 (PDT)
+X-Received: by 2002:a19:73c5:: with SMTP id h66-v6mr8626401lfk.22.1535383912043;
+        Mon, 27 Aug 2018 08:31:52 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1535383912; cv=none;
+        d=google.com; s=arc-20160816;
+        b=H6jI8C6gRKKNIwPZLjgYpbBcVJ4LvU/L1RgzJy7gPyFhLevfJ0f08RyB1Cf8nwxQiY
+         6oIDqQ3Pz7PbKFSftM6J54Ygpjd3NlxLTUZtY3tKSeazpt5/yZhgwRddQ5DgGTBXQqsc
+         GtYxRxVQV5licDkoLtDpN6hfxyiuc2a+xnIWpA9538dYZhaZhsQPHWuvA9LDUELEOOAk
+         +t/Pmq0FkIYJo9ApKykKvoD/j30hnaaGLOzrFzkuViDWFgGOqCZihwn6K9iq99PMedO5
+         z7BDwiQpa+25tpImj+U+2WsN92RVRWJG4Xo7vYkI7FcSp6U1gsNaaD/4L9pVXXQXYmv4
+         3WXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:references:in-reply-to:mime-version
+         :dkim-signature:arc-authentication-results;
+        bh=jX+pux7TErkXxanz4dZFhPK5+gOLd6ZYqZ8YtWveV6s=;
+        b=XAEskBjfrTNmcWqD4AetxHaVelwkCi3+EmQDqFPsvlp/12KacmFXzGrBacD2AUdo7a
+         O9GSzHltiaVaxvh4Z39+BEKiIJTY//NyegNNROckbJiIiEo/XazO+S9MzQr9qIoxmfSk
+         miFRYzbrd4zAqs/DPNClu1YAJps1SP1Vjblh1b1Meu9J73bMms4Fr/lqHxzNyMYo64//
+         1AiCdovp+wUH/hzzO72vYffpRleQtdugKLF7fQf7qppkFGhwk5XMle8t7EEZOe9FVyRZ
+         bbQR6yuFkCfoQoesOy7i9oe1VlG2pC8Ic1NJnxYB7B/8UU6+VX+8USfGSJ1cb8rsNhR0
+         Utcw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@wiztivi-com.20150623.gappssmtp.com header.s=20150623 header.b=e5NWP57C;
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of alan.lesaint@wiztivi.com) smtp.mailfrom=alan.lesaint@wiztivi.com
+Return-Path: <alan.lesaint@wiztivi.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id z24-v6sor2906484lji.56.2018.08.27.08.31.51
+        for <ronan.marzin@gmail.com>
+        (Google Transport Security);
+        Mon, 27 Aug 2018 08:31:51 -0700 (PDT)
+Received-SPF: neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of alan.lesaint@wiztivi.com) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@wiztivi-com.20150623.gappssmtp.com header.s=20150623 header.b=e5NWP57C;
+       spf=neutral (google.com: 209.85.220.41 is neither permitted nor denied by best guess record for domain of alan.lesaint@wiztivi.com) smtp.mailfrom=alan.lesaint@wiztivi.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=wiztivi-com.20150623.gappssmtp.com; s=20150623;
+        h=mime-version:in-reply-to:references:from:date:message-id:subject:to;
+        bh=jX+pux7TErkXxanz4dZFhPK5+gOLd6ZYqZ8YtWveV6s=;
+        b=e5NWP57CzpKDmKeBLAXVRvWF/PlurYDhd/+LSNq0ks8vknUjPP+ic5Reqgj64wUdpX
+         q9Om5IuLsDPLgcYTmgAvVV7EYkNtdD/rGk0wRRz5MYZd976E5MuKIlNg3dfGQFe2AiBE
+         bsSv4UbCcx4rUux/sO+xpVdOU9K2lXVzmJcG5u/cg8S59/IpSyMo//iO2vikmZJZQ73b
+         7+cog8ixVaBpupowTaIqGxpCEHle4CONX7Pv5ssPgM1vH5MThTy+DAuLgUsH6dHZBrVG
+         iIPjNIfQZX0NQFVxyPX05QzjH8VUWY9y1zEqNXymf549zfG+j8aSW46WxcqMXk+gD3Oc
+         bLnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:in-reply-to:references:from:date
+         :message-id:subject:to;
+        bh=jX+pux7TErkXxanz4dZFhPK5+gOLd6ZYqZ8YtWveV6s=;
+        b=uDtbTBvs7Mx3p8ubs5xSuWuisBPnG6zj6MRYc9ERdHQ125uV0/LkCzjdMp4sgxHri4
+         r2WF+uCKPA3zYvW8in3j6ErxWNa6lJkpjDWTykCClgxgju0Q8sstB7I3RnlURbhaDTIL
+         8EFQsz4URtApFZheFQaas2hR+zQENVGoF7Nn7F5tY70+wFAD8INB22xEQcrJD/7UCS8B
+         GMPy/LWD0yoAN+aLb2eKAkBxIj16UgF5yG+6idgWcyD3Bo0Mf1uvZtLkBL0IMHjachRv
+         wbGmlIvBviiEJge6jWDRVfqmqR+nksy52s7GMqk/zJfwdMRRhDCIQ/ZUtCfG9F+6kGSf
+         GaWQ==
+X-Gm-Message-State: APzg51C+E8Ez9+juNi6Jtv8YMZkb8sdDrhK3p6r2Z/ux/e0MHFhDBPB4
+	i61fJtFd/ChzC/oHpndhhFjVoH1TKCCvXlSm7tw9Gf4Yguc=
+X-Google-Smtp-Source: ANB0VdbtdZD1qPt4dX5fjJXNbjJWySsRXPD+6ejXh+FzRBLBwk++9BDnh5TFSYuvZ19WurnbVZg4g4bOcJdinfRrmL8=
+X-Received: by 2002:a2e:1301:: with SMTP id 1-v6mr8657132ljt.56.1535383909717;
+ Mon, 27 Aug 2018 08:31:49 -0700 (PDT)
+MIME-Version: 1.0
+Received: by 2002:a2e:7402:0:0:0:0:0 with HTTP; Mon, 27 Aug 2018 08:31:28
+ -0700 (PDT)
+In-Reply-To: <ki6991qc4bhkvjpj9ktkdoel.1535375361108@email.android.com>
+References: <CAFXLp9eTEvsHDea5fP+OgQZ3BYdEQcm8iuQfWpvW6v_K7nUQoA@mail.gmail.com>
+ <ki6991qc4bhkvjpj9ktkdoel.1535375361108@email.android.com>
+From: Alan LESAINT <alan.lesaint@wiztivi.com>
+Date: Mon, 27 Aug 2018 17:31:28 +0200
+Message-ID: <CAFXLp9dY+O=Pc-6xWfBxmYgtk-MV6RqPUK9=RzvyxkJ2VSYKag@mail.gmail.com>
+Subject: Re: Projet EPG
+To: Ronan Marzin <ronan.marzin@gmail.com>
+Content-Type: multipart/alternative; boundary="000000000000886ab105746c6cf9"
+
+--000000000000886ab105746c6cf9
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Ok, du coup celui l=C3=A0 doit =C3=AAtre mieux.
+
+https://files.fm/u/6a7sfd46
+
+Le 27 ao=C3=BBt 2018 =C3=A0 15:14, Ronan Marzin <ronan.marzin@gmail.com> a =
+=C3=A9crit :
+
+> Salut Alan,
+>
+> Merci, mais a priori, ce ne sont pas les images correspondant =C3=A0 nos =
+JSON.
+> En plus il n'y a que des films on dirait (pas d'=C3=A9missions, de progra=
+mmes
+> sportifs ou d'informations).
+>
+> Les adresse de nos images sont du genre :
+> "image" :"../../../../images/thumbnail/IPTV_C70668367.jpg.
+>
+> Redis moi si tu as quelque chose..
+>
+> A+,
+>
+> Ronan
+>
+> Sent from Nine <http://www.9folders.com/>
+> ------------------------------
+> *From:* Alan LESAINT <alan.lesaint@wiztivi.com>
+> *Sent:* Monday, 27 August 2018 11:48
+> *To:* Ronan Marzin
+> *Subject:* Re: Projet EPG
+>
+> Salut Ronan,
+>
+> Je reviens tout juste de vacances, j'esp=C3=A8re que ce n'est pas trop ta=
+rd.
+>
+> Voil=C3=A0 ce que j'ai retrouv=C3=A9:
+> https://files.fm/u/k6qv4y3h
+>
+> J'esp=C3=A8re que =C3=A7a match avec le JSON de programmes que je vous av=
+ais envoy=C3=A9.
+>
+> Le 22 ao=C3=BBt 2018 =C3=A0 11:30, Ronan Marzin <ronan.marzin@gmail.com> =
+a =C3=A9crit :
+>
+>> Bonjour Alan,
+>>
+>> Dans le cadre de notre projet EPG, aurais-tu =C3=A0 disposition la base =
+de
+>> donn=C3=A9es d'images qui correspond aux generic events de nos JSON ?
+>>
+>> Ce serait plus simple pour nous d'avoir directement les images avec les
+>> noms qui correspondent aux infos des JSON.
+>>
+>> Je te laisse mon num=C3=A9ro de tel si besoin : 0620035050.
+>>
+>> Merci !
+>>
+>> Ronan
+>>
+>>
+>> Sent from Nine <http://www.9folders.com/>
+>>
+>>
+>
+>
+> --
+> [image: wiztivi-logo] <http://www.wiztivi.com/>
+> *Alan Lesaint* | Technical Lead/ Software Architect
+> +33 (0)2 53 46 96 74
+> +33 (0)6 26 25 28 70
+> *wiztivi.com <http://www.wiztivi.com/>*
+>
+
+
+
+--=20
+[image: wiztivi-logo] <http://www.wiztivi.com/>
+*Alan Lesaint* | Technical Lead/ Software Architect
++33 (0)2 53 46 96 74
++33 (0) <%2B336%2026%2025%2028%2070>6 26 25 28 70
+<%2B336%2026%2025%2028%2070>
+*wiztivi.com <http://www.wiztivi.com/>*
+
+--000000000000886ab105746c6cf9
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Ok, du coup celui l=C3=A0 doit =C3=AAtre mieux.<div><br></=
+div><a href=3D"https://files.fm/u/6a7sfd46">https://files.fm/u/6a7sfd46</a>=
+</div><div class=3D"gmail_extra"><br><div class=3D"gmail_quote">Le 27 ao=C3=
+=BBt 2018 =C3=A0 15:14, Ronan Marzin <span dir=3D"ltr">&lt;<a href=3D"mailt=
+o:ronan.marzin@gmail.com" target=3D"_blank">ronan.marzin@gmail.com</a>&gt;<=
+/span> a =C3=A9crit :<br><blockquote class=3D"gmail_quote" style=3D"margin:=
+0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex"><div><div style=3D"=
+font-family:Trebuchet MS,Helvetica,sans-serif;font-size:10.0pt;line-height:=
+1.3;color:#1f497d"><div>Salut Alan, <br><br>Merci, mais a priori, ce ne son=
+t pas les images correspondant =C3=A0 nos JSON. En plus il n&#39;y a que de=
+s films on dirait (pas d&#39;=C3=A9missions, de programmes sportifs ou d&#3=
+9;informations). <br><br>Les adresse de nos images sont du genre :<br>&quot=
+;image&quot; :&quot;../../../../images/<wbr>thumbnail/IPTV_C70668367.jpg.<b=
+r><br>Redis moi si tu as quelque chose.. <br><br>A+, <br><br>Ronan<br></div=
+><div><br></div><div id=3D"m_-6599707198316175893signature-x" style=3D"font=
+-family:Trebuchet MS,Helvetica,sans-serif;font-size:10.0pt;color:#1f497d" c=
+lass=3D"m_-6599707198316175893signature_editor">Sent from <a href=3D"http:/=
+/www.9folders.com/" style=3D"text-decoration:none;color:#009bdf" target=3D"=
+_blank">Nine</a><br></div></div><div class=3D"m_-6599707198316175893quoted_=
+output_body"><div id=3D"m_-6599707198316175893quoted_header" class=3D"m_-65=
+99707198316175893quoted_header_editor" style=3D"clear:both"><hr style=3D"bo=
+rder:none;height:1px;color:#e1e1e1;background-color:#e1e1e1"><div style=3D"=
+border:none;padding:3.0pt 0cm 0cm 0cm"><span style=3D"font-size:11.0pt;font=
+-family:Calibri,Arial,Helvetica,sans-serif"><b>From:</b> Alan LESAINT &lt;<=
+a href=3D"mailto:alan.lesaint@wiztivi.com" target=3D"_blank">alan.lesaint@w=
+iztivi.com</a>&gt;<br><b>Sent:</b> Monday, 27 August 2018 11:48<br><b>To:</=
+b> Ronan Marzin<br><b>Subject:</b> Re: Projet EPG<br></span></div></div><di=
+v><div class=3D"h5"><br type=3D"attribution"><div id=3D"m_-6599707198316175=
+893quoted_body" class=3D"m_-6599707198316175893quoted_body_editor"><div dir=
+=3D"ltr">Salut Ronan,<div><br></div><div>Je reviens tout juste de vacances,=
+ j&#39;esp=C3=A8re que ce n&#39;est pas trop tard.</div><div><br></div><div=
+>Voil=C3=A0 ce que j&#39;ai retrouv=C3=A9:</div><div><a href=3D"https://fil=
+es.fm/u/k6qv4y3h" target=3D"_blank">https://files.fm/u/k6qv4y3h</a><br></di=
+v><div><br></div><div>J&#39;esp=C3=A8re que =C3=A7a match avec le JSON de p=
+rogrammes que je vous avais envoy=C3=A9.</div></div><div><br><div class=3D"=
+m_-6599707198316175893elided-text">Le 22 ao=C3=BBt 2018 =C3=A0 11:30, Ronan=
+ Marzin <span dir=3D"ltr">&lt;<a href=3D"mailto:ronan.marzin@gmail.com" tar=
+get=3D"_blank">ronan.marzin@gmail.com</a>&gt;</span> a =C3=A9crit :<br><blo=
+ckquote class=3D"gmail_quote" style=3D"margin:0 0 0 0.8ex;border-left:1px #=
+ccc solid;padding-left:1ex"><div><div style=3D"font-family:&#39;trebuchet m=
+s&#39;,&#39;helvetica&#39;,sans-serif;font-size:10pt;line-height:1.3;color:=
+#000000">Bonjour Alan,<br><br>Dans le cadre de notre projet EPG, aurais-tu =
+=C3=A0 disposition la base de donn=C3=A9es d&#39;images qui correspond aux =
+generic events de nos JSON ? <br><br>Ce serait plus simple pour nous d&#39;=
+avoir directement les images avec les noms qui correspondent aux infos des =
+JSON. <br><br>Je te laisse mon num=C3=A9ro de tel si besoin : 0620035050. <=
+br><br>Merci !<br><br>Ronan<br><br><br><div style=3D"font-family:&#39;trebu=
+chet ms&#39;,&#39;helvetica&#39;,sans-serif;font-size:10pt;color:#000000">S=
+ent from <a href=3D"http://www.9folders.com/" style=3D"text-decoration:none=
+;color:#009bdf" target=3D"_blank">Nine</a><br></div></div> <br type=3D"attr=
+ibution"></div></blockquote></div><br><br clear=3D"all"><div><br></div>-- <=
+br><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D=
+"ltr"><div dir=3D"ltr" style=3D"font-size:12.8px"><div><div><div dir=3D"ltr=
+"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><table border=3D"0" st=
+yle=3D"font-family:&#39;open sans&#39;,&#39;arial&#39;,sans-serif;color:rgb=
+(81,81,81)"><tbody><tr><td style=3D"padding-left:10px;padding-top:10px;padd=
+ing-bottom:0px"><a href=3D"http://www.wiztivi.com/" style=3D"color:rgb(17,8=
+5,204);text-decoration:none" target=3D"_blank"><font face=3D"arial, helveti=
+ca, sans-serif" size=3D"2"><img src=3D"http://static.wiztivi.com/images/sig=
+/wtv_logo_email.png" alt=3D"wiztivi-logo" width=3D"108" height=3D"30"></fon=
+t></a></td></tr><tr><td style=3D"padding-left:28px;padding-top:0px"><font f=
+ace=3D"arial, helvetica, sans-serif" size=3D"2"><strong>Alan Lesaint</stron=
+g>=C2=A0<span style=3D"color:rgb(211,211,211)">|</span>=C2=A0Technical Lead=
+/ Software Architect<br></font>+33=C2=A0<span style=3D"font-size:12.8px;col=
+or:rgb(217,217,217)">(0)</span><span style=3D"color:rgb(34,34,34);font-size=
+:12.8px">2 53 46 96 74</span><font face=3D"arial, helvetica, sans-serif" si=
+ze=3D"2"><br></font><a style=3D"font-size:12.8px;color:rgb(17,85,204)">+33<=
+span style=3D"color:rgb(34,34,34);font-size:12.8px">=C2=A0</span><span styl=
+e=3D"font-size:12.8px;color:rgb(217,217,217)">(0)</span></a><a style=3D"fon=
+t-size:12.8px;color:rgb(17,85,204)">6 26 25 28 70</a><font face=3D"arial, h=
+elvetica, sans-serif" size=3D"2"><br><strong><a href=3D"http://www.wiztivi.=
+com/" style=3D"color:rgb(81,81,81);text-decoration:none" target=3D"_blank">=
+wiztivi.com</a></strong></font></td></tr></tbody></table></div></div></div>=
+</div></div></div></div></div></div></div></div></div></div>
+</div>
+</div></div></div></div></div></blockquote></div><br><br clear=3D"all"><div=
+><br></div>-- <br><div class=3D"gmail_signature" data-smartmail=3D"gmail_si=
+gnature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=
+=3D"ltr"><div dir=3D"ltr" style=3D"font-size:12.8px"><div><span><div><div d=
+ir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><table border=
+=3D"0" style=3D"font-family:&quot;open sans&quot;,arial,sans-serif;color:rg=
+b(81,81,81)"><tbody><tr><td style=3D"padding-left:10px;padding-top:10px;pad=
+ding-bottom:0px"><a href=3D"http://www.wiztivi.com/" style=3D"color:rgb(17,=
+85,204);text-decoration:none" target=3D"_blank"><font face=3D"arial, helvet=
+ica, sans-serif" size=3D"2"><img src=3D"http://static.wiztivi.com/images/si=
+g/wtv_logo_email.png" alt=3D"wiztivi-logo" width=3D"108" height=3D"30"></fo=
+nt></a></td></tr><tr><td style=3D"padding-left:28px;padding-top:0px"><font =
+face=3D"arial, helvetica, sans-serif" size=3D"2"><strong>Alan Lesaint</stro=
+ng>=C2=A0<span style=3D"color:rgb(211,211,211)">|</span>=C2=A0Technical Lea=
+d/ Software Architect<br></font>+33=C2=A0<span style=3D"font-size:12.8px;co=
+lor:rgb(217,217,217)">(0)</span><span style=3D"color:rgb(34,34,34);font-siz=
+e:12.8px">2 53 46 96 74</span><font face=3D"arial, helvetica, sans-serif" s=
+ize=3D"2"><br></font><a href=3D"tel:%2B336%2026%2025%2028%2070" value=3D"+3=
+3626252870" style=3D"font-size:12.8px;color:rgb(17,85,204)" target=3D"_blan=
+k">+33<span style=3D"color:rgb(34,34,34);font-size:12.8px">=C2=A0</span><sp=
+an style=3D"font-size:12.8px;color:rgb(217,217,217)">(0)</span></a><a href=
+=3D"tel:%2B336%2026%2025%2028%2070" value=3D"+33626252870" style=3D"font-si=
+ze:12.8px;color:rgb(17,85,204)" target=3D"_blank">6 26 25 28 70</a><font fa=
+ce=3D"arial, helvetica, sans-serif" size=3D"2"><br><strong><a href=3D"http:=
+//www.wiztivi.com/" style=3D"color:rgb(81,81,81);text-decoration:none" targ=
+et=3D"_blank">wiztivi.com</a></strong></font></td></tr></tbody></table></di=
+v></div></div></div></div></span></div></div></div></div></div></div></div>=
+</div>
+</div>
+
+--000000000000886ab105746c6cf9--

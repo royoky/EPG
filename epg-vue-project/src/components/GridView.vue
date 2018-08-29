@@ -1,9 +1,12 @@
 <template>
     <main v-if="navigationState.programList !=null">
-        <Card  v-for="(event, index ) in navigationState.programList"
+          <ProgramDetail v-if="eventState.selectedEvent"/>
+          <!-- <div id='grid'> -->
+          <Card  v-for="(event, index ) in navigationState.programList"
           :key="index"
           :event="event"/>
-          <ProgramDetail v-if="eventState.selectedEvent"/>
+        <!-- </div> -->
+        
     </main>
 </template>
 
@@ -32,13 +35,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 main {
-  background-color: white;
-  flex-grow: 1;
-  overflow: scroll;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  position: relative;
+    overflow: scroll;
+    position: relative;
+  // #grid {
+    width: 100%;
+    background-color: white;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  // }
 }
 </style>
