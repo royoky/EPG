@@ -1,19 +1,13 @@
 <template>
     <main v-if="navigationState.programList !=null">
-          <ProgramDetail v-if="eventState.selectedEvent"/>
-          <div id='grid'>
-          <Card  v-for="(event, index ) in navigationState.programList"
-          :key="index"
-          :event="event"/>
+        <ProgramDetail v-if="eventState.selectedEvent"/>
+        <div id='grid'>
+          <Card ref="card"
+            v-for="(event, index ) in navigationState.programList"
+            :key="index"
+            :event="event"
+            />
         </div>
-
-        <Card  ref="card" v-for="(event, index ) in navigationState.programList"
-          :key="index"
-          :event="event"
-          :program-title="event.name"
-          :selectEvent="selectEvent"
-          ref="card"/>
-          <ProgramDetail v-if="eventState.selectedEvent"/>
     </main>
 </template>
 
@@ -21,12 +15,10 @@
 import ProgramDetail from './ProgramDetail.vue'
 import { eventState } from '../states/event-state'
 import { navigationState } from '../states/navigation-state'
-import { keyboardNavigation } from '../mixins/keyboard-navigation'
 import Card from './Card.vue'
 
 export default {
   name: 'GridView',
-  mixins: [keyboardNavigation],
   components: {
     Card,
     ProgramDetail
@@ -61,7 +53,7 @@ main {
     flex-direction: column;
   #grid {
     width: 100%;
-    background-color: white;    
+    background-color: white;
     display:flex;
     flex-grow: 1;
     flex-wrap: wrap;
