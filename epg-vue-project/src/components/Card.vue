@@ -27,7 +27,11 @@ export default {
       this.eventState.selectedEvent = this.event
     },
     displayDate () {
+<<<<<<< HEAD
       return moment(this.event.start_date, 'X').format('DD/MM/YY HH:mm')
+=======
+      return moment(this.event.start_date, 'X').format("DD/MM/YY HH:mm")
+>>>>>>> afe91df09fb33c23673042636843e27b6db24726
     },
     displayDuration () {
       // const start = moment(this.event.start_date, 'X')
