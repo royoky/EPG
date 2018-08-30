@@ -6,7 +6,7 @@
           :key="index"
           :event="event"/>
         <!-- </div> -->
-        
+
     </main>
 </template>
 

@@ -12,36 +12,36 @@
 </template>
 
 <script>
-import { eventState } from '../states/event-state';
+import { eventState } from '../states/event-state'
 export default {
   name: 'ProgramDetail',
   props: {
     event: Object
   },
-  data() {
-    return { eventState };
+  data () {
+    return { eventState }
   },
   methods: {
     getUrl () {
       return `/data/${eventState.selectedEvent.image}`
     },
-    closeDetail() {
-      eventState.selectedEvent = null;
+    closeDetail () {
+      eventState.selectedEvent = null
     },
     // Function to detect the Escape key and close the detail window
-    detectEscapeKey(event) {
+    detectEscapeKey (event) {
       if (event.keyCode === 27) {
-        this.closeDetail();
+        this.closeDetail()
       }
     }
   },
-  created() {
-    window.addEventListener('keydown', this.detectEscapeKey);
+  created () {
+    window.addEventListener('keydown', this.detectEscapeKey)
   },
-  beforeDestroy() {
-    window.removeEventListener('keydown', this.detectEscapeKey);
+  beforeDestroy () {
+    window.removeEventListener('keydown', this.detectEscapeKey)
   }
-};
+}
 </script>
 
 <style lang='less' scoped>
