@@ -2,15 +2,15 @@
     <div id='detail'>
         <span class='close' @click="closeDetail">&times;</span>
         <div id='imgContainer'>
-          <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg" alt="Alt Title" height="300">
+        <img :src=getUrl() alt="Alt Title" height="300">
         </div>
         <div>
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>"{{ eventState.selectedEvent.description }}</p>
           <button>Record</button>
           <button>Bookmark</button>
-          <button>Start Over</button>
         </div>
+          <button>Start Over</button>
     </div>
 </template>
 
@@ -25,8 +25,11 @@ export default {
     return { eventState }
   },
   methods: {
-    closeDetail () {
-      eventState.selectedEvent = null
+    getUrl () {
+      return `/data/${eventState.selectedEvent.image}`
+    },
+    closeDetail() {
+      eventState.selectedEvent = null;
     },
     // Function to detect the Escape key and close the detail window
     detectEscapeKey (event) {
