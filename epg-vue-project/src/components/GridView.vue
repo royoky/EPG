@@ -40,7 +40,7 @@ main {
     flex-direction: column;
   #grid {
     width: 100%;
-    background-color: white;    
+    background-color: white; 
     display:flex;
     flex-grow: 1;
     flex-wrap: wrap;

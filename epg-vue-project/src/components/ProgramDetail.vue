@@ -51,8 +51,8 @@ export default {
   position:relative;
   //overflow: auto; /* Enable scroll if needed */
   background-color: black;
-  // display: flex;
-  // flex-grow:1;
+  display: flex;
+  flex-grow:1;
   color: white;
   //background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
   // The Close Button
