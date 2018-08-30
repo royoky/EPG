@@ -25,13 +25,8 @@ export default {
     getUrl () {
       return `/data/${eventState.selectedEvent.image}`
     },
-<<<<<<< HEAD
     closeDetail () {
       eventState.selectedEvent = null
-=======
-    closeDetail() {
-      eventState.selectedEvent = null;
->>>>>>> afe91df09fb33c23673042636843e27b6db24726
     },
     // Function to detect the Escape key and close the detail window
     detectEscapeKey (event) {
