@@ -29,12 +29,26 @@ export default {
       switch (event.keyCode) {
         // Down key
         case 40:
-          this.$refs.navbar.unsetfocus()
-          this.$refs.grid.$refs.card[this.i].setfocus()
+        console.log(this.$refs.navbar)
+          if (this.$refs.navbar.isFocused) {
+            this.$refs.navbar.unsetfocus()
+            this.$refs.grid.setfocus()
+            this.$refs.grid.$refs.card[this.i].setfocus()
+            break
+          }
+          if (this.$refs.grid.isFocused) {
+            this.$refs.grid.$refs.card[this.i].unsetfocus()
+            this.$refs.grid.$refs.card[this.i + this.switchRow].setfocus()
+            this.i = (this.i + this.switchRow)
+          }
           break
         // Up key
         case 38:
-          this.$refs.navbar.unsetfocus()
+          if (this.i >= this.switchRow) {
+            this.$refs.grid.$refs.card[this.i].unsetfocus()
+            this.$refs.grid.$refs.card[this.i - this.switchRow].setfocus()
+            this.i = (this.i - this.switchRow)
+          }
           break
         // Right key
         case 39:
@@ -48,6 +62,7 @@ export default {
             this.$refs.grid.$refs.card[this.i].unsetfocus()
             this.$refs.grid.$refs.card[this.i - 1].setfocus()
             this.i--
+            break
           }
           break
       }
