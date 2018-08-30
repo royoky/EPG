@@ -3,10 +3,10 @@
         <ul>
             <li tabindex="-1" @click="getEventNow()"> now</li>
             <li tabindex="-1" @click="getEventTonight()">tonight</li>
-            <li tabindex="-1" @click="getEventByCat(10)">category</li>
+            <li tabindex="-1" @click="toggleCatNavBar()">category</li>
             <li tabindex="-1">channel</li>
         </ul>
-        <ul v-if="this.navigationState.selectedCategory">
+        <ul id="catNavBar">
             <li @click="getEventByCat(100)">émissions</li>
             <li @click="getEventByCat(10 )">films / séries</li>
             <li @click="getEventByCat(50 )">jeunesse</li>
@@ -23,8 +23,11 @@ import moment from 'moment'
 export default {
   name: 'navigationBar',
   methods: {
+    toggleCatNavBar () {
+      document.querySelector('#catNavBar').classList.toggle('open')
+    },
     async getEventNow () {
-      this.navigationState.selectedCategory = null
+      this.toggleCatNavBar()
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
       const endNow = moment(this.navigationState.today, 'X').add(1, 'h').format('X')
@@ -33,6 +36,7 @@ export default {
       this.navigationState.programList = listOfEvents
     },
     async getEventTonight () {
+      this.toggleCatNavBar()
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
       listOfEvents = listOfEvents.filter(element => element.start_date > this.navigationState.today && element.start_date < this.navigationState.today + 86400)
@@ -80,7 +84,14 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #333;
-}
+    }
+ul#catNavBar {
+    display: none;
+    }
+ul#catNavBar.open {
+    display: block;
+    }
+
 li {
     float: left;
     display: block;
