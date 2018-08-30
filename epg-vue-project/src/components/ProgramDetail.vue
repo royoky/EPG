@@ -38,8 +38,8 @@ export default {
     getUrl () {
       return `/data/${eventState.selectedEvent.image}`
     },
-    closeDetail() {
-      eventState.selectedEvent = null;
+    closeDetail () {
+      eventState.selectedEvent = null
     },
     // Function to detect the Escape key and close the detail window
     detectEscapeKey (event) {

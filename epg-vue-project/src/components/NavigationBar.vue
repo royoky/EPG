@@ -31,8 +31,8 @@ import moment from 'moment'
 export default {
   name: 'navigationBar',
   methods: {
-    async getEventNow () { 
-      this.navigationState.selectedCategory = null     
+    async getEventNow () {
+      this.navigationState.selectedCategory = null
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
 <<<<<<< react-details
