@@ -1,6 +1,7 @@
 <template>
     <div id='detail'>
         <span class='close' @click="closeDetail">&times;</span>
+<<<<<<< react-details
         <div id='imgContainer'>
         <img :src=getUrl() alt="Alt Title" height="300">
         </div>
@@ -11,6 +12,15 @@
           <button>Bookmark</button>
         </div>
           <button>Start Over</button>
+=======
+        <img :src=getUrl() alt="Alt Title" height="300">
+        <h4>{{ eventState.selectedEvent.name }}</h4>
+        <p>"Lorem"</p>
+        <button>Record</button>
+        <button>Bookmark</button>
+        <button>Start Over</button>
+        <p>"{{ eventState.selectedEvent.description }}</p>
+>>>>>>> add moment
     </div>
 </template>
 

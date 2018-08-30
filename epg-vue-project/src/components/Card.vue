@@ -56,8 +56,11 @@ div.card{
   margin: 10px;
   img {
     max-width: 100%;
+<<<<<<< react-details
   flex-direction: row;
   flex-basis: 14%;
+=======
+>>>>>>> add moment
   }
   div.infos {
     position: absolute;
