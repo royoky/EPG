@@ -1,7 +1,7 @@
 <template>
     <div id='detail'>
         <span class='close' @click="closeDetail">&times;</span>
-        <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg" alt="Alt Title" height="300">
+        <img :src=getUrl() alt="Alt Title" height="300">
         <h4>{{ eventState.selectedEvent.name }}</h4>
         <p>"Lorem"</p>
         <button>Record</button>
@@ -22,6 +22,9 @@ export default {
     return { eventState };
   },
   methods: {
+    getUrl () {
+      return `/data/${eventState.selectedEvent.image}`
+    },
     closeDetail() {
       eventState.selectedEvent = null;
     },
