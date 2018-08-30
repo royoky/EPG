@@ -23,8 +23,8 @@ import moment from 'moment'
 export default {
   name: 'navigationBar',
   methods: {
-    async getEventNow () { 
-      this.navigationState.selectedCategory = null     
+    async getEventNow () {
+      this.navigationState.selectedCategory = null
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
       const endNow = moment(this.navigationState.today, 'X').add(1, 'h').format('X')
