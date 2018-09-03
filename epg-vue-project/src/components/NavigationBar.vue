@@ -19,6 +19,7 @@
 
 <script>
 import { navigationState } from '../states/navigation-state'
+import { eventState } from '../states/event-state'
 import moment from 'moment'
 export default {
   name: 'navigationBar',
@@ -27,6 +28,9 @@ export default {
       document.querySelector('#catNavBar').classList.toggle('open')
     },
     async getEventNow () {
+      if (eventState.selectedEvent) {
+        eventState.selectedEvent = null
+      }
       this.toggleCatNavBar()
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
@@ -36,6 +40,9 @@ export default {
       this.navigationState.programList = listOfEvents
     },
     async getEventTonight () {
+      if (eventState.selectedEvent) {
+        eventState.selectedEvent = null
+      }
       this.toggleCatNavBar()
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
@@ -44,6 +51,9 @@ export default {
       this.navigationState.programList = listOfEvents
     },
     async getEventByCat (cat) {
+      if (eventState.selectedEvent) {
+        eventState.selectedEvent = null
+      }
       this.navigationState.selectedCategory = cat
       try {
         const categories = await fetch('data/GenericCategories.json')
@@ -71,7 +81,8 @@ export default {
   },
   data () {
     return {
-      navigationState
+      navigationState,
+      eventState
     }
   }
 }
