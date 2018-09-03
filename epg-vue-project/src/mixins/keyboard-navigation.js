@@ -4,14 +4,15 @@ export const keyboardNavigation = {
   data () {
     return {
       i: 0,
-      switchRow: 6
+      switchRow: 6,
+      isFocused: false
     }
   },
   methods: {
     arrowKeysListener (event) {
       console.log(event.keyCode)
       if (this.$refs.navbar.isFocused){
-        console.log(this.$refs.navbar.$refs.now)
+        console.log(this.$refs.navbar.$el.children["0"].children["0"])
           switch (event.keyCode) {
             case 13: // Enter Key
               this.$refs.navbar.unsetfocus()
@@ -55,6 +56,7 @@ export const keyboardNavigation = {
             case 27: // Escape Key
               this.$refs.grid.unsetfocus()
               this.$refs.grid.$refs.card[this.i].unsetfocus()
+              this.i = 0
               this.$refs.navbar.setfocus()
               break   
             case 13: // Enter Key
@@ -63,6 +65,12 @@ export const keyboardNavigation = {
               break  
         }
       }
+    },
+    setfocus () {
+      this.isFocused = true
+    },
+    unsetfocus () {
+      this.isFocused = false
     }
   }
 }

@@ -10,17 +10,18 @@
 
 <script>
 import { eventState } from '../states/event-state'
-// import { keyboardNavigation } from '../mixins/keyboard-navigation'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'Card',
+  mixins: [keyboardNavigation],
   props: {
     event: { type: Object, required: true }
   },
   data () {
     return {
       eventState,
-      isFocused: false
+ //     isFocused: false
     }
   },
   methods: {
@@ -36,12 +37,12 @@ export default {
     displayDuration () {
       return `${(this.event.end_date - this.event.start_date) / 60} min`
     },
-    setfocus () {
-      this.isFocused = true
-    },
-    unsetfocus () {
-      this.isFocused = false
-    }
+    // setfocus () {
+    //   this.isFocused = true
+    // },
+    // unsetfocus () {
+    //   this.isFocused = false
+    // }
   }
 }
 </script>

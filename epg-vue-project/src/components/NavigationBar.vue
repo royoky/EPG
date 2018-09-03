@@ -1,10 +1,10 @@
 <template>
-    <nav tabindex="1" >
+    <nav>
         <ul ref="ul">
-            <li tabindex="-1" ref="now" v-bind:class="{ focus: isFocused }">now</li>
-            <li tabindex="-1" ref="tonight" v-bind:class="{ focus: isFocused }">tonight</li>
-            <li tabindex="-1" ref="cat" v-bind:class="{ focus: isFocused }">category</li>
-            <li tabindex="-1" ref="channel" v-bind:class="{ focus: isFocused }">channel</li>
+            <li ref="now" v-bind:class="{ focus: isFocused }">now</li>
+            <li ref="tonight" v-bind:class="{ focus: isFocused }">tonight</li>
+            <li v-bind:class="{ focus: isFocused }">category</li>
+            <li v-bind:class="{ focus: isFocused }">channel</li>
         </ul>
         <ul>
             <li @click="getEventByCat(100)">100</li>
@@ -19,12 +19,14 @@
 
 <script>
 import { navigationState } from '../states/navigation-state'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'navigationBar',
+  mixins: [keyboardNavigation],
   data () {
     return {
-      isFocused: false,
+    //  isFocused: false,
       navigationState
     }
   },
@@ -64,13 +66,13 @@ export default {
       } catch (error) {
         console.log(error)
       }
-    },
-    setfocus () {
-      this.isFocused = true
-    },
-    unsetfocus () {
-      this.isFocused = false
-    }
+     }
+    // setfocus () {
+    //   this.isFocused = true
+    // },
+    // unsetfocus () {
+    //   this.isFocused = false
+    // }
   }
 }
 </script>
@@ -79,7 +81,7 @@ export default {
 .focus {
     background-color: chartreuse;
   }
-ul {
+ul, div {
     list-style-type: none;
     margin: 0;
     padding: 0;

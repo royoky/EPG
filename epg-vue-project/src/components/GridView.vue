@@ -16,9 +16,11 @@ import ProgramDetail from './ProgramDetail.vue'
 import { eventState } from '../states/event-state'
 import { navigationState } from '../states/navigation-state'
 import Card from './Card.vue'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
 export default {
   name: 'GridView',
+  mixins: [keyboardNavigation],
   components: {
     Card,
     ProgramDetail
@@ -34,13 +36,13 @@ export default {
   methods: {
     selectEvent (event) {
       this.eventState.selectedEvent = event
-    },
-    setfocus () {
-      this.isFocused = true
-    },
-    unsetfocus () {
-      this.isFocused = false
     }
+    // setfocus () {
+    //   this.isFocused = true
+    // },
+    // unsetfocus () {
+    //   this.isFocused = false
+    // }
   }
 }
 </script>
