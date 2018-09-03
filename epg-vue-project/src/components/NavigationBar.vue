@@ -24,6 +24,9 @@ import moment from 'moment'
 export default {
   name: 'navigationBar',
   methods: {
+    created () {
+      this.getEventNow()
+    },
     toggleCatNavBar () {
       document.querySelector('#catNavBar').classList.toggle('open')
     },

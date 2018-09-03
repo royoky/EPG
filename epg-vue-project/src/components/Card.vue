@@ -30,13 +30,7 @@ export default {
       return moment(this.event.start_date, 'X').format('DD/MM/YY HH:mm')
     },
     displayDuration () {
-      // const start = moment(this.event.start_date, 'X')
-      // console.log(start)
-      // const end = moment(this.event.end_date, 'X')
-      // console.log(end)
-      // return start.to(end)
       return moment.duration(this.event.end_date - this.event.start_date, 'seconds').humanize()
-      // return `${(this.event.end_date - this.event.start_date) / 60} min`
     }
   }
 }
