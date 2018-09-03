@@ -1,16 +1,17 @@
 <template>
     <div v-bind:class="{ focus: isFocused }" @click="displayDetail()">
-      <p>{{ event.name }}</p>
-      <p>{{ displayDate () }}</p>
-      <p>{{ displayTime () }}</p>
-      <p>{{ displayDuration () }}</p>
-      <p>{{ event.service_id }}</p>
+      <img :src="getUrl()" :alt="event.name">
+      <div class="infos">
+        <div class="channel">{{ event.service_id }}</div>
+        <p>{{ event.name }} {{ displayDate () }} {{ displayDuration () }}</p>
+      </div>
     </div>
 </template>
 
 <script>
 import { eventState } from '../states/event-state'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
+import moment from 'moment'
 
 export default {
   name: 'Card',
@@ -24,17 +25,17 @@ export default {
     }
   },
   methods: {
+    getUrl () {
+      return `/data/${this.event.image}`
+    },
     displayDetail () {
       this.eventState.selectedEvent = this.event
     },
     displayDate () {
-      return new Date(this.event.start_date * 1000).toLocaleDateString()
-    },
-    displayTime () {
-      return new Date(this.event.start_date * 1000).toLocaleTimeString()
+      return moment(this.event.start_date, 'X').format('DD/MM/YY HH:mm')
     },
     displayDuration () {
-      return `${(this.event.end_date - this.event.start_date) / 60} min`
+      return moment.duration(this.event.end_date - this.event.start_date, 'seconds').humanize()
     }
   }
 }
@@ -43,33 +44,42 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 
-div{
-  width: 226px;
-  height: 296px;
+div.card{
+  position: relative;
+  width: 298px;
+  height: 167px;
   border: 1px grey solid;
-  border-radius: 5%;
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
   flex-direction: row;
   flex-basis: 15%;
+  margin: 10px;
 }
 .focus {
   background-color: chartreuse !important;
 }
-img {
-  max-width: 100%;
-  border: 1px solid black;
-  border-radius: 5%;
-  transition: transform 2s;
-  &:hover {
-    border: 2px solid black;
-    transform: scale(1.05);
-    cursor: pointer;
+  img {
+    max-width: 100%;
+  }
+  div.infos {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background-color: grey;
+    color: #ffffff;
+    display: block;
+    width: 100%;
+    bottom: 0px;
+    height: 50px;
+    z-index: 1;
+    div.channel {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
-p {
-  display: block;
-  width: 100%;
-}
+
 </style>

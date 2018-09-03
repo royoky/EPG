@@ -2,7 +2,7 @@
     <div id='detail'>
         <span class='close' @click="closeDetail">&times;</span>
         <div id='imgContainer'>
-          <img src="https://fusion.molotov.tv/arts/m2/224x294/Ch8SHQoUABCYcXst-g-SvGbBGATubTtpbjUSA2pwZxgBCh8IARIbChRwzxG_b6v-8CTE4AfET920jtUAkBIDcG5n/jpg" alt="Alt Title" height="300">
+          <img :src=getUrl() alt="Alt Title" height="300">
         </div>
         <div>
           <h3>{{ eventState.selectedEvent.name }}</h3>
@@ -25,6 +25,9 @@ export default {
     return { eventState }
   },
   methods: {
+    getUrl () {
+      return `/data/${eventState.selectedEvent.image}`
+    },
     closeDetail () {
       eventState.selectedEvent = null
     },
@@ -45,15 +48,15 @@ export default {
 </script>
 
 <style lang='less' scoped>
-
-  div#detail {
-  width: 100%;
+div#detail {
+  width: auto;
   position:relative;
   //overflow: auto; /* Enable scroll if needed */
   background-color: black;
-  // display: flex;
-  // flex-grow:1;
+  display: flex;
+  flex-grow:1;
   color: white;
+  height:auto;
   //background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
   // The Close Button
   .close {
