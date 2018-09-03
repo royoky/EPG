@@ -1,16 +1,10 @@
 <template>
     <nav>
         <ul ref="ul">
-            <li ref="now" v-bind:class="{ focus: isFocused }">now</li>
-            <li ref="tonight" v-bind:class="{ focus: isFocused }">tonight</li>
-            <li v-bind:class="{ focus: isFocused }">category</li>
+            <li ref="now" v-bind:class="{ focus: isFocused }" @click="getEventNow()">now</li>
+            <li ref="tonight" v-bind:class="{ focus: isFocused }" @click="getEventTonight()">tonight</li>
+            <li v-bind:class="{ focus: isFocused }" @click="toggleCatNavBar()">category</li>
             <li v-bind:class="{ focus: isFocused }">channel</li>
-    <nav tabindex="1">
-        <ul>
-            <li tabindex="-1" @click="getEventNow()"> now</li>
-            <li tabindex="-1" @click="getEventTonight()">tonight</li>
-            <li tabindex="-1" @click="toggleCatNavBar()">category</li>
-            <li tabindex="-1">channel</li>
         </ul>
         <ul id="catNavBar">
             <li @click="getEventByCat(100)">émissions</li>
@@ -32,11 +26,6 @@ import moment from 'moment'
 export default {
   name: 'navigationBar',
   mixins: [keyboardNavigation],
-  data () {
-    return {
-      navigationState
-    }
-  },
   methods: {
     created () {
       this.getEventNow()

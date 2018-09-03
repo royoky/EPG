@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="{ focus: isFocused }" @click="displayDetail()">
+    <div v-bind:class="{ focus: isFocused }" class="card" @click="displayDetail()">
       <img :src="getUrl()" :alt="event.name">
       <div class="infos">
         <div class="channel">{{ event.service_id }}</div>
@@ -55,10 +55,6 @@ div.card{
   flex-direction: row;
   flex-basis: 15%;
   margin: 10px;
-}
-.focus {
-  background-color: chartreuse !important;
-}
   img {
     max-width: 100%;
   }
@@ -81,5 +77,7 @@ div.card{
     }
   }
 }
-
+.focus {
+  background-color: chartreuse !important;
+}
 </style>
