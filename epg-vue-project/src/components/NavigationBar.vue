@@ -26,7 +26,6 @@ export default {
   mixins: [keyboardNavigation],
   data () {
     return {
-    //  isFocused: false,
       navigationState
     }
   },

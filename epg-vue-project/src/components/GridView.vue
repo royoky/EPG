@@ -37,12 +37,6 @@ export default {
     selectEvent (event) {
       this.eventState.selectedEvent = event
     }
-    // setfocus () {
-    //   this.isFocused = true
-    // },
-    // unsetfocus () {
-    //   this.isFocused = false
-    // }
   }
 }
 </script>

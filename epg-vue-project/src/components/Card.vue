@@ -20,8 +20,7 @@ export default {
   },
   data () {
     return {
-      eventState,
- //     isFocused: false
+      eventState
     }
   },
   methods: {
@@ -36,13 +35,7 @@ export default {
     },
     displayDuration () {
       return `${(this.event.end_date - this.event.start_date) / 60} min`
-    },
-    // setfocus () {
-    //   this.isFocused = true
-    // },
-    // unsetfocus () {
-    //   this.isFocused = false
-    // }
+    }
   }
 }
 </script>
