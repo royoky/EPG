@@ -9,63 +9,18 @@
 import NavigationBar from './components/NavigationBar.vue'
 import GridView from './components/GridView.vue'
 import { eventState } from './states/event-state'
+import { keyboardNavigation } from './mixins/keyboard-navigation'
 
 export default {
   name: 'app',
+  mixins: [keyboardNavigation],
   components: {
     NavigationBar,
     GridView
   },
   data () {
     return {
-      eventState,
-      i: 0,
-      switchRow: 6
-    }
-  },
-  methods: {
-    arrowKeysListener (event) {
-      console.log(event.keyCode)
-      switch (event.keyCode) {
-        // Down key
-        case 40:
-        console.log(this.$refs.navbar)
-          if (this.$refs.navbar.isFocused) {
-            this.$refs.navbar.unsetfocus()
-            this.$refs.grid.setfocus()
-            this.$refs.grid.$refs.card[this.i].setfocus()
-            break
-          }
-          if (this.$refs.grid.isFocused) {
-            this.$refs.grid.$refs.card[this.i].unsetfocus()
-            this.$refs.grid.$refs.card[this.i + this.switchRow].setfocus()
-            this.i = (this.i + this.switchRow)
-          }
-          break
-        // Up key
-        case 38:
-          if (this.i >= this.switchRow) {
-            this.$refs.grid.$refs.card[this.i].unsetfocus()
-            this.$refs.grid.$refs.card[this.i - this.switchRow].setfocus()
-            this.i = (this.i - this.switchRow)
-          }
-          break
-        // Right key
-        case 39:
-          this.$refs.grid.$refs.card[this.i].unsetfocus()
-          this.$refs.grid.$refs.card[this.i + 1].setfocus()
-          this.i++
-          break
-        // Left key
-        case 37:
-          if (this.i !== 0) {
-            this.$refs.grid.$refs.card[this.i].unsetfocus()
-            this.$refs.grid.$refs.card[this.i - 1].setfocus()
-            this.i--
-            break
-          }
-          break
-      }
+      eventState
     }
   },
   mounted () {

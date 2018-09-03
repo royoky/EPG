@@ -1,10 +1,10 @@
 <template>
-    <nav tabindex="1" v-bind:class="{ focus: isFocused }">
-        <ul v-bind:class="{ focus: isFocused }">
-            <li tabindex="-1"> now</li>
-            <li tabindex="-1">tonight</li>
-            <li tabindex="-1">category</li>
-            <li tabindex="-1">channel</li>
+    <nav tabindex="1" >
+        <ul ref="ul">
+            <li tabindex="-1" ref="now" v-bind:class="{ focus: isFocused }">now</li>
+            <li tabindex="-1" ref="tonight" v-bind:class="{ focus: isFocused }">tonight</li>
+            <li tabindex="-1" ref="cat" v-bind:class="{ focus: isFocused }">category</li>
+            <li tabindex="-1" ref="channel" v-bind:class="{ focus: isFocused }">channel</li>
         </ul>
         <ul>
             <li @click="getEventByCat(100)">100</li>
@@ -70,9 +70,6 @@ export default {
     },
     unsetfocus () {
       this.isFocused = false
-    },
-    created () {
-      this.setFocus()
     }
   }
 }
