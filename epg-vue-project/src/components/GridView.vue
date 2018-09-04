@@ -5,6 +5,7 @@
           <Card ref="card"
             v-for="(event, index ) in navigationState.programList"
             :key="index"
+            :identifier="index"
             :event="event"
             />
         </div>
@@ -43,6 +44,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+@import "../assets/style-library.less";
 main {
     flex-grow:1;
     display: flex;
@@ -50,7 +52,7 @@ main {
     height:100vh;
   #grid {
     width: 100%;
-    background-color: white;
+    background-color: @secondary-color;
     display:flex;
     flex-grow: 1;
     flex-wrap: wrap;

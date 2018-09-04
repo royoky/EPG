@@ -1,28 +1,35 @@
 <template>
     <div v-bind:class="{ focus: isFocused }" class="card" @click="displayDetail()">
       <img :src="getUrl()" :alt="event.name">
+      <div class="channel">{{ event.service_id }}</div>
       <div class="infos">
-        <div class="channel">{{ event.service_id }}</div>
-        <p>{{ event.name }} {{ displayDate () }} {{ displayDuration () }}</p>
+        <div>{{ event.name }} {{ displayDate () }} {{ displayDuration () }}</div>
       </div>
+      <ProgressBar v-if="getProgress() > 0 && getProgress() < 1" :progress="getProgress()" :timeLeft="getDuration()" :id="createId()"></ProgressBar>
     </div>
 </template>
 
 <script>
+import { navigationState } from '../states/navigation-state'
 import { eventState } from '../states/event-state'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
 import moment from 'moment'
+import ProgressBar from './ProgressBar.vue'
 
 export default {
   name: 'Card',
   mixins: [keyboardNavigation],
   props: {
-    event: { type: Object, required: true }
+    event: { type: Object, required: true },
+    identifier: Number
   },
   data () {
     return {
       eventState
     }
+  },
+  components: {
+    ProgressBar
   },
   methods: {
     getUrl () {
@@ -36,6 +43,17 @@ export default {
     },
     displayDuration () {
       return moment.duration(this.event.end_date - this.event.start_date, 'seconds').humanize()
+    },
+    createId () {
+      return `id${this.identifier}`
+    },
+    getDuration () {
+      const duration = (this.event.end_date - navigationState.today) * 1000
+      return duration
+    },
+    getProgress () {
+      const progress = (navigationState.today - this.event.start_date) / (this.event.end_date - this.event.start_date)
+      return progress
     }
   }
 }
@@ -43,38 +61,45 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-
+@import "../assets/style-library.less";
 div.card{
   position: relative;
   width: 298px;
   height: 167px;
-  border: 1px grey solid;
+  border: 1px @secondary-color solid;
   display:flex;
   flex-direction: column;
   flex-wrap: wrap;
   flex-direction: row;
-  flex-basis: 15%;
+  // flex-basis: 15%;
   margin: 10px;
   img {
     max-width: 100%;
+    max-height: 100%;
+  }
+  div.channel {
+    position: absolute;
+    background-color: @grey;
+    color: #ffffff;
+    padding: 5px;
+    top: 0;
+    right: 0;
   }
   div.infos {
     position: absolute;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    background-color: grey;
+    background-color: @grey;
     color: #ffffff;
     display: block;
     width: 100%;
     bottom: 0px;
-    height: 50px;
+    // height: 50px;
     z-index: 1;
-    div.channel {
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
+    // div {
+    //   max-height: 80%;
+    // }
   }
 }
 .focus {
