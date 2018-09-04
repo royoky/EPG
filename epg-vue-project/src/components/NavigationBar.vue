@@ -97,8 +97,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import "../assets/style-library.less";
 .focus {
-    background-color: chartreuse;
+    background-color: @primary-color;
   }
 ul, div {
     list-style-type: none;

@@ -2,9 +2,9 @@
     <div v-bind:class="{ focus: isFocused }" class="card" @click="displayDetail()">
       <img :src="getUrl()" :alt="event.name">
       <div class="channel">{{ event.service_id }}</div>
-      <div class="infos">
-        <div>{{ event.name }} {{ displayDate () }} {{ displayDuration () }}</div>
-      </div>
+      <div class="infos">{{ event.name }}</div>
+      <div class="time" v-if="getProgress() > 1"> replay </div>
+      <div class="time" v-if="getProgress() < 0"> {{displayTime()}} </div>
       <ProgressBar v-if="getProgress() > 0 && getProgress() < 1" :progress="getProgress()" :timeLeft="getDuration()" :id="createId()"></ProgressBar>
     </div>
 </template>
@@ -38,11 +38,8 @@ export default {
     displayDetail () {
       this.eventState.selectedEvent = this.event
     },
-    displayDate () {
-      return moment(this.event.start_date, 'X').format('DD/MM/YY HH:mm')
-    },
-    displayDuration () {
-      return moment.duration(this.event.end_date - this.event.start_date, 'seconds').humanize()
+    displayTime () {
+      return moment(this.event.start_date, 'X').format('HH:mm')
     },
     createId () {
       return `id${this.identifier}`
@@ -71,8 +68,6 @@ div.card{
   flex-direction: column;
   flex-wrap: wrap;
   flex-direction: row;
-  // flex-basis: 15%;
-  margin: 10px;
   img {
     max-width: 100%;
     max-height: 100%;
@@ -87,22 +82,24 @@ div.card{
   }
   div.infos {
     position: absolute;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
     background-color: @grey;
     color: #ffffff;
     display: block;
     width: 100%;
     bottom: 0px;
-    // height: 50px;
     z-index: 1;
-    // div {
-    //   max-height: 80%;
-    // }
+  }
+  div.time {
+    position: absolute;
+    z-index: 1;
+    bottom: 18px;
+    background-color: @grey;
+    color: #ffffff;
+    padding: 5px;
+    height: 15px;
   }
 }
 .focus {
-  background-color: chartreuse !important;
+  background-color: @primary-color !important;
 }
 </style>
