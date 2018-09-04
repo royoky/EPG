@@ -34,11 +34,6 @@ export default {
       isFocused: false
     }
   },
-  methods: {
-    selectEvent (event) {
-      this.eventState.selectedEvent = event
-    }
-  }
 }
 </script>
 
@@ -46,10 +41,10 @@ export default {
 <style scoped lang="less">
 @import "../assets/style-library.less";
 main {
-    flex-grow:1;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    height:100vh;
+    height: 100vh;
   #grid {
     padding-top: 15px;
     padding-bottom: 100px;

@@ -6,7 +6,7 @@
         </div>
         <div id='detailsContainer'>
           <h3>{{ eventState.selectedEvent.name }}</h3>
-          <p>"{{ eventState.selectedEvent.description }}</p>
+          <p>{{ eventState.selectedEvent.description }}</p>
           <DetailButton ref="button"
             v-for="(button, index ) in buttons"
             :key="index"
@@ -66,9 +66,10 @@ div#detail {
   position:relative;
   background-color: black;
   display: flex;
+  flex-direction: row;
   flex-shrink: 0;
   color: white;
-  height:auto;
+  height:fit-content;
   align-items: stretch;
   #detailContainer {
     padding: 20px;
