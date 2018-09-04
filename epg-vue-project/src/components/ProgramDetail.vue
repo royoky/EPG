@@ -4,25 +4,33 @@
         <div id='imgContainer'>
           <img :src=getUrl() alt="Alt Title" height="300">
         </div>
-        <div>
+        <div id='detailsContainer'>
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>"{{ eventState.selectedEvent.description }}</p>
-          <button>Record</button>
-          <button>Bookmark</button>
-          <button>Start Over</button>
+          <DetailButton ref="button"
+            v-for="(button, index ) in buttons"
+            :key="index"
+            :button="button"
+        />
         </div>
     </div>
 </template>
 
 <script>
 import { eventState } from '../states/event-state'
+import DetailButton from './DetailButton.vue'
 export default {
   name: 'ProgramDetail',
+  components: {
+    DetailButton
+  },
   props: {
     event: Object
   },
   data () {
-    return { eventState }
+    return {
+      eventState,
+      buttons: [] }
   },
   methods: {
     getUrl () {
@@ -40,6 +48,11 @@ export default {
   },
   created () {
     window.addEventListener('keydown', this.detectEscapeKey)
+    this.buttons = [
+      { name: 'Record' },
+      { name: 'Bookmark' },
+      { name: 'Startover' }
+    ]
   },
   beforeDestroy () {
     window.removeEventListener('keydown', this.detectEscapeKey)
@@ -49,15 +62,20 @@ export default {
 
 <style lang='less' scoped>
 div#detail {
-  width: auto;
+  width: 100%;
   position:relative;
-  //overflow: auto; /* Enable scroll if needed */
   background-color: black;
   display: flex;
-  flex-grow:1;
+  flex-shrink: 0;
   color: white;
   height:auto;
-  //background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  align-items: stretch;
+  #detailContainer {
+    padding: 20px;
+  }
+  p {
+    padding: 20px;
+  }
   // The Close Button
   .close {
     color: #aaa;

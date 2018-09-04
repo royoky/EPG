@@ -4,6 +4,7 @@ export const keyboardNavigation = {
   data () {
     return {
       i: 0,
+      j:0,
       switchRow: 6,
       isFocused: false
     }
@@ -11,11 +12,14 @@ export const keyboardNavigation = {
   methods: {
     arrowKeysListener (event) {
       console.log(event.keyCode)
-      if (this.$refs.navbar.isFocused) {
-        console.log(this.$refs.navbar.$el.children['0'].children['0'])
+      // Navbar
+      if (this.$refs.navbar.isFocused) {   
+        this.$refs.navbar.$refs.menuelement[this.j].setfocus()
+        console.log(this.$refs.navbar.isFocused)
         switch (event.keyCode) {
           case 13: // Enter Key
             this.$refs.navbar.unsetfocus()
+            this.$refs.navbar.$refs.menuelement[this.j].unsetfocus()
             this.$refs.grid.setfocus()
             this.$refs.grid.$refs.card[this.i].setfocus()
             break
@@ -25,6 +29,7 @@ export const keyboardNavigation = {
         }
       }
       if (this.$refs.grid.isFocused) {
+        console.log(this.$refs.grid.$refs.card.length)
         switch (event.keyCode) {
           case 40: // Down key
             this.$refs.grid.$refs.card[this.i].unsetfocus()
@@ -39,9 +44,12 @@ export const keyboardNavigation = {
             }
             break
           case 39: // Right key
-            this.$refs.grid.$refs.card[this.i].unsetfocus()
-            this.$refs.grid.$refs.card[this.i + 1].setfocus()
-            this.i++
+            if (this.i < this.$refs.grid.$refs.card.length - 1) {
+              this.$refs.grid.$refs.card[this.i].unsetfocus()
+              this.$refs.grid.$refs.card[this.i + 1].setfocus()
+              this.i++
+              break
+            }
             break
           case 37: // Left key
             if (this.i !== 0) {
@@ -56,6 +64,7 @@ export const keyboardNavigation = {
             this.$refs.grid.$refs.card[this.i].unsetfocus()
             this.i = 0
             this.$refs.navbar.setfocus()
+            this.$refs.navbar.$refs.menuelement[this.j].setfocus()
             break
           case 13: // Enter Key
             // this.$refs.grid.unsetfocus()
