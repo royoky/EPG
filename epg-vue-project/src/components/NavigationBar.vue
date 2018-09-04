@@ -25,7 +25,7 @@ import moment from 'moment'
 export default {
   name: 'navigationBar',
   mixins: [keyboardNavigation],
-  created () {
+  mounted () {
     this.getEventNow()
   },
   methods: {
