@@ -73,6 +73,9 @@ div#detail {
   #detailContainer {
     padding: 20px;
   }
+  p {
+    padding: 20px;
+  }
   // The Close Button
   .close {
     color: #aaa;
