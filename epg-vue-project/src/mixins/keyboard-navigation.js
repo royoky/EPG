@@ -4,7 +4,7 @@ export const keyboardNavigation = {
   data () {
     return {
       i: 0,
-      switchRow: 6,
+      switchRow: 4,
       isFocused: false
     }
   },

@@ -53,7 +53,7 @@ div.card{
   flex-direction: column;
   flex-wrap: wrap;
   flex-direction: row;
-  flex-basis: 15%;
+  flex-basis: 21%;
   margin: 10px;
   img {
     max-width: 100%;
@@ -79,5 +79,6 @@ div.card{
 }
 .focus {
   background-color: chartreuse !important;
+  border: 3px blue solid !important;
 }
 </style>
