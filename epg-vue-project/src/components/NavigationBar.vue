@@ -1,19 +1,24 @@
 <template>
     <nav>
-        <ul ref="ul">
-            <li ref="now" v-bind:class="{ focus: isFocused }" @click="getEventNow()">now</li>
-            <li ref="tonight" v-bind:class="{ focus: isFocused }" @click="getEventTonight()">tonight</li>
-            <li v-bind:class="{ focus: isFocused }" @click="toggleCatNavBar()">category</li>
-            <li v-bind:class="{ focus: isFocused }">channel</li>
-        </ul>
-        <ul id="catNavBar">
-            <li @click="getEventByCat(100)">émissions</li>
-            <li @click="getEventByCat(10 )">films / séries</li>
-            <li @click="getEventByCat(50 )">jeunesse</li>
-            <li @click="getEventByCat(60 )">spectacle</li>
-            <li @click="getEventByCat(90 )">documentaire</li>
-            <li @click="getEventByCat(40)">sport</li>
-        </ul>
+      <MenuElement ref="menuelement"
+        v-for="(category, index ) in categories"
+        :key="index"
+        :category="category"
+        />
+      <!-- <div>
+        <li @click="getEventNow()">now</li>
+        <li @click="getEventTonight()">tonight</li>
+        <li @click="toggleCatNavBar()">category</li>
+        <li>channel</li>
+      </div> -->
+      <ul id="catNavBar">
+        <li @click="getEventByCat(100)">émissions</li>
+        <li @click="getEventByCat(10 )">films / séries</li>
+        <li @click="getEventByCat(50 )">jeunesse</li>
+        <li @click="getEventByCat(60 )">spectacle</li>
+        <li @click="getEventByCat(90 )">documentaire</li>
+        <li @click="getEventByCat(40)">sport</li>
+      </ul>
     </nav>
 </template>
 
@@ -22,14 +27,19 @@ import { navigationState } from '../states/navigation-state'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
 import { eventState } from '../states/event-state'
 import moment from 'moment'
+import MenuElement from './MenuElement.vue'
 
 export default {
   name: 'navigationBar',
   mixins: [keyboardNavigation],
+  components: {
+    MenuElement
+  },
   data () {
     return {
       navigationState,
-      eventState
+      eventState,
+      categories: null
     }
   },
   methods: {
@@ -72,7 +82,7 @@ export default {
         listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory)
         listOfCategories = listOfCategories.map(element => element.id)
         const events = await fetch('data/GenericEvents.json')
-        let listOfEvents = await events.json()
+        let listOCfEvents = await events.json()
         listOfEvents = listOfCategories.map(element => {
           return listOfEvents.filter(event => event.category_id === element)
         })
@@ -90,7 +100,15 @@ export default {
       }
     }
   },
-  created () {
+  async created () {
+    try {
+      let response = await fetch('data/MenuCategories.json')
+      this.categories = await response.json()
+    } catch (error) {
+      console.error(error)
+    }
+  },
+  mounted () {
   this.getEventNow()
   }
 }
@@ -100,7 +118,10 @@ export default {
 .focus {
     background-color: chartreuse;
   }
-ul, div {
+nav {
+  display: flex;
+}
+ul {
     list-style-type: none;
     margin: 0;
     padding: 0;

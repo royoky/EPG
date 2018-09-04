@@ -25,6 +25,7 @@ export const keyboardNavigation = {
         }
       }
       if (this.$refs.grid.isFocused) {
+        console.log(this.$refs.grid.$refs.card.length)
         switch (event.keyCode) {
           case 40: // Down key
             this.$refs.grid.$refs.card[this.i].unsetfocus()
@@ -39,9 +40,12 @@ export const keyboardNavigation = {
             }
             break
           case 39: // Right key
-            this.$refs.grid.$refs.card[this.i].unsetfocus()
-            this.$refs.grid.$refs.card[this.i + 1].setfocus()
-            this.i++
+            if (this.i < this.$refs.grid.$refs.card.length -1) {
+              this.$refs.grid.$refs.card[this.i].unsetfocus()
+              this.$refs.grid.$refs.card[this.i + 1].setfocus()
+              this.i++
+              break
+            }
             break
           case 37: // Left key
             if (this.i !== 0) {
