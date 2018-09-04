@@ -26,10 +26,10 @@ import moment from 'moment'
 export default {
   name: 'navigationBar',
   mixins: [keyboardNavigation],
+  mounted () {
+    this.getEventNow()
+  },
   methods: {
-    created () {
-      this.getEventNow()
-    },
     toggleCatNavBar () {
       document.querySelector('#catNavBar').classList.toggle('open')
     },
