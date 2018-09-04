@@ -92,9 +92,6 @@ export default {
         console.log(error)
       }
     }
-  },
-  created () {
-  this.getEventNow()
   }
 }
 </script>
