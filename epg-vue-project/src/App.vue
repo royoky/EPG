@@ -25,8 +25,6 @@ export default {
   },
   mounted () {
     this.$refs.navbar.setfocus()
-    console.log(this.$refs.navbar.$refs);
-    //this.$refs.navbar.$refs.menuelement['0'].setfocus()
     document.addEventListener('keydown', this.arrowKeysListener)
   }
 }

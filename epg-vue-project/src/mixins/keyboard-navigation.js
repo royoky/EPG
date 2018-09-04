@@ -4,6 +4,7 @@ export const keyboardNavigation = {
   data () {
     return {
       i: 0,
+      j:0,
       switchRow: 4,
       isFocused: false
     }
@@ -11,11 +12,14 @@ export const keyboardNavigation = {
   methods: {
     arrowKeysListener (event) {
       console.log(event.keyCode)
-      if (this.$refs.navbar.isFocused) {
-        console.log(this.$refs.navbar.$el.children['0'].children['0'])
+      // Navbar
+      if (this.$refs.navbar.isFocused) {   
+        this.$refs.navbar.$refs.menuelement[this.j].setfocus()
+        console.log(this.$refs.navbar.isFocused)
         switch (event.keyCode) {
           case 13: // Enter Key
             this.$refs.navbar.unsetfocus()
+            this.$refs.navbar.$refs.menuelement[this.j].unsetfocus()
             this.$refs.grid.setfocus()
             this.$refs.grid.$refs.card[this.i].setfocus()
             break
@@ -40,7 +44,7 @@ export const keyboardNavigation = {
             }
             break
           case 39: // Right key
-            if (this.i < this.$refs.grid.$refs.card.length -1) {
+            if (this.i < this.$refs.grid.$refs.card.length - 1) {
               this.$refs.grid.$refs.card[this.i].unsetfocus()
               this.$refs.grid.$refs.card[this.i + 1].setfocus()
               this.i++
@@ -60,6 +64,7 @@ export const keyboardNavigation = {
             this.$refs.grid.$refs.card[this.i].unsetfocus()
             this.i = 0
             this.$refs.navbar.setfocus()
+            this.$refs.navbar.$refs.menuelement[this.j].setfocus()
             break
           case 13: // Enter Key
             // this.$refs.grid.unsetfocus()

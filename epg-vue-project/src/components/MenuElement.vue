@@ -1,18 +1,24 @@
 <template>
-    <div v-bind:class="{ focus: isFocused }">
+    <div v-bind:class="{ focus: isFocused }"
+      @click="runAction(category.action)">
       {{ category.name }}
     </div>
 </template>
 <script>
-import MenuElement from './MenuElement.vue'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
+import { displayMenuEvents } from '../mixins/displayMenuEvents'
 
 export default {
   name: 'MenuElement',
-  mixins: [keyboardNavigation],
+  mixins: [keyboardNavigation, displayMenuEvents],
   props: {
     category: Object
   },
+  methods: {
+    runAction (action) {
+      this[action]()
+    }
+  }
 }
 </script>
 

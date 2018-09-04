@@ -1,6 +1,6 @@
 [
-{ "name": "Now", "action": "getEventNow()" },
-{ "name": "Tonight", "action": "getEventTonight()" },
-{ "name": "Category", "action": "toggleCatNavBar()"},
+{ "name": "Now", "action": "getEventNow" },
+{ "name": "Tonight", "action": "getEventTonight" },
+{ "name": "Category", "action": "toggleCatNavBar"},
 { "name": "Channel", "action": ""}
 ]
