@@ -20,16 +20,15 @@
 <script>
 import { navigationState } from '../states/navigation-state'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
-
 import { eventState } from '../states/event-state'
 import moment from 'moment'
 export default {
   name: 'navigationBar',
   mixins: [keyboardNavigation],
+  created () {
+    this.getEventNow()
+  },
   methods: {
-    created () {
-      this.getEventNow()
-    },
     toggleCatNavBar () {
       document.querySelector('#catNavBar').classList.toggle('open')
     },

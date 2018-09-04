@@ -4,13 +4,16 @@
       <div class="infos">
         <div class="channel">{{ event.service_id }}</div>
         <p>{{ event.name }} {{ displayDate () }} {{ displayDuration () }}</p>
+        <progressBar :progress="getProgress()" :timeLeft="getDuration()"></progressBar>
       </div>
     </div>
 </template>
 
 <script>
+import { navigationState } from '../states/navigation-state'
 import { eventState } from '../states/event-state'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
+import progressbar from './ProgressBar.vue'
 import moment from 'moment'
 
 export default {
@@ -24,6 +27,9 @@ export default {
       eventState
     }
   },
+  components: {
+    progressbar
+  },
   methods: {
     getUrl () {
       return `/data/${this.event.image}`
@@ -36,6 +42,12 @@ export default {
     },
     displayDuration () {
       return moment.duration(this.event.end_date - this.event.start_date, 'seconds').humanize()
+    },
+    getDuration () {
+      return moment.duration(this.event.end_date - this.event.start_date, 'seconds').format('x')
+    },
+    getProgress () {
+      return (navigationState.today - this.event.start_date) / (this.event.end_date - this.event.start_date)
     }
   }
 }
