@@ -100,6 +100,6 @@ div.card{
   }
 }
 .focus {
-  background-color: @primary-color !important;
+  border: 2px @primary-color solid !important;
 }
 </style>

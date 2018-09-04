@@ -5,7 +5,7 @@ export const keyboardNavigation = {
     return {
       i: 0,
       j:0,
-      switchRow: 6,
+      switchRow: 5,
       isFocused: false
     }
   },
