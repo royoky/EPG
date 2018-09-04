@@ -4,12 +4,9 @@
         <div id='imgContainer'>
           <img :src=getUrl() alt="Alt Title" height="300">
         </div>
-        <div>
+        <div id='detailsContainer'>
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>"{{ eventState.selectedEvent.description }}</p>
-<!--           <button>Record</button>
-          <button>Bookmark</button>
-          <button>Start Over</button> -->
           <DetailButton ref="button"
             v-for="(button, index ) in buttons"
             :key="index"
@@ -65,15 +62,17 @@ export default {
 
 <style lang='less' scoped>
 div#detail {
-  width: auto;
+  width: 100%;
   position:relative;
-  //overflow: auto; /* Enable scroll if needed */
   background-color: black;
   display: flex;
-  flex-grow:1;
+  flex-shrink: 0;
   color: white;
   height:auto;
-  //background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+  align-items: stretch;
+  #detailContainer {
+    padding: 20px;
+  }
   // The Close Button
   .close {
     color: #aaa;

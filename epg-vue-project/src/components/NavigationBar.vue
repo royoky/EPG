@@ -82,7 +82,7 @@ export default {
         listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory)
         listOfCategories = listOfCategories.map(element => element.id)
         const events = await fetch('data/GenericEvents.json')
-        let listOCfEvents = await events.json()
+        let listOfEvents = await events.json()
         listOfEvents = listOfCategories.map(element => {
           return listOfEvents.filter(event => event.category_id === element)
         })
