@@ -7,22 +7,33 @@
         <div>
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>"{{ eventState.selectedEvent.description }}</p>
-          <button>Record</button>
+<!--           <button>Record</button>
           <button>Bookmark</button>
-          <button>Start Over</button>
+          <button>Start Over</button> -->
+          <DetailButton ref="button"
+            v-for="(button, index ) in buttons"
+            :key="index"
+            :button="button"
+        />
         </div>
     </div>
 </template>
 
 <script>
 import { eventState } from '../states/event-state'
+import DetailButton from './DetailButton.vue'
 export default {
   name: 'ProgramDetail',
+  components: {
+    DetailButton
+  },
   props: {
     event: Object
   },
   data () {
-    return { eventState }
+    return {
+      eventState,
+      buttons: [] }
   },
   methods: {
     getUrl () {
@@ -40,6 +51,11 @@ export default {
   },
   created () {
     window.addEventListener('keydown', this.detectEscapeKey)
+    this.buttons = [
+      { name: 'Record' },
+      { name: 'Bookmark' },
+      { name: 'Startover' }
+    ]
   },
   beforeDestroy () {
     window.removeEventListener('keydown', this.detectEscapeKey)
