@@ -51,16 +51,20 @@ main {
     flex-direction: column;
     height:100vh;
   #grid {
-    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 100px;
+    width: 100vw;
+    height: 100vh;
     background-color: @secondary-color;
-    display:flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px 300px;
+    grid-template-rows: 180px 180px 180px 180px 180px;
+    grid-gap: 15px;
+    justify-content: center;
     overflow: scroll;
   }
 }
 .focus {
-  background-color: chartreuse;
+  background-color: @primary-color;
 }
 </style>
