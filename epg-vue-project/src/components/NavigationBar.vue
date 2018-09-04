@@ -20,12 +20,18 @@
 <script>
 import { navigationState } from '../states/navigation-state'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
-
 import { eventState } from '../states/event-state'
 import moment from 'moment'
+
 export default {
   name: 'navigationBar',
   mixins: [keyboardNavigation],
+  data () {
+    return {
+      navigationState,
+      eventState
+    }
+  },
   mounted () {
     this.getEventNow()
   },
@@ -87,11 +93,8 @@ export default {
       }
     }
   },
-  data () {
-    return {
-      navigationState,
-      eventState
-    }
+  created () {
+  this.getEventNow()
   }
 }
 </script>
