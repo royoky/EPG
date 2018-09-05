@@ -55,7 +55,7 @@ main {
     grid-template-columns: 300px 300px 300px 300px 300px;
     grid-template-rows: 180px 180px 180px 180px 180px;
     grid-gap: 15px;
-    justify-content: center;
+    justify-content: space-between;
     overflow: scroll;
   }
 }
