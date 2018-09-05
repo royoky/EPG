@@ -4,7 +4,7 @@
             <li ref="now" v-bind:class="{ focus: isFocused }" @click="getEventNow()">now</li>
             <li ref="tonight" v-bind:class="{ focus: isFocused }" @click="getEventTonight()">tonight</li>
             <li v-bind:class="{ focus: isFocused }" @click="toggleCatNavBar()">category</li>
-            <li v-bind:class="{ focus: isFocused }">channel</li>
+            <li v-bind:class="{ focus: isFocused }" @click="getEventByChannel()">channel</li>
         </ul>
         <ul id="catNavBar">
             <li @click="getEventByCat(100)">émissions</li>
@@ -34,37 +34,43 @@ export default {
   },
   mounted () {
     this.getEventNow()
+    this.setfocus()
   },
   methods: {
     toggleCatNavBar () {
+      this.navigationState.channel = false
       document.querySelector('#catNavBar').classList.toggle('open')
     },
-    async getEventNow () {
+    getEventNow () {
+      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.toggleCatNavBar()
       document.querySelector('#catNavBar').classList.remove('open')
-      const events = await fetch('data/GenericEvents.json')
-      let listOfEvents = await events.json()
-      const endNow = moment(this.navigationState.today, 'X').add(1, 'h').format('X')
-      listOfEvents = listOfEvents.filter(element => element.start_date < endNow && element.end_date > this.navigationState.today)
-      this.navigationState.programList = listOfEvents
+      // const events = await fetch('data/GenericEvents.json')
+      let listOfEvents = navigationState.allPrograms
+      const endNow = moment(navigationState.today, 'X').add(1, 'h').format('X')
+      listOfEvents = listOfEvents.filter(element => element.start_date < endNow && element.end_date > navigationState.today)
+      navigationState.programList = listOfEvents
     },
-    async getEventTonight () {
+    getEventTonight () {
+      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.toggleCatNavBar()
       document.querySelector('#catNavBar').classList.remove('open')
-      const events = await fetch('data/GenericEvents.json')
-      let listOfEvents = await events.json()
+      // const events = await fetch('data/GenericEvents.json')
+      let listOfEvents = this.navigationState.allPrograms
       const aDayLater = moment(this.navigationState.today, 'X').add(1, 'd').format('X')
       listOfEvents = listOfEvents.filter(element => element.start_date > this.navigationState.today && element.start_date < aDayLater)
       listOfEvents = listOfEvents.filter(element => new Date(element.start_date * 1000).getHours() <= 23 && new Date(element.start_date * 1000).getHours() >= 20)
       this.navigationState.programList = listOfEvents
     },
+    getEventByChannel () {
+      this.navigationState.channel = true
+    },
     async getEventByCat (cat) {
+      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }

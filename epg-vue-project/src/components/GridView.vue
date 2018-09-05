@@ -1,7 +1,8 @@
 <template>
     <main v-if="navigationState.programList !=null">
         <ProgramDetail v-if="eventState.selectedEvent"/>
-        <div id='grid'>
+        <ChannelView v-if="navigationState.channel"></ChannelView>
+        <div id='grid' v-if="!navigationState.channel">
           <Card ref="card"
             v-for="(event, index ) in navigationState.programList"
             :key="index"
@@ -16,13 +17,15 @@
 import ProgramDetail from './ProgramDetail.vue'
 import { eventState } from '../states/event-state'
 import { navigationState } from '../states/navigation-state'
-import Card from './Card.vue'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
+import Card from './Card.vue'
+import ChannelView from './ChannelView.vue'
 
 export default {
   name: 'GridView',
   mixins: [keyboardNavigation],
   components: {
+    ChannelView,
     Card,
     ProgramDetail
   },
