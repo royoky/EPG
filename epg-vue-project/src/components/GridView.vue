@@ -33,7 +33,7 @@ export default {
       events: null,
       isFocused: false
     }
-  },
+  }
 }
 </script>
 

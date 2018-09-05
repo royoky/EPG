@@ -4,7 +4,6 @@ import { eventState } from '../states/event-state'
 import moment from 'moment'
 import { navigationState } from '../states/navigation-state'
 
-
 export const displayMenuEvents = {
   data () {
     return {

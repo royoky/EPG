@@ -4,7 +4,7 @@ export const keyboardNavigation = {
   data () {
     return {
       i: 0,
-      j:0,
+      j: 0,
       switchRow: 5,
       isFocused: false
     }
@@ -13,7 +13,7 @@ export const keyboardNavigation = {
     arrowKeysListener (event) {
       console.log(event.keyCode)
       // Navbar
-      if (this.$refs.navbar.isFocused) {   
+      if (this.$refs.navbar.isFocused) {
         this.$refs.navbar.$refs.menuelement[this.j].setfocus()
         console.log(this.$refs.navbar.isFocused)
         switch (event.keyCode) {
