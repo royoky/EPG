@@ -8,6 +8,7 @@
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>"{{ eventState.selectedEvent.description }}</p>
           <DetailButton ref="button"
+            v-bind:class="{ focus: isFocused }"
             v-for="(button, index ) in buttons"
             :key="index"
             :button="button"
@@ -19,8 +20,11 @@
 <script>
 import { eventState } from '../states/event-state'
 import DetailButton from './DetailButton.vue'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
+
 export default {
   name: 'ProgramDetail',
+  mixins: [keyboardNavigation],
   components: {
     DetailButton
   },
@@ -61,6 +65,7 @@ export default {
 </script>
 
 <style lang='less' scoped>
+@import "../assets/style-library.less";
 div#detail {
   width: 100%;
   position:relative;

@@ -13,3 +13,11 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="less">
+@import "../assets/style-library.less";
+
+  .focus {
+    border: 2px @primary-color solid !important;
+  }
+  </style>
