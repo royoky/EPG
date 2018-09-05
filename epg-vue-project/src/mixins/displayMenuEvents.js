@@ -15,6 +15,9 @@ export const displayMenuEvents = {
     toggleCatNavBar () {
       document.querySelector('#catNavBar').classList.toggle('open')
     },
+    toggleChannel () {
+      navigationState.channel = true
+    },
     getEventNow () {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
@@ -36,6 +39,16 @@ export const displayMenuEvents = {
       listOfEvents = listOfEvents.filter(element => element.start_date > this.navigationState.today && element.start_date < aDayLater)
       listOfEvents = listOfEvents.filter(element => new Date(element.start_date * 1000).getHours() <= 23 && new Date(element.start_date * 1000).getHours() >= 20)
       this.navigationState.programList = listOfEvents
+    },
+    getEventByChannel (channelNumber) {
+      let listOfEvents = this.navigationState.programAll
+      let listOfChannels = this.navigationState.channelList
+      const channel = listOfChannels.find(element => element.number === channelNumber)
+      listOfEvents = listOfEvents.filter(element => element.service_id === channel.id)
+      listOfEvents.sort(function (a, b) {
+        return a.start_date - b.start_date
+      })
+      return listOfEvents
     },
     getEventByCat (cat) {
       if (eventState.selectedEvent) {

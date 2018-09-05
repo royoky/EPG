@@ -30,6 +30,8 @@ export default {
     navigationState.programAll = await events.json()
     const categories = await fetch('data/GenericCategories.json')
     navigationState.categoryList = await categories.json()
+    const channels = await fetch('data/GenericServices.json')
+    navigationState.channelList = await channels.json()
     // this.$refs.navbar.setfocus()
     // console.log(this.$refs.navbar.$refs)
     // this.$refs.navbar.$refs.menuelement['0'].setfocus()

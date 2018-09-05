@@ -13,6 +13,15 @@
         <li @click="getEventByCat(90 )">documentaire</li>
         <li @click="getEventByCat(40)">sport</li>
       </ul>
+      <ul>
+        <li v-if="navigationState.channel"
+          v-for="(channel, index ) in navigationState.channelList"
+          :key="index"
+          :channel="channel"
+          @click="getEventByChannel(channel.number)">
+          {{channel.name}}
+        <li/>
+      </ul>
     </nav>
 </template>
 
@@ -20,6 +29,7 @@
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
 import MenuElement from './MenuElement.vue'
 import { displayMenuEvents } from '../mixins/displayMenuEvents'
+import { navigationState } from '../states/navigation-state'
 
 export default {
   name: 'navigationBar',
@@ -29,7 +39,8 @@ export default {
   },
   data () {
     return {
-      categories: null
+      categories: null,
+      navigationState
     }
   },
   async created () {
