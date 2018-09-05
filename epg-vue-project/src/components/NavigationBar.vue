@@ -41,6 +41,7 @@ export default {
     }
   },
   mounted () {
+    this.setfocus()
     this.getEventNow()
   }
 }
