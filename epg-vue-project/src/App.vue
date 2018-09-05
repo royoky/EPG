@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="loaded">
     <navigation-bar ref="navbar"/>
     <grid-view ref="grid"/>
   </div>
@@ -10,6 +10,7 @@ import NavigationBar from './components/NavigationBar.vue'
 import GridView from './components/GridView.vue'
 import { eventState } from './states/event-state'
 import { keyboardNavigation } from './mixins/keyboard-navigation'
+import { navigationState } from './states/navigation-state'
 
 export default {
   name: 'app',
@@ -20,14 +21,20 @@ export default {
   },
   data () {
     return {
-      eventState
+      eventState,
+      loaded: false
     }
   },
-  mounted () {
+  async mounted () {
+    const events = await fetch('data/GenericEvents.json')
+    navigationState.programAll = await events.json()
+    const categories = await fetch('data/GenericCategories.json')
+    navigationState.categoryList = await categories.json()
     // this.$refs.navbar.setfocus()
     // console.log(this.$refs.navbar.$refs)
     // this.$refs.navbar.$refs.menuelement['0'].setfocus()
     document.addEventListener('keydown', this.arrowKeysListener)
+    this.loaded = true
   }
 }
 </script>

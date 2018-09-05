@@ -15,43 +15,38 @@ export const displayMenuEvents = {
     toggleCatNavBar () {
       document.querySelector('#catNavBar').classList.toggle('open')
     },
-    async getEventNow () {
+    getEventNow () {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
       this.toggleCatNavBar()
       document.querySelector('#catNavBar').classList.remove('open')
-      const events = await fetch('data/GenericEvents.json')
-      let listOfEvents = await events.json()
+      let listOfEvents = this.navigationState.programAll
       const endNow = moment(this.navigationState.today, 'X').add(1, 'h').format('X')
       listOfEvents = listOfEvents.filter(element => element.start_date < endNow && element.end_date > this.navigationState.today)
       this.navigationState.programList = listOfEvents
     },
-    async getEventTonight () {
+    getEventTonight () {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.toggleCatNavBar()
       document.querySelector('#catNavBar').classList.remove('open')
-      const events = await fetch('data/GenericEvents.json')
-      let listOfEvents = await events.json()
+      let listOfEvents = this.navigationState.programAll
       const aDayLater = moment(this.navigationState.today, 'X').add(1, 'd').format('X')
       listOfEvents = listOfEvents.filter(element => element.start_date > this.navigationState.today && element.start_date < aDayLater)
       listOfEvents = listOfEvents.filter(element => new Date(element.start_date * 1000).getHours() <= 23 && new Date(element.start_date * 1000).getHours() >= 20)
       this.navigationState.programList = listOfEvents
     },
-    async getEventByCat (cat) {
+    getEventByCat (cat) {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
       this.navigationState.selectedCategory = cat
       try {
-        const categories = await fetch('data/GenericCategories.json')
-        let listOfCategories = await categories.json()
+        let listOfCategories = this.navigationState.categoryList
         listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory)
         listOfCategories = listOfCategories.map(element => element.id)
-        const events = await fetch('data/GenericEvents.json')
-        let listOfEvents = await events.json()
+        let listOfEvents = this.navigationState.programAll
         listOfEvents = listOfCategories.map(element => {
           return listOfEvents.filter(event => event.category_id === element)
         })
