@@ -37,19 +37,16 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "../assets/style-library.less";
-main {
-    flex-grow:1;
-    display: flex;
-    flex-direction: column;
-    height:100vh;
-    // overflow: scroll;
+.row {
+    border: green 3px solid;
     #channelName {
-      width: 20px;
+      width: 5%;
       display: inline-block;
     }
   .grid {
-    padding-top: 15px;
-    padding-bottom: 100px;
+    width: 95%;
+    display: inline-block;
+    padding: 10px 0 10px 0;
     background-color: @secondary-color;
     // display: grid;
     // grid-template-columns: 300px 300px 300px 300px 300px;

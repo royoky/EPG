@@ -1,5 +1,5 @@
 <template>
-    <main v-if="navigationState.programList !=null">
+    <main v-if="navigationState.programList !=null" id="channelView">
         <ChannelRow class="row"
           v-for="(channel, index ) in navigationState.channelList"
           :key="index"
@@ -33,3 +33,8 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+  main#channelView {
+    overflow: scroll;
+  }
+</style>
