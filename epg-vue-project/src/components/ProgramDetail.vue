@@ -8,7 +8,6 @@
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>"{{ eventState.selectedEvent.description }}</p>
           <DetailButton ref="button"
-            v-bind:class="{ focus: isFocused }"
             v-for="(button, index ) in buttons"
             :key="index"
             :button="button"
@@ -44,22 +43,22 @@ export default {
       eventState.selectedEvent = null
     },
     // Function to detect the Escape key and close the detail window
-    detectEscapeKey (event) {
-      if (event.keyCode === 27) {
-        this.closeDetail()
-      }
-    }
+    // detectEscapeKey (event) {
+    //   if (event.keyCode === 27) {
+    //     this.closeDetail()
+    //   }
+    // }
   },
   created () {
-    window.addEventListener('keydown', this.detectEscapeKey)
+  //  window.addEventListener('keydown', this.detectEscapeKey)
     this.buttons = [
       { name: 'Record' },
       { name: 'Bookmark' },
       { name: 'Startover' }
     ]
-  },
-  beforeDestroy () {
-    window.removeEventListener('keydown', this.detectEscapeKey)
+  // },
+  // beforeDestroy () {
+  //   window.removeEventListener('keydown', this.detectEscapeKey)
   }
 }
 </script>

@@ -1,5 +1,5 @@
 <template>
-    <button>{{ button.name }}</button>
+    <button v-bind:class="{ focus: isFocused }" >{{ button.name }}</button>
 </template>
 
 <script>

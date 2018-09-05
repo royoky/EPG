@@ -1,6 +1,6 @@
 <template>
     <main v-if="navigationState.programList !=null">
-        <ProgramDetail v-if="eventState.selectedEvent"/>
+        <ProgramDetail ref="detail" v-if="eventState.selectedEvent"/>
         <div id='grid'>
           <Card ref="card"
             v-for="(event, index ) in navigationState.programList"

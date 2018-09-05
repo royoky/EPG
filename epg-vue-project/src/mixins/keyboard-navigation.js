@@ -9,6 +9,7 @@ export const keyboardNavigation = {
     return {
       i: 0,
       j: 0,
+      k: 0,
       switchRow: 5,
       isFocused: false,
       focusedComponent: 'navbar',
@@ -18,18 +19,19 @@ export const keyboardNavigation = {
   methods: {
     arrowKeysListener (event) {
       console.log(event.keyCode)
+      console.log(this.focusedComponent)
       // Navbar
       if (this.focusedComponent === 'navbar') {
         this.$refs.navbar.$refs.menuelement[this.j].setfocus()
         switch (event.keyCode) {
           case 13: // Enter Key
-            const navbarPromise = new Promise((resolve, reject) =>  {
+            const navbarToGrid = new Promise((resolve, reject) =>  {
               resolve(
                 this.runAction(this.$refs.navbar.$refs.menuelement[this.j].category.action),
                 this.$refs.navbar.$refs.menuelement[this.j].unsetfocus()
               )
             })
-            navbarPromise
+            navbarToGrid
             .then (result => {
               this.$refs.grid.$refs.card[this.i].setfocus()
               this.focusedComponent = 'grid'
@@ -96,8 +98,60 @@ export const keyboardNavigation = {
             this.$refs.navbar.$refs.menuelement[this.j].setfocus()
             break
           case 13: // Enter Key
-            this.event = this.$refs.grid.$refs.card[this.i].event
-            this.displayDetail()
+            const gridToDetail = new Promise((resolve, reject) =>  {
+              resolve(
+                this.event = this.$refs.grid.$refs.card[this.i].event,
+                this.displayDetail(),
+                this.$refs.grid.$refs.card[this.i].unsetfocus()
+              )
+            })
+            gridToDetail
+            .then (result => {
+              this.$refs.grid.$refs.detail.$refs.button[this.k].setfocus()
+              this.focusedComponent = 'programDetail'
+                })
+            .catch(error => {
+                console.error(error);
+            })
+            break
+        }
+      }
+        // Program Detail
+      if (this.focusedComponent === 'programDetail') {
+        console.log('full', this.$refs.grid.$refs.detail.$refs.button)
+        switch (event.keyCode) {
+          case 39: // Right key
+            if (this.k < this.$refs.grid.$refs.detail.$refs.button.length - 1) {
+              this.$refs.button[this.k].unsetfocus()
+              this.$refs.button[this.k + 1].setfocus()
+              this.k++
+              break
+            }
+            break
+          case 37: // Left key
+            if (this.k !== 0) {
+              this.$refs.grid.$refs.detail.$refs.button[this.k].unsetfocus()
+              this.$refs.grid.$refs.detail.$refs.button[this.k - 1].setfocus()
+              this.k--
+              break
+            }
+            break
+          case 27: // Escape Key
+            const detailToGrid = new Promise((resolve, reject) =>  {
+              resolve(
+                this.$refs.grid.$refs.detail.$refs.button[this.k].unsetfocus(),
+                this.k = 0
+//                this.closeDetail()
+              )
+            })
+            detailToGrid
+            .then (result => {
+              this.$refs.grid.$refs.card[this.i].setfocus()
+              this.focusedComponent = 'grid'
+                })
+            .catch(error => {
+                console.error(error);
+            })
             break
         }
       }
@@ -112,7 +166,7 @@ export const keyboardNavigation = {
       this[action]()
     },
     displayDetail () {
-      this.eventState.selectedEvent = this.event
+      this.focusedComponent = 'programDetail'
     }
   }
 }
