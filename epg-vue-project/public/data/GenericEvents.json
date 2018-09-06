@@ -170,7 +170,7 @@
 	{
 		"id":70692949,
 		"name":"Histoires courtes",
-		"description":"Au sommaire :\\n- Cette obscure tentation\\nUn court métrage français réalisé par Renaud Ducoing en 2011. Avec Anne Aor (la mère de Mathilde), Jean-Louis Foulquier (le père de Mathilde), Bruno Henry (François Amable), Hélène Vivies (Mathilde). Une jeune femme paraplégique sombre dans un masochisme morbide : elle s'imagine être la descendante d'un personnage particulièrement raciste.\\n- 7e ciel\\nUn court métrage français réalisé par Guillaume Foirest en 2013. Avec Ralph Assoumou, Djena Tsimba, Rédouane Behache, Baya Belal. Un jeune homosexuel des cités cache son orientation sexuelle derrière une violente homophobie de façade, qui l'invisibilise aux yeux de ses camarades.",
+		"description":"Au sommaire :\n- Cette obscure tentation\nUn court métrage français réalisé par Renaud Ducoing en 2011. Avec Anne Aor (la mère de Mathilde), Jean-Louis Foulquier (le père de Mathilde), Bruno Henry (François Amable), Hélène Vivies (Mathilde). Une jeune femme paraplégique sombre dans un masochisme morbide : elle s'imagine être la descendante d'un personnage particulièrement raciste.\n- 7e ciel\nUn court métrage français réalisé par Guillaume Foirest en 2013. Avec Ralph Assoumou, Djena Tsimba, Rédouane Behache, Baya Belal. Un jeune homosexuel des cités cache son orientation sexuelle derrière une violente homophobie de façade, qui l'invisibilise aux yeux de ses camarades.",
 		"start_date":1385334600,
 		"end_date":1385338500,
 		"image":"thumbnail/IPTV_E70692949.jpg",
@@ -842,7 +842,7 @@
 	{
 		"id":70668370,
 		"name":"Première édition",
-		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\\n- Politique première\\n- Les sports\\n- L'économie\\n- Le showbiz\\n- La météo",
+		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\n- Politique première\n- Les sports\n- L'économie\n- Le showbiz\n- La météo",
 		"start_date":1385355600,
 		"end_date":1385364900,
 		"image":"thumbnail/IPTV_C70668370.jpg",
@@ -1022,7 +1022,7 @@
 	{
 		"id":70691117,
 		"name":"TFou",
-		"description":"Au sommaire :\\n- Barbapapa\\n- Octonauts\\n- Franklin\\n- Maya l'Abeille\\n- Dora l'exploratrice\\n- Le Livre de la jungle",
+		"description":"Au sommaire :\n- Barbapapa\n- Octonauts\n- Franklin\n- Maya l'Abeille\n- Dora l'exploratrice\n- Le Livre de la jungle",
 		"start_date":1385358300,
 		"end_date":1385364300,
 		"image":"thumbnail/403",
@@ -2054,7 +2054,7 @@
 	{
 		"id":70668373,
 		"name":"Midi-15h",
-		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\\n- Météo\\n- La chronique économique\\n- L'actualité culturelle\\n- Culture Geek",
+		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\n- Météo\n- La chronique économique\n- L'actualité culturelle\n- Culture Geek",
 		"start_date":1385377200,
 		"end_date":1385388000,
 		"image":"thumbnail/IPTV_C70668373.jpg",
@@ -3014,7 +3014,7 @@
 	{
 		"id":32947291,
 		"name":"In ze boîte",
-		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\\n- 1ère manche : Ze challenge des familles\\n- 2e manche : Ze quiz des familles\\n- 3e manche : Ze challenge des zenfants\\n- Demi-finale : Ze quiz des enfants\\n- Ze finale : A l'assaut de la boîte noire !",
+		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\n- 1ère manche : Ze challenge des familles\n- 2e manche : Ze quiz des familles\n- 3e manche : Ze challenge des zenfants\n- Demi-finale : Ze quiz des enfants\n- Ze finale : A l'assaut de la boîte noire !",
 		"start_date":1385402400,
 		"end_date":1385404500,
 		"image":"thumbnail/950",
@@ -3170,7 +3170,7 @@
 	{
 		"id":70668377,
 		"name":"Le 20h",
-		"description":"Au sommaire :\\n- L'actualité nationale et internationale\\n- 20h politique\\n- L'économie\\n- Météo\\n- L'actualité sportive",
+		"description":"Au sommaire :\n- L'actualité nationale et internationale\n- 20h politique\n- L'économie\n- Météo\n- L'actualité sportive",
 		"start_date":1385406000,
 		"end_date":1385409600,
 		"image":"thumbnail/IPTV_C70668377.jpg",
@@ -3482,7 +3482,7 @@
 	{
 		"id":70668378,
 		"name":"Info 360",
-		"description":"Tous les faits marquants de la journée. Au sommaire :\\n- L'actualité nationale et internationale\\n- Direct de Gauche, direct de Droite\\n- L'économie\\n- L'actualité sportive\\n- La bourse",
+		"description":"Tous les faits marquants de la journée. Au sommaire :\n- L'actualité nationale et internationale\n- Direct de Gauche, direct de Droite\n- L'économie\n- L'actualité sportive\n- La bourse",
 		"start_date":1385409600,
 		"end_date":1385415000,
 		"image":"thumbnail/IPTV_C70668378.jpg",
@@ -4382,7 +4382,7 @@
 	{
 		"id":70668382,
 		"name":"Première édition",
-		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\\n- Politique première\\n- Les sports\\n- L'économie\\n- Le showbiz\\n- La météo",
+		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\n- Politique première\n- Les sports\n- L'économie\n- Le showbiz\n- La météo",
 		"start_date":1385442000,
 		"end_date":1385451300,
 		"image":"thumbnail/IPTV_C70668382.jpg",
@@ -4562,7 +4562,7 @@
 	{
 		"id":70691336,
 		"name":"TFou",
-		"description":"Au sommaire :\\n- Barbapapa\\n- Octonauts\\n- Franklin\\n- Maya l'Abeille\\n- Dora l'exploratrice\\n- Le Livre de la jungle",
+		"description":"Au sommaire :\n- Barbapapa\n- Octonauts\n- Franklin\n- Maya l'Abeille\n- Dora l'exploratrice\n- Le Livre de la jungle",
 		"start_date":1385444700,
 		"end_date":1385450700,
 		"image":"thumbnail/403",
@@ -5618,7 +5618,7 @@
 	{
 		"id":70668385,
 		"name":"Midi-15h",
-		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\\n- Météo\\n- La chronique économique\\n- L'actualité culturelle\\n- Culture Geek",
+		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\n- Météo\n- La chronique économique\n- L'actualité culturelle\n- Culture Geek",
 		"start_date":1385463600,
 		"end_date":1385474400,
 		"image":"thumbnail/IPTV_C70668385.jpg",
@@ -6602,7 +6602,7 @@
 	{
 		"id":32947291,
 		"name":"In ze boîte",
-		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\\n- 1ère manche : Ze challenge des familles\\n- 2e manche : Ze quiz des familles\\n- 3e manche : Ze challenge des zenfants\\n- Demi-finale : Ze quiz des enfants\\n- Ze finale : A l'assaut de la boîte noire !",
+		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\n- 1ère manche : Ze challenge des familles\n- 2e manche : Ze quiz des familles\n- 3e manche : Ze challenge des zenfants\n- Demi-finale : Ze quiz des enfants\n- Ze finale : A l'assaut de la boîte noire !",
 		"start_date":1385488800,
 		"end_date":1385490900,
 		"image":"thumbnail/950",
@@ -6758,7 +6758,7 @@
 	{
 		"id":70668389,
 		"name":"Le 20h",
-		"description":"Au sommaire :\\n- L'actualité nationale et internationale\\n- 20h politique\\n- L'économie\\n- Météo\\n- L'actualité sportive",
+		"description":"Au sommaire :\n- L'actualité nationale et internationale\n- 20h politique\n- L'économie\n- Météo\n- L'actualité sportive",
 		"start_date":1385492400,
 		"end_date":1385496000,
 		"image":"thumbnail/IPTV_C70668389.jpg",
@@ -6962,7 +6962,7 @@
 	{
 		"id":70672441,
 		"name":"OFF ! Secrets et coulisses",
-		"description":"Au sommaire :\\n- Secrets des experts de la gendarmerie\\nPendant longtemps, les aveux étaient considérés comme centraux dans la résolution d'une affaire criminelle. Aujourd'hui, la preuve matérielle est devenue la reine des preuves. La découvrir est le métier des services scientifiques de la gendarmerie.\\n- Secrets du Palais de Justice de Paris\\nLieu d'histoire en plein coeur de la capitale, le Palais de Justice de Paris abrite plus que des salles d'audiences. On y trouve des ateliers, une gendarmerie, des cuisines, une caserne de pompiers et un couvent. Visite guidée de cet endroit surprenant.",
+		"description":"Au sommaire :\n- Secrets des experts de la gendarmerie\nPendant longtemps, les aveux étaient considérés comme centraux dans la résolution d'une affaire criminelle. Aujourd'hui, la preuve matérielle est devenue la reine des preuves. La découvrir est le métier des services scientifiques de la gendarmerie.\n- Secrets du Palais de Justice de Paris\nLieu d'histoire en plein coeur de la capitale, le Palais de Justice de Paris abrite plus que des salles d'audiences. On y trouve des ateliers, une gendarmerie, des cuisines, une caserne de pompiers et un couvent. Visite guidée de cet endroit surprenant.",
 		"start_date":1385495100,
 		"end_date":1385500500,
 		"image":"thumbnail/IPTV_E70672441.jpg",
@@ -7058,7 +7058,7 @@
 	{
 		"id":70668390,
 		"name":"Info 360",
-		"description":"Tous les faits marquants de la journée. Au sommaire :\\n- L'actualité nationale et internationale\\n- Direct de Gauche, direct de Droite\\n- L'économie\\n- L'actualité sportive\\n- La bourse",
+		"description":"Tous les faits marquants de la journée. Au sommaire :\n- L'actualité nationale et internationale\n- Direct de Gauche, direct de Droite\n- L'économie\n- L'actualité sportive\n- La bourse",
 		"start_date":1385496000,
 		"end_date":1385501400,
 		"image":"thumbnail/IPTV_C70668390.jpg",
@@ -7118,7 +7118,7 @@
 	{
 		"id":70459950,
 		"name":"OFF ! Secrets et coulisses",
-		"description":"Au sommaire :\\n- Dans les coulisses du championnat de cheerleading\\nDijon accueille les championnats de France de cheerleading, une discipline qui mêle danse, acrobatie et gymnastique au sol. Deux équipes, celle de Dijon et celle de Charenton-le-Pont, sont plus particulièrement suivies par les caméras de l'émission.\\n- Dans les coulisses des Olympiades des métiers\\nPrès de mille jeunes de moins de 23 ans, venus de plus de 50 pays, ont participé aux 42es Olympiades des métiers, organisées à Leipzig. L'équipe de France était constituée de 46 jeunes, coiffeurs, pâtissiers ou plâtriers, représentant l'élite de l'artisanat national.",
+		"description":"Au sommaire :\n- Dans les coulisses du championnat de cheerleading\nDijon accueille les championnats de France de cheerleading, une discipline qui mêle danse, acrobatie et gymnastique au sol. Deux équipes, celle de Dijon et celle de Charenton-le-Pont, sont plus particulièrement suivies par les caméras de l'émission.\n- Dans les coulisses des Olympiades des métiers\nPrès de mille jeunes de moins de 23 ans, venus de plus de 50 pays, ont participé aux 42es Olympiades des métiers, organisées à Leipzig. L'équipe de France était constituée de 46 jeunes, coiffeurs, pâtissiers ou plâtriers, représentant l'élite de l'artisanat national.",
 		"start_date":1385500500,
 		"end_date":1385505900,
 		"image":"thumbnail/IPTV_E70459950.jpg",
@@ -7922,7 +7922,7 @@
 	{
 		"id":70668394,
 		"name":"Première édition",
-		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\\n- Politique première\\n- Les sports\\n- L'économie\\n- Le showbiz\\n- La météo",
+		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\n- Politique première\n- Les sports\n- L'économie\n- Le showbiz\n- La météo",
 		"start_date":1385528400,
 		"end_date":1385537700,
 		"image":"thumbnail/IPTV_C70668394.jpg",
@@ -8126,7 +8126,7 @@
 	{
 		"id":70691414,
 		"name":"TFou",
-		"description":"Au sommaire :\\n- Chuggington\\n- Mike le chevalier\\n- Le Livre de la jungle\\n- Les Minijusticiers\\n- Totally Spies\\n- Le Ranch\\n- Zig et Sharko",
+		"description":"Au sommaire :\n- Chuggington\n- Mike le chevalier\n- Le Livre de la jungle\n- Les Minijusticiers\n- Totally Spies\n- Le Ranch\n- Zig et Sharko",
 		"start_date":1385531100,
 		"end_date":1385547000,
 		"image":"thumbnail/403",
@@ -9038,7 +9038,7 @@
 	{
 		"id":70668397,
 		"name":"Midi-15h",
-		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\\n- Météo\\n- La chronique économique\\n- L'actualité culturelle\\n- Culture Geek",
+		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\n- Météo\n- La chronique économique\n- L'actualité culturelle\n- Culture Geek",
 		"start_date":1385550000,
 		"end_date":1385560800,
 		"image":"thumbnail/IPTV_C70668397.jpg",
@@ -10022,7 +10022,7 @@
 	{
 		"id":32947291,
 		"name":"In ze boîte",
-		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\\n- 1ère manche : Ze challenge des familles\\n- 2e manche : Ze quiz des familles\\n- 3e manche : Ze challenge des zenfants\\n- Demi-finale : Ze quiz des enfants\\n- Ze finale : A l'assaut de la boîte noire !",
+		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\n- 1ère manche : Ze challenge des familles\n- 2e manche : Ze quiz des familles\n- 3e manche : Ze challenge des zenfants\n- Demi-finale : Ze quiz des enfants\n- Ze finale : A l'assaut de la boîte noire !",
 		"start_date":1385575200,
 		"end_date":1385577300,
 		"image":"thumbnail/950",
@@ -10166,7 +10166,7 @@
 	{
 		"id":70668401,
 		"name":"Le 20h",
-		"description":"Au sommaire :\\n- L'actualité nationale et internationale\\n- 20h politique\\n- L'économie\\n- Météo\\n- L'actualité sportive",
+		"description":"Au sommaire :\n- L'actualité nationale et internationale\n- 20h politique\n- L'économie\n- Météo\n- L'actualité sportive",
 		"start_date":1385578800,
 		"end_date":1385582400,
 		"image":"thumbnail/IPTV_C70668401.jpg",
@@ -10490,7 +10490,7 @@
 	{
 		"id":70668402,
 		"name":"Info 360",
-		"description":"Tous les faits marquants de la journée. Au sommaire :\\n- L'actualité nationale et internationale\\n- Direct de Gauche, direct de Droite\\n- L'économie\\n- L'actualité sportive\\n- La bourse",
+		"description":"Tous les faits marquants de la journée. Au sommaire :\n- L'actualité nationale et internationale\n- Direct de Gauche, direct de Droite\n- L'économie\n- L'actualité sportive\n- La bourse",
 		"start_date":1385582400,
 		"end_date":1385587800,
 		"image":"thumbnail/IPTV_C70668402.jpg",
@@ -10742,7 +10742,7 @@
 	{
 		"id":70259738,
 		"name":"En quête d'actualité",
-		"description":"Au sommaire :\\n- Louer son canapé, ça peut rapporter gros : enquête sur le système Airbnb\\nLouer son appartement, sa chambre, ou même un simple canapé pour une nuit à de parfaits inconnus : une nouvelle façon de se faire de l'argent facilement, qui est en train de se répandre dans le monde entier.\\n- Le boom des peintures nouvelles générations\\nDécouverte d'une nouvelle génération de peinture, capable de tenir sur toutes les surfaces et qui sèche rapidement.\\n- Les pionniers du Cambodge\\nRencontre avec des Français qui investissent dans des infrastructures touristiques au Cambodge.\\n- Essence à bas prix : quand mes poubelles remplacent le pétrole\\nDe Lille à Stockholm, de Berlin à Rome, le biogaz, fabriqué avec des déchets ménagers, permet de faire rouler des automobiles.",
+		"description":"Au sommaire :\n- Louer son canapé, ça peut rapporter gros : enquête sur le système Airbnb\nLouer son appartement, sa chambre, ou même un simple canapé pour une nuit à de parfaits inconnus : une nouvelle façon de se faire de l'argent facilement, qui est en train de se répandre dans le monde entier.\n- Le boom des peintures nouvelles générations\nDécouverte d'une nouvelle génération de peinture, capable de tenir sur toutes les surfaces et qui sèche rapidement.\n- Les pionniers du Cambodge\nRencontre avec des Français qui investissent dans des infrastructures touristiques au Cambodge.\n- Essence à bas prix : quand mes poubelles remplacent le pétrole\nDe Lille à Stockholm, de Berlin à Rome, le biogaz, fabriqué avec des déchets ménagers, permet de faire rouler des automobiles.",
 		"start_date":1385593500,
 		"end_date":1385600400,
 		"image":"thumbnail/IPTV_C70259738.jpg",
@@ -10910,7 +10910,7 @@
 	{
 		"id":69787827,
 		"name":"Football",
-		"description":"Paris-SG (Fra) / Olympiakos (Grè)\\n\\n        Tenus en échec lors de la précédente journée par les Belges d'Anderlecht (1-1), les Parisiens de Laurent Blanc ont raté une belle occasion de valider leur billet pour les 8es de finale de la Ligue des champions. La qualification reste toutefois à portée de main pour Javier Pastore et les siens, qui accueillent au Parc des Princes, lors de cette avant-dernère journée, les Grecs de l'Olympiakos. Lors du match aller, qui s'est disputé le 17 septembre dernier, le PSG s'était largement imposé sur la pelouse de ses adversaires (1-4), avec notamment un doublé de Thiago Motta. Prochain rendez-vous, le 10 décembre prochain à Lisbonne.",
+		"description":"Paris-SG (Fra) / Olympiakos (Grè)\n\n        Tenus en échec lors de la précédente journée par les Belges d'Anderlecht (1-1), les Parisiens de Laurent Blanc ont raté une belle occasion de valider leur billet pour les 8es de finale de la Ligue des champions. La qualification reste toutefois à portée de main pour Javier Pastore et les siens, qui accueillent au Parc des Princes, lors de cette avant-dernère journée, les Grecs de l'Olympiakos. Lors du match aller, qui s'est disputé le 17 septembre dernier, le PSG s'était largement imposé sur la pelouse de ses adversaires (1-4), avec notamment un doublé de Thiago Motta. Prochain rendez-vous, le 10 décembre prochain à Lisbonne.",
 		"start_date":1385600400,
 		"end_date":1385607600,
 		"image":"thumbnail/IPTV_E69787827.jpg",
@@ -11414,7 +11414,7 @@
 	{
 		"id":70668406,
 		"name":"Première édition",
-		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\\n- Politique première\\n- Les sports\\n- L'économie\\n- Le showbiz\\n- La météo",
+		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\n- Politique première\n- Les sports\n- L'économie\n- Le showbiz\n- La météo",
 		"start_date":1385614800,
 		"end_date":1385624100,
 		"image":"thumbnail/IPTV_C70668406.jpg",
@@ -11606,7 +11606,7 @@
 	{
 		"id":70691480,
 		"name":"TFou",
-		"description":"Au sommaire :\\n- Barbapapa\\n- Octonauts\\n- Franklin\\n- Maya l'Abeille\\n- Dora l'exploratrice\\n- Le Livre de la jungle",
+		"description":"Au sommaire :\n- Barbapapa\n- Octonauts\n- Franklin\n- Maya l'Abeille\n- Dora l'exploratrice\n- Le Livre de la jungle",
 		"start_date":1385617500,
 		"end_date":1385623500,
 		"image":"thumbnail/403",
@@ -12674,7 +12674,7 @@
 	{
 		"id":70668409,
 		"name":"Midi-15h",
-		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\\n- Météo\\n- La chronique économique\\n- L'actualité culturelle\\n- Culture Geek",
+		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\n- Météo\n- La chronique économique\n- L'actualité culturelle\n- Culture Geek",
 		"start_date":1385636400,
 		"end_date":1385647200,
 		"image":"thumbnail/IPTV_C70668409.jpg",
@@ -13622,7 +13622,7 @@
 	{
 		"id":32947291,
 		"name":"In ze boîte",
-		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\\n- 1ère manche : Ze challenge des familles\\n- 2e manche : Ze quiz des familles\\n- 3e manche : Ze challenge des zenfants\\n- Demi-finale : Ze quiz des enfants\\n- Ze finale : A l'assaut de la boîte noire !",
+		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\n- 1ère manche : Ze challenge des familles\n- 2e manche : Ze quiz des familles\n- 3e manche : Ze challenge des zenfants\n- Demi-finale : Ze quiz des enfants\n- Ze finale : A l'assaut de la boîte noire !",
 		"start_date":1385661600,
 		"end_date":1385663700,
 		"image":"thumbnail/950",
@@ -13778,7 +13778,7 @@
 	{
 		"id":70668413,
 		"name":"Le 20h",
-		"description":"Au sommaire :\\n- L'actualité nationale et internationale\\n- 20h politique\\n- L'économie\\n- Météo\\n- L'actualité sportive",
+		"description":"Au sommaire :\n- L'actualité nationale et internationale\n- 20h politique\n- L'économie\n- Météo\n- L'actualité sportive",
 		"start_date":1385665200,
 		"end_date":1385668800,
 		"image":"thumbnail/IPTV_C70668413.jpg",
@@ -14066,7 +14066,7 @@
 	{
 		"id":70668414,
 		"name":"Info 360",
-		"description":"Tous les faits marquants de la journée. Au sommaire :\\n- L'actualité nationale et internationale\\n- Direct de Gauche, direct de Droite\\n- L'économie\\n- L'actualité sportive\\n- La bourse",
+		"description":"Tous les faits marquants de la journée. Au sommaire :\n- L'actualité nationale et internationale\n- Direct de Gauche, direct de Droite\n- L'économie\n- L'actualité sportive\n- La bourse",
 		"start_date":1385668800,
 		"end_date":1385674200,
 		"image":"thumbnail/IPTV_C70668414.jpg",
@@ -14270,7 +14270,7 @@
 	{
 		"id":69999919,
 		"name":"On n'est pas des pigeons",
-		"description":"Entourée de ses chroniqueurs, Claire Barsacq passe une batterie de produits et de services à l'épreuve du test. Son objectif : débusquer les arnaques, déchiffrer les techniques marketing et repérer les bons et les mauvais produits, tout en décodant les nouvelles tendances. Au sommaire :\\n- La voyance en ligne est-elle une arnaque ?\\n- Combien ça coûte de mourir ?\\n- Peut-on échapper à l'Ip-Tracking ?\\n- Faut-il éviter de manger du pain de mie ?\\n- Télé, l'envers du décor\\n- Les jardins partagés\\n- Les labels sont-ils fiables ?\\n- L'emmerdeur public n°1\\n- On refait la pub\\n- On s'est fait pigeonner",
+		"description":"Entourée de ses chroniqueurs, Claire Barsacq passe une batterie de produits et de services à l'épreuve du test. Son objectif : débusquer les arnaques, déchiffrer les techniques marketing et repérer les bons et les mauvais produits, tout en décodant les nouvelles tendances. Au sommaire :\n- La voyance en ligne est-elle une arnaque ?\n- Combien ça coûte de mourir ?\n- Peut-on échapper à l'Ip-Tracking ?\n- Faut-il éviter de manger du pain de mie ?\n- Télé, l'envers du décor\n- Les jardins partagés\n- Les labels sont-ils fiables ?\n- L'emmerdeur public n°1\n- On refait la pub\n- On s'est fait pigeonner",
 		"start_date":1385677800,
 		"end_date":1385683200,
 		"image":"thumbnail/IPTV_E69999919.jpg",
@@ -14570,7 +14570,7 @@
 	{
 		"id":70675624,
 		"name":"Reportages",
-		"description":"Au sommaire :\\n- On m'a volé mon nom\\nVols de papiers, détournement de comptes bancaires ou de profils Internet, l'usurpation d'identité est un phénomène de plus en plus fréquent : 400 000 personnes en sont victimes en France. C'est ce qui est arrivé à Jean-Georges, Mohamed et Nadège, qui racontent leur calvaire.\\n- Les aventuriers du cacao\\nLes Français mangent en moyenne sept kilos de chocolat par an. Mais pour faire un bon chocolat, il faut avant tout de bonnes fèves de cacao. Une poignée de chocolatiers aventuriers les traquent sur tous les continents, en Amérique du Sud, en Afrique mais aussi en Asie.",
+		"description":"Au sommaire :\n- On m'a volé mon nom\nVols de papiers, détournement de comptes bancaires ou de profils Internet, l'usurpation d'identité est un phénomène de plus en plus fréquent : 400 000 personnes en sont victimes en France. C'est ce qui est arrivé à Jean-Georges, Mohamed et Nadège, qui racontent leur calvaire.\n- Les aventuriers du cacao\nLes Français mangent en moyenne sept kilos de chocolat par an. Mais pour faire un bon chocolat, il faut avant tout de bonnes fèves de cacao. Une poignée de chocolatiers aventuriers les traquent sur tous les continents, en Amérique du Sud, en Afrique mais aussi en Asie.",
 		"start_date":1385689200,
 		"end_date":1385695800,
 		"image":"thumbnail/IPTV_C70675624.jpg",
@@ -14942,7 +14942,7 @@
 	{
 		"id":70668418,
 		"name":"Première édition",
-		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\\n- Politique première\\n- Les sports\\n- L'économie\\n- Le showbiz\\n- La météo",
+		"description":"Tout voir, tout savoir avant d'aller travailler. Au sommaire :\n- Politique première\n- Les sports\n- L'économie\n- Le showbiz\n- La météo",
 		"start_date":1385701200,
 		"end_date":1385710500,
 		"image":"thumbnail/IPTV_C70668418.jpg",
@@ -15134,7 +15134,7 @@
 	{
 		"id":70691486,
 		"name":"TFou",
-		"description":"Au sommaire :\\n- Barbapapa\\n- Octonauts\\n- Franklin\\n- Maya l'Abeille\\n- Dora l'exploratrice\\n- Le Livre de la jungle",
+		"description":"Au sommaire :\n- Barbapapa\n- Octonauts\n- Franklin\n- Maya l'Abeille\n- Dora l'exploratrice\n- Le Livre de la jungle",
 		"start_date":1385703900,
 		"end_date":1385709900,
 		"image":"thumbnail/403",
@@ -16214,7 +16214,7 @@
 	{
 		"id":70668421,
 		"name":"Midi-15h",
-		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\\n- Météo\\n- La chronique économique\\n- L'actualité culturelle\\n- Culture Geek",
+		"description":"Le cocktail d'infos de la mi-journée. Au sommaire :\n- Météo\n- La chronique économique\n- L'actualité culturelle\n- Culture Geek",
 		"start_date":1385722800,
 		"end_date":1385733600,
 		"image":"thumbnail/IPTV_C70668421.jpg",
@@ -17174,7 +17174,7 @@
 	{
 		"id":32947291,
 		"name":"In ze boîte",
-		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\\n- 1ère manche : Ze challenge des familles\\n- 2e manche : Ze quiz des familles\\n- 3e manche : Ze challenge des zenfants\\n- Demi-finale : Ze quiz des enfants\\n- Ze finale : A l'assaut de la boîte noire !",
+		"description":"Joan Faggianelli a pour mission de «mettre en boîte» les candidats venus s'affronter sur son plateau. Deux équipes, composées chacune d'un adulte et de deux enfants, se défient au cours de challenges et de quiz chronométrés. Au sommaire :\n- 1ère manche : Ze challenge des familles\n- 2e manche : Ze quiz des familles\n- 3e manche : Ze challenge des zenfants\n- Demi-finale : Ze quiz des enfants\n- Ze finale : A l'assaut de la boîte noire !",
 		"start_date":1385748000,
 		"end_date":1385750100,
 		"image":"thumbnail/950",
@@ -17330,7 +17330,7 @@
 	{
 		"id":70668425,
 		"name":"Le 20h",
-		"description":"Au sommaire :\\n- L'actualité nationale et internationale\\n- 20h politique\\n- L'économie\\n- Météo\\n- L'actualité sportive",
+		"description":"Au sommaire :\n- L'actualité nationale et internationale\n- 20h politique\n- L'économie\n- Météo\n- L'actualité sportive",
 		"start_date":1385751600,
 		"end_date":1385755200,
 		"image":"thumbnail/IPTV_C70668425.jpg",
@@ -17654,7 +17654,7 @@
 	{
 		"id":70668426,
 		"name":"Info 360",
-		"description":"Tous les faits marquants de la journée. Au sommaire :\\n- L'actualité nationale et internationale\\n- Direct de Gauche, direct de Droite\\n- L'économie\\n- L'actualité sportive\\n- La bourse",
+		"description":"Tous les faits marquants de la journée. Au sommaire :\n- L'actualité nationale et internationale\n- Direct de Gauche, direct de Droite\n- L'économie\n- L'actualité sportive\n- La bourse",
 		"start_date":1385755200,
 		"end_date":1385760600,
 		"image":"thumbnail/IPTV_C70668426.jpg",
@@ -17774,7 +17774,7 @@
 	{
 		"id":42643825,
 		"name":"Enquête très spéciale",
-		"description":"Chaque semaine dans «Enquête très spéciale», découverte des tendances érotiques dans différents pays et présentation de news libertines. Au programme également, des interviews de stars du X, qui se confient sur les tournages et sur leur expérience. Sans tabous et sans faux-semblants, les intervenants s'expriment en toute liberté. Au sommaire :\\n- Coquine Ludivine (Webcam libertin)\\n- Le cinéma de Nephael : «Endiablé»\\n- Club libertin : Folsom Street Fair\\n- Interview de Greg Lansky\\n- Strip Girl 5",
+		"description":"Chaque semaine dans «Enquête très spéciale», découverte des tendances érotiques dans différents pays et présentation de news libertines. Au programme également, des interviews de stars du X, qui se confient sur les tournages et sur leur expérience. Sans tabous et sans faux-semblants, les intervenants s'expriment en toute liberté. Au sommaire :\n- Coquine Ludivine (Webcam libertin)\n- Le cinéma de Nephael : «Endiablé»\n- Club libertin : Folsom Street Fair\n- Interview de Greg Lansky\n- Strip Girl 5",
 		"start_date":1385763300,
 		"end_date":1385764800,
 		"image":"thumbnail/IPTV_E42643825.jpg",
@@ -17810,7 +17810,7 @@
 	{
 		"id":44540330,
 		"name":"Enquête très spéciale",
-		"description":"Chaque semaine dans «Enquête très spéciale», découverte des tendances érotiques dans différents pays et présentation de news libertines. Au programme également, des interviews de stars du X, qui se confient sur les tournages et sur leur expérience. Au sommaire :\\n- Visite du «Club 88» avec Nephael\\n- Le cinéma de Nephael : «Kick-Ass»\\n- Club libertin : Soirée de patrons, Cap d'Agde\\n- Interview : Girlfriends Film (Dana DeArmond), Part 2\\n- Strip Girl 11",
+		"description":"Chaque semaine dans «Enquête très spéciale», découverte des tendances érotiques dans différents pays et présentation de news libertines. Au programme également, des interviews de stars du X, qui se confient sur les tournages et sur leur expérience. Au sommaire :\n- Visite du «Club 88» avec Nephael\n- Le cinéma de Nephael : «Kick-Ass»\n- Club libertin : Soirée de patrons, Cap d'Agde\n- Interview : Girlfriends Film (Dana DeArmond), Part 2\n- Strip Girl 11",
 		"start_date":1385764800,
 		"end_date":1385766300,
 		"image":"thumbnail/IPTV_E44540330.jpg",

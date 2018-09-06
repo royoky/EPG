@@ -2,13 +2,13 @@
     <div id='detail'>
         <span class='close' @click="closeDetail">&times;</span>
         <div id='imgContainer'>
-          <img :src=getUrl() alt="Alt Title" height="300">
+          <img :src=getUrl() :alt=eventState.selectedEvent.name>
         </div>
         <div id='detailsContainer'>
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>{{ eventState.selectedEvent.description }}</p>
           <DetailButton ref="button"
-            v-for="(button, index ) in buttons"
+            v-for="(button, index ) in eventState.selectedEvent.buttons"
             :key="index"
             :button="button"
         />
@@ -47,15 +47,54 @@ export default {
     }
   },
   created () {
-    window.addEventListener('keydown', this.detectEscapeKey)
-    this.buttons = [
-      { name: 'Record' },
-      { name: 'Bookmark' },
-      { name: 'Startover' }
-    ]
+    window.addEventListener('keyup', this.detectEscapeKey)
+    if (eventState.selectedEvent.status > 1) {
+      this.buttons = [
+        { name: 'Recommander' },
+        { name: 'Catch up' }
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status < 0) {
+      this.buttons = [
+        { name: 'Enregistrer' },
+        { name: 'Recommander' }
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
+      this.buttons = [
+        { name: 'Enregistrer' },
+        { name: 'Recommander' },
+        { name: 'Play' },
+        { name: 'Catch up'}
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    }
+  },
+  beforeUpdate () {
+    if (eventState.selectedEvent.status > 1) {
+      this.buttons = [
+        { name: 'Recommander' },
+        { name: 'Catch up' }
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status < 0) {
+      this.buttons = [
+        { name: 'Enregistrer' },
+        { name: 'Recommander' }
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
+      this.buttons = [
+        { name: 'Enregistrer' },
+        { name: 'Recommander' },
+        { name: 'Play' },
+        { name: 'Catch up'}
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    }
   },
   beforeDestroy () {
-    window.removeEventListener('keydown', this.detectEscapeKey)
+    window.removeEventListener('keyup', this.detectEscapeKey)
   }
 }
 </script>
@@ -70,12 +109,16 @@ div#detail {
   flex-shrink: 0;
   color: white;
   height:fit-content;
-  align-items: stretch;
+  align-items: center;
+  white-space: pre-line;
   #detailContainer {
     padding: 20px;
   }
   p {
     padding: 20px;
+  }
+  button {
+    margin: 5px;
   }
   // The Close Button
   .close {
