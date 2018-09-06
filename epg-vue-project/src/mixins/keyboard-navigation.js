@@ -142,15 +142,9 @@ export const keyboardNavigation = {
       }
     },
     setfocus () {
-      if (this && this.$el !== undefined) {
-        if (this.$el !== undefined && this.$el instanceof Element) {
-          console.log('is an element')
-          this.$el.setAttribute('tabindex', '1')
-          this.$el.focus()
-        } else {
-          console.log('not an element')
-          console.log(this)
-        }
+      if (this.$el !== undefined && this.$el instanceof Element) {
+        this.$el.setAttribute('tabindex', '1')
+        this.$el.focus()
       }
     },
     runAction (action) {
