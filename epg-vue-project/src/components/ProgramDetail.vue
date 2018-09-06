@@ -65,7 +65,7 @@ export default {
         { name: 'Enregistrer' },
         { name: 'Recommander' },
         { name: 'Play' },
-        { name: 'Catch up'}
+        { name: 'Catch up' }
       ]
       this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
     }
@@ -88,7 +88,7 @@ export default {
         { name: 'Enregistrer' },
         { name: 'Recommander' },
         { name: 'Play' },
-        { name: 'Catch up'}
+        { name: 'Catch up' }
       ]
       this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
     }
