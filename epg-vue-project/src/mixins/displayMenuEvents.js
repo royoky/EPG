@@ -19,12 +19,10 @@ export const displayMenuEvents = {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.toggleCatNavBar()
       document.querySelector('#catNavBar').classList.remove('open')
       let listOfEvents = this.navigationState.programAll
       const endNow = moment(this.navigationState.today, 'X').add(1, 'h').format('X')
-      listOfEvents = listOfEvents.filter(element => element.start_date < endNow && element.end_date > this.navigationState.today)
-      this.navigationState.programList = listOfEvents
+      this.navigationState.programList = listOfEvents.filter(element => element.start_date < endNow && element.end_date > this.navigationState.today)
     },
     getEventTonight () {
       if (eventState.selectedEvent) {

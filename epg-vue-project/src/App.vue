@@ -26,10 +26,18 @@ export default {
     }
   },
   async mounted () {
-    const events = await fetch('data/GenericEvents.json')
-    navigationState.programAll = await events.json()
-    const categories = await fetch('data/GenericCategories.json')
-    navigationState.categoryList = await categories.json()
+    try {
+      const events = await fetch('data/GenericEvents.json')
+      navigationState.programAll = await events.json()
+    } catch (error) {
+      console.error(error)
+    }
+    try {
+      const categories = await fetch('data/GenericCategories.json')
+      navigationState.categoryList = await categories.json()
+    } catch (error) {
+      console.error(error)
+    }
     // this.$refs.navbar.setfocus()
     // console.log(this.$refs.navbar.$refs)
     // this.$refs.navbar.$refs.menuelement['0'].setfocus()
