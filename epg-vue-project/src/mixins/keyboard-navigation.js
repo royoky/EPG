@@ -57,7 +57,6 @@ export const keyboardNavigation = {
       }
       // Program Grid
       if (this.focusedComponent === 'grid') {
-        console.log(this.$refs.grid.$refs.card[this.i])
         switch (event.keyCode) {
           case 40: // Down key
             this.$refs.grid.$refs.card[this.i + this.switchRow].setfocus()
@@ -84,20 +83,30 @@ export const keyboardNavigation = {
             }
             break
           case 27: // Escape Key
-            this.i = 0
-            this.$refs.navbar.setfocus()
-            this.$refs.navbar.$refs.menuelement[this.j].setfocus()
+            const gridToNavbar = new Promise((resolve, reject) => {
+              resolve(
+                this.$refs.navbar.$refs.menuelement[this.j].setfocus(),
+                this.i = 0
+              )
+            })
+            gridToNavbar
+              .then(result => {
+                this.focusedComponent = 'navbar'
+              })
+              .catch(error => {
+                console.error(error)
+              })
             break
           case 13: // Enter Key
             const gridToDetail = new Promise((resolve, reject) => {
               resolve(
-                this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.i].event
+                this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.i].event,
+                this.focusedComponent = 'programDetail'
               )
             })
             gridToDetail
               .then(result => {
                 this.$refs.grid.$refs.detail.$refs.button[this.k].setfocus()
-                this.focusedComponent = 'programDetail'
               })
               .catch(error => {
                 console.error(error)
@@ -125,8 +134,8 @@ export const keyboardNavigation = {
           case 27: // Escape Key
             const detailToGrid = new Promise((resolve, reject) => {
               resolve(
-                this.k = 0,
-                this.eventState.selectedEvent = null
+                this.eventState.selectedEvent = null,
+                this.k = 0
               )
             })
             detailToGrid
