@@ -26,20 +26,20 @@ export const keyboardNavigation = {
         this.$refs.navbar.$refs.menuelement[this.j].setfocus()
         switch (event.keyCode) {
           case 13: // Enter Key
-            const navbarToGrid = new Promise((resolve, reject) =>  {
+            const navbarToGrid = new Promise((resolve, reject) => {
               resolve(
                 this.runAction(this.$refs.navbar.$refs.menuelement[this.j].category.action),
                 this.$refs.navbar.$refs.menuelement[this.j].unsetfocus()
               )
             })
             navbarToGrid
-            .then (result => {
-              this.$refs.grid.$refs.card[this.i].setfocus()
-              this.focusedComponent = 'grid'
-                })
-            .catch(error => {
-                console.error(error);
-            })
+              .then(result => {
+                this.$refs.grid.$refs.card[this.i].setfocus()
+                this.focusedComponent = 'grid'
+              })
+              .catch(error => {
+                console.error(error)
+              })
             break
           case 39: // Right key
             if (this.j < this.$refs.navbar.$refs.menuelement.length - 1) {
@@ -60,7 +60,7 @@ export const keyboardNavigation = {
         }
       }
       // Program Grid
-      if (this.focusedComponent == 'grid') {
+      if (this.focusedComponent === 'grid') {
         console.log(this.$refs.grid.$refs.card[this.i])
         switch (event.keyCode) {
           case 40: // Down key
@@ -99,25 +99,25 @@ export const keyboardNavigation = {
             this.$refs.navbar.$refs.menuelement[this.j].setfocus()
             break
           case 13: // Enter Key
-            const gridToDetail = new Promise((resolve, reject) =>  {
+            const gridToDetail = new Promise((resolve, reject) => {
               resolve(
                 this.$refs.grid.$refs.card[this.i].unsetfocus(),
                 this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.i].event
               )
             })
             gridToDetail
-            .then (result => {
-              this.$refs.grid.$refs.detail.$refs.button[this.k].setfocus()
-              this.focusedComponent = 'programDetail'
-                })
-            .catch(error => {
-                console.error(error);
-            })
+              .then(result => {
+                this.$refs.grid.$refs.detail.$refs.button[this.k].setfocus()
+                this.focusedComponent = 'programDetail'
+              })
+              .catch(error => {
+                console.error(error)
+              })
             break
         }
       }
-        // Program Detail
-      if (this.focusedComponent == 'programDetail') {
+      // Program Detail
+      if (this.focusedComponent === 'programDetail') {
         switch (event.keyCode) {
           case 39: // Right key
             if (this.k < this.$refs.grid.$refs.detail.$refs.button.length - 1) {
@@ -136,7 +136,7 @@ export const keyboardNavigation = {
             }
             break
           case 27: // Escape Key
-            const detailToGrid = new Promise((resolve, reject) =>  {
+            const detailToGrid = new Promise((resolve, reject) => {
               resolve(
                 this.$refs.grid.$refs.detail.$refs.button[this.k].unsetfocus(),
                 this.k = 0,
@@ -144,13 +144,13 @@ export const keyboardNavigation = {
               )
             })
             detailToGrid
-            .then (result => {
-              this.$refs.grid.$refs.card[this.i].setfocus()
-              this.focusedComponent = 'grid'
-                })
-            .catch(error => {
-                console.error(error);
-            })
+              .then(result => {
+                this.$refs.grid.$refs.card[this.i].setfocus()
+                this.focusedComponent = 'grid'
+              })
+              .catch(error => {
+                console.error(error)
+              })
             break
         }
       }

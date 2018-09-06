@@ -28,13 +28,13 @@ export default {
   async mounted () {
     try {
       const events = await fetch('data/GenericEvents.json')
-      navigationState.programAll = await events.json()
+      this.navigationState.programAll = await events.json()
     } catch (error) {
       console.error(error)
     }
     try {
       const categories = await fetch('data/GenericCategories.json')
-      navigationState.categoryList = await categories.json()
+      this.navigationState.categoryList = await categories.json()
     } catch (error) {
       console.error(error)
     }
