@@ -18,8 +18,9 @@ export default {
 <style scoped lang="less">
 
 div {
-  display: flex;
-  width: 100%;
+  flex-grow: 1;
+  // display: flex;
+  // width: 100%;
   color: white;
   border: 1px grey solid;
   text-align: center;

@@ -5,7 +5,7 @@
         :key="index"
         :category="category"
         />
-      <section v-if="this.navigationState.catNavbar">
+      <section id="submenu" v-if="this.navigationState.catNavbar">
         <MenuElement
           ref="catSubnav"
           v-for="(subcategory, index ) in categories[2].subcategories"
@@ -62,6 +62,15 @@ export default {
   }
 nav {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  nav div {
+    flex-grow: 1;
+  }
+  section#submenu {
+    display: flex;
+    width: 100%;
+  }
 }
 ul {
     list-style-type: none;
