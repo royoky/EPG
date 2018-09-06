@@ -11,6 +11,7 @@ import GridView from './components/GridView.vue'
 import { eventState } from './states/event-state'
 import { keyboardNavigation } from './mixins/keyboard-navigation'
 import { displayMenuEvents } from './mixins/displayMenuEvents'
+import moment from 'moment'
 
 export default {
   name: 'app',
@@ -28,10 +29,17 @@ export default {
   async mounted () {
     try {
       const events = await fetch('data/GenericEvents.json')
+      // const response = await events.json()
       this.navigationState.programAll = await events.json()
     } catch (error) {
       console.error(error)
     }
+    this.navigationState.programAll = this.navigationState.programAll.map(element => Object.assign({
+      endReplay: moment(element.start_date, 'X').add(7, 'd').format('X'),
+      duration: (element.end_date - this.navigationState.today) * 1000,
+      recorded: false,
+      bookmarked: false
+    }, element))
     try {
       const categories = await fetch('data/GenericCategories.json')
       this.navigationState.categoryList = await categories.json()
