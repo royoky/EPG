@@ -1,3 +1,4 @@
+import { navigationState } from '../states/navigation-state'
 // Mixin
 // -----------------------------------------------------------------------------
 export const keyboardNavigation = {
@@ -13,7 +14,7 @@ export const keyboardNavigation = {
       switchRow: 5,
       isFocused: false,
       focusedComponent: 'navbar',
-      eventState: null
+      navigationState
     }
   },
   methods: {
@@ -59,8 +60,8 @@ export const keyboardNavigation = {
         }
       }
       // Program Grid
-      if (this.focusedComponent === 'grid') {
-        console.log(this.$refs.grid.$refs.card.length)
+      if (this.focusedComponent == 'grid') {
+        console.log(this.$refs.grid.$refs.card[this.i])
         switch (event.keyCode) {
           case 40: // Down key
             this.$refs.grid.$refs.card[this.i].unsetfocus()
@@ -100,9 +101,8 @@ export const keyboardNavigation = {
           case 13: // Enter Key
             const gridToDetail = new Promise((resolve, reject) =>  {
               resolve(
-                this.event = this.$refs.grid.$refs.card[this.i].event,
-                this.displayDetail(),
-                this.$refs.grid.$refs.card[this.i].unsetfocus()
+                this.$refs.grid.$refs.card[this.i].unsetfocus(),
+                this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.i].event
               )
             })
             gridToDetail
@@ -117,8 +117,7 @@ export const keyboardNavigation = {
         }
       }
         // Program Detail
-      if (this.focusedComponent === 'programDetail') {
-        console.log('full', this.$refs.grid.$refs.detail.$refs.button)
+      if (this.focusedComponent == 'programDetail') {
         switch (event.keyCode) {
           case 39: // Right key
             if (this.k < this.$refs.grid.$refs.detail.$refs.button.length - 1) {
@@ -140,8 +139,8 @@ export const keyboardNavigation = {
             const detailToGrid = new Promise((resolve, reject) =>  {
               resolve(
                 this.$refs.grid.$refs.detail.$refs.button[this.k].unsetfocus(),
-                this.k = 0
-//                this.closeDetail()
+                this.k = 0,
+                this.eventState.selectedEvent = null
               )
             })
             detailToGrid
@@ -164,9 +163,6 @@ export const keyboardNavigation = {
     },
     runAction (action) {
       this[action]()
-    },
-    displayDetail () {
-      this.focusedComponent = 'programDetail'
     }
   }
 }

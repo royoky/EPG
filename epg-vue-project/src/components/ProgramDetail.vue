@@ -41,24 +41,14 @@ export default {
     },
     closeDetail () {
       eventState.selectedEvent = null
-    },
-    // Function to detect the Escape key and close the detail window
-    // detectEscapeKey (event) {
-    //   if (event.keyCode === 27) {
-    //     this.closeDetail()
-    //   }
-    // }
+    }
   },
   created () {
-  //  window.addEventListener('keydown', this.detectEscapeKey)
     this.buttons = [
       { name: 'Record' },
       { name: 'Bookmark' },
       { name: 'Startover' }
     ]
-  // },
-  // beforeDestroy () {
-  //   window.removeEventListener('keydown', this.detectEscapeKey)
   }
 }
 </script>

@@ -14,14 +14,12 @@ export const displayMenuEvents = {
   },
   methods: {
     toggleCatNavBar () {
-      document.querySelector('#catNavBar').classList.toggle('open')
+      this.navigationState.catNavbar = !this.navigationState.catNavbar
     },
     async getEventNow () {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.toggleCatNavBar()
-      document.querySelector('#catNavBar').classList.remove('open')
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
       const endNow = moment(this.navigationState.today, 'X').add(1, 'h').format('X')
@@ -32,8 +30,6 @@ export const displayMenuEvents = {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.toggleCatNavBar()
-      document.querySelector('#catNavBar').classList.remove('open')
       const events = await fetch('data/GenericEvents.json')
       let listOfEvents = await events.json()
       const aDayLater = moment(this.navigationState.today, 'X').add(1, 'd').format('X')
