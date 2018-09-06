@@ -4,7 +4,7 @@
       <div class="channel">{{ event.service_id }}</div>
       <div class="infos">{{ event.name }}</div>
       <div class="time" v-if="getProgress() > 1"> replay </div>
-      <div class="time" v-if="getProgress() < 0"> {{displayTime()}} </div>
+      <div class="time" v-if="getProgress() < 0"> {{ displayTime() }} </div>
       <ProgressBar v-if="getProgress() > 0 && getProgress() < 1" :progress="getProgress()" :timeLeft="getDuration()" :id="createId()"></ProgressBar>
     </div>
 </template>
@@ -36,7 +36,7 @@ export default {
       return `/data/${this.event.image}`
     },
     displayDetail () {
-      this.eventState.selectedEvent = this.event
+      this.eventState.selectedEvent = Object.assign({status: this.getProgress()}, this.event)
     },
     displayTime () {
       return moment(this.event.start_date, 'X').format('HH:mm')
@@ -65,9 +65,8 @@ div.card{
   height: 167px;
   border: 1px @secondary-color solid;
   display:flex;
-  flex-direction: column;
-  flex-wrap: wrap;
   flex-direction: row;
+  flex-wrap: wrap;
   img {
     max-width: 100%;
     max-height: 100%;
