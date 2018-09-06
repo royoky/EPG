@@ -8,7 +8,7 @@
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>{{ eventState.selectedEvent.description }}</p>
           <DetailButton ref="button"
-            v-for="(button, index ) in buttons"
+            v-for="(button, index ) in eventState.selectedEvent.buttons"
             :key="index"
             :button="button"
         />
@@ -53,42 +53,44 @@ export default {
         { name: 'Recommander' },
         { name: 'Catch up' }
       ]
-    }
-    else if (eventState.selectedEvent.status < 0) {
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status < 0) {
       this.buttons = [
         { name: 'Enregistrer' },
-        { name: 'Recommander' },
+        { name: 'Recommander' }
       ]
-    }
-    else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
       this.buttons = [
         { name: 'Enregistrer' },
         { name: 'Recommander' },
         { name: 'Play' },
         { name: 'Catch up'}
-      ]  
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
     }
   },
-  beforeUpdate() {
+  beforeUpdate () {
     if (eventState.selectedEvent.status > 1) {
       this.buttons = [
         { name: 'Recommander' },
         { name: 'Catch up' }
       ]
-    }
-    else if (eventState.selectedEvent.status < 0) {
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status < 0) {
       this.buttons = [
         { name: 'Enregistrer' },
-        { name: 'Recommander' },
+        { name: 'Recommander' }
       ]
-    }
-    else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
+    } else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
       this.buttons = [
         { name: 'Enregistrer' },
         { name: 'Recommander' },
         { name: 'Play' },
         { name: 'Catch up'}
-      ]  
+      ]
+      this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
     }
   },
   beforeDestroy () {

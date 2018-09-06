@@ -36,7 +36,7 @@ export default {
       return `/data/${this.event.image}`
     },
     displayDetail () {
-      this.eventState.selectedEvent = Object.assign({status: this.getProgress()}, this.event);
+      this.eventState.selectedEvent = Object.assign({status: this.getProgress()}, this.event)
     },
     displayTime () {
       return moment(this.event.start_date, 'X').format('HH:mm')
