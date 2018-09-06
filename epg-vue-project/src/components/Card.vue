@@ -1,11 +1,11 @@
 <template>
-    <div v-if="endReplay() >= navigationState.today" class="card" @click="displayDetail()">
+    <div v-if="event.endReplay >= navigationState.today" class="card" @click="displayDetail()">
       <img :src="getUrl()" :alt="event.name">
       <div class="channel">{{ event.service_id }}</div>
       <div class="infos">{{ event.name }}</div>
       <div class="time" v-if="getProgress() > 1"> replay {{displayTime()}} </div>
       <div class="time" v-if="getProgress() < 0"> {{displayTime()}} </div>
-      <ProgressBar v-if="getProgress() > 0 && getProgress() < 1" :progress="getProgress()" :timeLeft="getDuration()" :id="createId()"></ProgressBar>
+      <ProgressBar v-if="getProgress() > 0 && getProgress() < 1" :progress="getProgress()" :timeLeft="event.duration" :id="createId()"></ProgressBar>
     </div>
 </template>
 
@@ -39,9 +39,6 @@ export default {
     displayDetail () {
       this.eventState.selectedEvent = Object.assign({status: this.getProgress()}, this.event)
     },
-    endReplay () {
-      return moment(this.event.start_date, 'X').add(7, 'd').format('X')
-    },
     displayTime () {
       // return moment(this.event.start_date, 'X').format('HH:mm')
       if (this.getProgress() > 1) {
@@ -53,13 +50,8 @@ export default {
     createId () {
       return `id${this.identifier}`
     },
-    getDuration () {
-      const duration = (this.event.end_date - navigationState.today) * 1000
-      return duration
-    },
     getProgress () {
-      const progress = (navigationState.today - this.event.start_date) / (this.event.end_date - this.event.start_date)
-      return progress
+      return (navigationState.today - this.event.start_date) / (this.event.end_date - this.event.start_date)
     }
   }
 }
