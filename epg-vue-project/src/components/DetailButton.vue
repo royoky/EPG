@@ -1,5 +1,5 @@
 <template>
-    <button>{{ button.name }}</button>
+    <button v-bind:class="{ focus: isFocused }" >{{ button.name }}</button>
 </template>
 
 <script>
@@ -13,3 +13,11 @@ export default {
   }
 }
 </script>
+
+<style scoped lang="less">
+@import "../assets/style-library.less";
+
+  .focus {
+    border: 2px @primary-color solid !important;
+  }
+  </style>

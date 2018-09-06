@@ -1,0 +1,8 @@
+[
+{ "name": "Emissions", "code": 100 },
+{ "name": "Films / Séries", "code": 10 },
+{ "name": "Jeunesse", "code": 50 },
+{ "name": "Spectacle", "code": 60 },
+{ "name": "Documentaire", "code": 90 },
+{ "name": "Sport", "code": 40 }
+]

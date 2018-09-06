@@ -10,15 +10,7 @@ import { displayMenuEvents } from '../mixins/displayMenuEvents'
 
 export default {
   name: 'MenuElement',
-  mixins: [keyboardNavigation, displayMenuEvents],
-  props: {
-    category: Object
-  },
-  methods: {
-    runAction (action) {
-      this[action]()
-    }
-  }
+  mixins: [keyboardNavigation, displayMenuEvents]
 }
 </script>
 

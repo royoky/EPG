@@ -1,6 +1,6 @@
 <template>
     <main id="mainview" v-if="navigationState.programList !=null">
-        <ProgramDetail v-if="eventState.selectedEvent"/>
+        <ProgramDetail ref="detail" v-if="eventState.selectedEvent"/>
         <div id='grid'>
           <Card ref="card"
             v-for="(event, index ) in navigationState.programList"
@@ -15,7 +15,6 @@
 <script>
 import ProgramDetail from './ProgramDetail.vue'
 import { eventState } from '../states/event-state'
-import { navigationState } from '../states/navigation-state'
 import Card from './Card.vue'
 import { keyboardNavigation } from '../mixins/keyboard-navigation'
 
@@ -29,7 +28,6 @@ export default {
   data () {
     return {
       eventState,
-      navigationState,
       events: null,
       isFocused: false
     }

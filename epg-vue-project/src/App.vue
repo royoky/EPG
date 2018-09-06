@@ -10,11 +10,11 @@ import NavigationBar from './components/NavigationBar.vue'
 import GridView from './components/GridView.vue'
 import { eventState } from './states/event-state'
 import { keyboardNavigation } from './mixins/keyboard-navigation'
-import { navigationState } from './states/navigation-state'
+import { displayMenuEvents } from './mixins/displayMenuEvents'
 
 export default {
   name: 'app',
-  mixins: [keyboardNavigation],
+  mixins: [keyboardNavigation, displayMenuEvents],
   components: {
     NavigationBar,
     GridView

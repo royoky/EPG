@@ -1,6 +1,13 @@
 [
-{ "name": "Now", "action": "getEventNow" },
-{ "name": "Tonight", "action": "getEventTonight" },
-{ "name": "Category", "action": "toggleCatNavBar"},
-{ "name": "Channel", "action": ""}
+{ "name": "Now", "action": "getEventNow", "subcategories": null },
+{ "name": "Tonight", "action": "getEventTonight", "subcategories": null },
+{ "name": "Category", "action": "toggleCatNavBar", "subcategories": [
+    { "name": "Emissions", "code": 100 },
+    { "name": "Films / Séries", "code": 10 },
+    { "name": "Jeunesse", "code": 50 },
+    { "name": "Spectacle", "code": 60 },
+    { "name": "Documentaire", "code": 90 },
+    { "name": "Sport", "code": 40 }]
+},
+{ "name": "Channel", "action": "", "subcategories": null}
 ]

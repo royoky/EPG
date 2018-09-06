@@ -19,8 +19,11 @@
 <script>
 import { eventState } from '../states/event-state'
 import DetailButton from './DetailButton.vue'
+import { keyboardNavigation } from '../mixins/keyboard-navigation'
+
 export default {
   name: 'ProgramDetail',
+  mixins: [keyboardNavigation],
   components: {
     DetailButton
   },
@@ -38,16 +41,9 @@ export default {
     },
     closeDetail () {
       eventState.selectedEvent = null
-    },
-    // Function to detect the Escape key and close the detail window
-    detectEscapeKey (event) {
-      if (event.keyCode === 27) {
-        this.closeDetail()
-      }
     }
   },
   created () {
-    window.addEventListener('keyup', this.detectEscapeKey)
     if (eventState.selectedEvent.status > 1) {
       this.buttons = [
         { name: 'Recommander' },
@@ -92,14 +88,12 @@ export default {
       ]
       this.eventState.selectedEvent = Object.assign({ buttons: this.buttons }, this.eventState.selectedEvent)
     }
-  },
-  beforeDestroy () {
-    window.removeEventListener('keyup', this.detectEscapeKey)
   }
 }
 </script>
 
 <style lang='less' scoped>
+@import "../assets/style-library.less";
 div#detail {
   width: 100%;
   position:relative;
