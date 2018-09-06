@@ -1,5 +1,5 @@
 <template>
-    <main v-if="navigationState.programList !=null">
+    <main id="mainview" v-if="navigationState.programList !=null">
         <ProgramDetail v-if="eventState.selectedEvent"/>
         <div id='grid'>
           <Card ref="card"
@@ -40,7 +40,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 @import "../assets/style-library.less";
-main {
+main#mainview {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
