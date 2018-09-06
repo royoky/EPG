@@ -1,9 +1,9 @@
 <template>
-    <div v-bind:class="{ focus: isFocused }" class="card" @click="displayDetail()">
+    <div v-if="endReplay() >= navigationState.today" v-bind:class="{ focus: isFocused }" class="card" @click="displayDetail()">
       <img :src="getUrl()" :alt="event.name">
       <div class="channel">{{ event.service_id }}</div>
       <div class="infos">{{ event.name }}</div>
-      <div class="time" v-if="getProgress() > 1"> replay </div>
+      <div class="time" v-if="getProgress() > 1"> replay {{displayTime()}} </div>
       <div class="time" v-if="getProgress() < 0"> {{displayTime()}} </div>
       <ProgressBar v-if="getProgress() > 0 && getProgress() < 1" :progress="getProgress()" :timeLeft="getDuration()" :id="createId()"></ProgressBar>
     </div>
@@ -25,7 +25,8 @@ export default {
   },
   data () {
     return {
-      eventState
+      eventState,
+      navigationState
     }
   },
   components: {
@@ -38,8 +39,16 @@ export default {
     displayDetail () {
       this.eventState.selectedEvent = this.event
     },
+    endReplay () {
+      return moment(this.event.start_date, 'X').add(7, 'd').format('X')
+    },
     displayTime () {
-      return moment(this.event.start_date, 'X').format('HH:mm')
+      // return moment(this.event.start_date, 'X').format('HH:mm')
+      if (this.getProgress() > 1) {
+        return `${moment(this.endReplay(), 'X').to(moment(navigationState.today, 'X'), true)} left`
+      } else if (this.getProgress() < 0) {
+        return moment(this.event.start_date, 'X').from(moment(navigationState.today, 'X'))
+      }
     },
     createId () {
       return `id${this.identifier}`
