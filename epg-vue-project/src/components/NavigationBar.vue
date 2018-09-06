@@ -7,7 +7,7 @@
         />
       <section id="submenu" v-if="this.navigationState.catNavbar">
         <MenuElement
-          ref="catSubnav"
+          ref="subnav"
           v-for="(subcategory, index ) in categories[2].subcategories"
           :key="index"
           :category="subcategory"

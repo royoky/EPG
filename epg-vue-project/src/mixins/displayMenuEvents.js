@@ -33,11 +33,11 @@ export const displayMenuEvents = {
       listOfEvents = listOfEvents.filter(element => new Date(element.start_date * 1000).getHours() <= 23 && new Date(element.start_date * 1000).getHours() >= 20)
       this.navigationState.programList = listOfEvents
     },
-    getEventByCat (cat) {
+    getEventByCat () {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.navigationState.selectedCategory = cat
+      this.navigationState.selectedCategory = this.category.code
       try {
         let listOfCategories = this.navigationState.categoryList
         listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory)
