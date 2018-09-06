@@ -1,5 +1,5 @@
 <template>
-    <div v-bind:class="{ focus: isFocused }"
+    <div
       @click="runAction(category.action)">
       {{ category.name }}
     </div>
@@ -16,15 +16,19 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-
+@import "../assets/style-library.less";
 div {
-  display: flex;
-  width: 100%;
+  flex-grow: 1;
+  // display: flex;
+  // width: 100%;
   color: white;
   border: 1px grey solid;
   text-align: center;
   background-color:#333;
   padding: 20px;
+  &:focus {
+    border: 3px solid @primary-color !important;
+  }
 }
 .focus {
   background-color: chartreuse !important;

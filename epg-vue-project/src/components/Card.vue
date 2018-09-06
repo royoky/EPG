@@ -1,5 +1,5 @@
 <template>
-    <div v-if="endReplay() >= navigationState.today" v-bind:class="{ focus: isFocused }" class="card" @click="displayDetail()">
+    <div v-if="endReplay() >= navigationState.today" class="card" @click="displayDetail()">
       <img :src="getUrl()" :alt="event.name">
       <div class="channel">{{ event.service_id }}</div>
       <div class="infos">{{ event.name }}</div>
@@ -76,6 +76,9 @@ div.card{
   display:flex;
   flex-direction: row;
   flex-wrap: wrap;
+  &:focus {
+    border: 3px solid @primary-color !important;
+  }
   img {
     max-width: 100%;
     max-height: 100%;
