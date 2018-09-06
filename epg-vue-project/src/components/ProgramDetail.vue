@@ -7,7 +7,7 @@
         <div id='detailsContainer'>
           <h3>{{ eventState.selectedEvent.name }}</h3>
           <p>{{ eventState.selectedEvent.description }}</p>
-          <DetailButton ref="button"
+          <DetailButton ref="button" v-on:update-button="updateButton"
             v-for="(button, index ) in eventState.selectedEvent.buttons"
             :key="index"
             :button="button"
@@ -41,6 +41,27 @@ export default {
     },
     closeDetail () {
       eventState.selectedEvent = null
+    },
+/*     updateButton () {
+      switch (this.buttons[1]) {
+        case 'Enregistrer':
+        // this.textButton = 'Annuler l\'enregistrement'
+        break
+        case 'Annuler l\'enregistrement':
+        // this.textButton = 'Enregistrer'
+        break
+        case 'Recommander':
+        // this.textButton = 'Ne plus recommander'
+        break
+        case 'Ne plus recommander':
+        // this.textButton = 'Recommander'
+        break
+        default:
+        console.log(DetailButton)
+      }
+    }, */
+    updateButton: function (arg1, arg2) {
+      console.log(arg1, arg2)
     }
   },
   created () {
