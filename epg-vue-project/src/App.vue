@@ -38,9 +38,6 @@ export default {
     } catch (error) {
       console.error(error)
     }
-    // this.$refs.navbar.setfocus()
-    // console.log(this.$refs.navbar.$refs)
-    // this.$refs.navbar.$refs.menuelement['0'].setfocus()
     document.addEventListener('keydown', this.arrowKeysListener)
     this.loaded = true
   }
@@ -49,11 +46,15 @@ export default {
 
 <style lang="less">
 @import "~normalize.css";
+@import "./assets/style-library.less";
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   text-align: center;
   color: #2c3e50;
   height: 100vh;
   overflow: hidden;
+  #app div:focus {
+    border: 3px solid @primary-color;
+  }
 }
 </style>

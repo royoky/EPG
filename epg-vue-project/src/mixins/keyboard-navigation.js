@@ -12,7 +12,6 @@ export const keyboardNavigation = {
       j: 0,
       k: 0,
       switchRow: 5,
-      isFocused: false,
       focusedComponent: 'navbar',
       navigationState
     }
@@ -28,8 +27,7 @@ export const keyboardNavigation = {
           case 13: // Enter Key
             const navbarToGrid = new Promise((resolve, reject) => {
               resolve(
-                this.runAction(this.$refs.navbar.$refs.menuelement[this.j].category.action),
-                this.$refs.navbar.$refs.menuelement[this.j].unsetfocus()
+                this.runAction(this.$refs.navbar.$refs.menuelement[this.j].category.action)
               )
             })
             navbarToGrid
@@ -43,7 +41,6 @@ export const keyboardNavigation = {
             break
           case 39: // Right key
             if (this.j < this.$refs.navbar.$refs.menuelement.length - 1) {
-              this.$refs.navbar.$refs.menuelement[this.j].unsetfocus()
               this.$refs.navbar.$refs.menuelement[this.j + 1].setfocus()
               this.j++
               break
@@ -51,7 +48,6 @@ export const keyboardNavigation = {
             break
           case 37: // Left key
             if (this.j !== 0) {
-              this.$refs.navbar.$refs.menuelement[this.j].unsetfocus()
               this.$refs.navbar.$refs.menuelement[this.j - 1].setfocus()
               this.j--
               break
@@ -64,20 +60,17 @@ export const keyboardNavigation = {
         console.log(this.$refs.grid.$refs.card[this.i])
         switch (event.keyCode) {
           case 40: // Down key
-            this.$refs.grid.$refs.card[this.i].unsetfocus()
             this.$refs.grid.$refs.card[this.i + this.switchRow].setfocus()
             this.i = (this.i + this.switchRow)
             break
           case 38: // Up key
             if (this.i >= this.switchRow) {
-              this.$refs.grid.$refs.card[this.i].unsetfocus()
               this.$refs.grid.$refs.card[this.i - this.switchRow].setfocus()
               this.i = (this.i - this.switchRow)
             }
             break
           case 39: // Right key
             if (this.i < this.$refs.grid.$refs.card.length - 1) {
-              this.$refs.grid.$refs.card[this.i].unsetfocus()
               this.$refs.grid.$refs.card[this.i + 1].setfocus()
               this.i++
               break
@@ -85,15 +78,12 @@ export const keyboardNavigation = {
             break
           case 37: // Left key
             if (this.i !== 0) {
-              this.$refs.grid.$refs.card[this.i].unsetfocus()
               this.$refs.grid.$refs.card[this.i - 1].setfocus()
               this.i--
               break
             }
             break
           case 27: // Escape Key
-            this.$refs.grid.unsetfocus()
-            this.$refs.grid.$refs.card[this.i].unsetfocus()
             this.i = 0
             this.$refs.navbar.setfocus()
             this.$refs.navbar.$refs.menuelement[this.j].setfocus()
@@ -101,7 +91,6 @@ export const keyboardNavigation = {
           case 13: // Enter Key
             const gridToDetail = new Promise((resolve, reject) => {
               resolve(
-                this.$refs.grid.$refs.card[this.i].unsetfocus(),
                 this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.i].event
               )
             })
@@ -121,7 +110,6 @@ export const keyboardNavigation = {
         switch (event.keyCode) {
           case 39: // Right key
             if (this.k < this.$refs.grid.$refs.detail.$refs.button.length - 1) {
-              this.$refs.button[this.k].unsetfocus()
               this.$refs.button[this.k + 1].setfocus()
               this.k++
               break
@@ -129,7 +117,6 @@ export const keyboardNavigation = {
             break
           case 37: // Left key
             if (this.k !== 0) {
-              this.$refs.grid.$refs.detail.$refs.button[this.k].unsetfocus()
               this.$refs.grid.$refs.detail.$refs.button[this.k - 1].setfocus()
               this.k--
               break
@@ -138,7 +125,6 @@ export const keyboardNavigation = {
           case 27: // Escape Key
             const detailToGrid = new Promise((resolve, reject) => {
               resolve(
-                this.$refs.grid.$refs.detail.$refs.button[this.k].unsetfocus(),
                 this.k = 0,
                 this.eventState.selectedEvent = null
               )
@@ -156,10 +142,16 @@ export const keyboardNavigation = {
       }
     },
     setfocus () {
-      this.isFocused = true
-    },
-    unsetfocus () {
-      this.isFocused = false
+      if (this && this.$el !== undefined) {
+        if (this.$el !== undefined && this.$el instanceof Element) {
+          console.log('is an element')
+          this.$el.setAttribute('tabindex', '1')
+          this.$el.focus()
+        } else {
+          console.log('not an element')
+          console.log(this)
+        }
+      }
     },
     runAction (action) {
       this[action]()
