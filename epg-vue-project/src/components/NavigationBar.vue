@@ -5,12 +5,20 @@
         :key="index"
         :category="category"
         />
-      <section id="submenu" v-if="this.navigationState.catNavbar">
+      <section id="subnavCat" class="subnav" v-if="this.navigationState.catNavbar">
         <MenuElement
-          ref="subnav"
+          ref="subnavCat"
           v-for="(subcategory, index ) in categories[2].subcategories"
           :key="index"
           :category="subcategory"
+        />
+      </section>
+      <section id="subnavChannel" class="subnav" v-if="this.navigationState.channel">
+        <MenuElement
+          ref="subnavChannel"
+          v-for="(channel, index ) in this.navigationState.channelList"
+          :key="index"
+          :category="channel"
         />
       </section>
      <!-- <ul id="catNavBar">
@@ -67,7 +75,7 @@ nav {
   nav div {
     flex-grow: 1;
   }
-  section#submenu {
+  section.subnav {
     display: flex;
     width: 100%;
   }
