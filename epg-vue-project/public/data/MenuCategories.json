@@ -9,5 +9,5 @@
     { "name": "Documentaire", "code": 90, "action": "getEventByCat" },
     { "name": "Sport", "code": 40, "action": "getEventByCat" }]
 },
-{ "name": "Channel", "action": "", "subcategories": null}
+{ "name": "Channel", "action": "getChannels", "subcategories": null}
 ]

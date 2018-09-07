@@ -15,7 +15,21 @@ export const displayMenuEvents = {
     toggleCatNavBar () {
       this.navigationState.catNavbar = !this.navigationState.catNavbar
     },
+    getChannels () {
+      this.navigationState.channel = !this.navigationState.channel
+    },
+    getEventByChannel (channelNumber) {
+      let listOfEvents = this.navigationState.programAll
+      let listOfChannels = this.navigationState.channelList
+      const channel = listOfChannels.find(element => element.number === channelNumber)
+      listOfEvents = listOfEvents.filter(element => element.service_id === channel.id)
+      listOfEvents.sort(function (a, b) {
+        return a.start_date - b.start_date
+      })
+      return listOfEvents
+    },
     getEventNow () {
+      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
@@ -24,6 +38,7 @@ export const displayMenuEvents = {
       this.navigationState.programList = listOfEvents.filter(element => element.start_date < endNow && element.end_date > this.navigationState.today)
     },
     getEventTonight () {
+      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
@@ -34,6 +49,7 @@ export const displayMenuEvents = {
       this.navigationState.programList = listOfEvents
     },
     getEventByCat () {
+      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }

@@ -5,5 +5,7 @@ export const navigationState = {
   programList: [],
   programAll: [],
   catNavbar: false,
-  selectedCategory: null
+  selectedCategory: null,
+  channelList: [],
+  channel: false
 }

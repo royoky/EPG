@@ -46,6 +46,15 @@ export default {
     } catch (error) {
       console.error(error)
     }
+    try {
+      const channels = await fetch('data/GenericServices.json')
+      this.navigationState.channelList = await channels.json()
+    } catch (error) {
+      console.error(error)
+    }
+    this.navigationState.channelList = this.navigationState.channelList.map(element => Object.assign({
+      action: `getEventByChannel(${element.number})`
+    }, element))
     document.addEventListener('keydown', this.arrowKeysListener)
     this.loaded = true
   }
