@@ -8,9 +8,10 @@ export const keyboardNavigation = {
   },
   data () {
     return {
-      i: 0,
-      j: 0,
+      cardIndex: 0,
+      menuIndex: 0,
       k: 0,
+      submenu: 0,
       switchRow: 5,
       focusedComponent: 'navbar',
       navigationState
@@ -19,37 +20,53 @@ export const keyboardNavigation = {
   methods: {
     arrowKeysListener (event) {
       console.log(event.keyCode)
-      console.log(this.focusedComponent)
       // Navbar
       if (this.focusedComponent === 'navbar') {
-        this.$refs.navbar.$refs.menuelement[this.j].setfocus()
+        this.$refs.navbar.$refs.menuelement[this.menuIndex].setfocus()
         switch (event.keyCode) {
           case 13: // Enter Key
-            const navbarToGrid = new Promise((resolve, reject) => {
-              resolve(
-                this.runAction(this.$refs.navbar.$refs.menuelement[this.j].category.action)
-              )
-            })
-            navbarToGrid
-              .then(result => {
-                this.$refs.grid.$refs.card[this.i].setfocus()
-                this.focusedComponent = 'grid'
+            if (this.$refs.navbar.$refs.menuelement[this.menuIndex].category.subcategories == null){
+              const navbarToGrid = new Promise((resolve, reject) => {
+                resolve(
+                  this.runAction(this.$refs.navbar.$refs.menuelement[this.menuIndex].category.action)
+                )
               })
-              .catch(error => {
-                console.error(error)
+              navbarToGrid
+                .then(result => {
+                  this.$refs.grid.$refs.card[this.cardIndex].setfocus()
+                  this.focusedComponent = 'grid'
+                })
+                .catch(error => {
+                  console.error(error)
+                })
+              }
+            else {
+              const navbarToSubnav = new Promise((resolve, reject) => {
+                resolve(
+                  this.runAction(this.$refs.navbar.$refs.menuelement[this.menuIndex].category.action)
+                )
               })
+              navbarToSubnav
+                .then(result => {
+                  this.$refs.navbar.$refs.subnavCat[this.submenu].setfocus()
+                  this.focusedComponent = 'subnav'
+                })
+                .catch(error => {
+                  console.error(error)
+                })
+            }
             break
           case 39: // Right key
-            if (this.j < this.$refs.navbar.$refs.menuelement.length - 1) {
-              this.$refs.navbar.$refs.menuelement[this.j + 1].setfocus()
-              this.j++
+            if (this.menuIndex < this.$refs.navbar.$refs.menuelement.length - 1) {
+              this.$refs.navbar.$refs.menuelement[this.menuIndex + 1].setfocus()
+              this.menuIndex++
               break
             }
             break
           case 37: // Left key
-            if (this.j !== 0) {
-              this.$refs.navbar.$refs.menuelement[this.j - 1].setfocus()
-              this.j--
+            if (this.menuIndex !== 0) {
+              this.$refs.navbar.$refs.menuelement[this.menuIndex - 1].setfocus()
+              this.menuIndex--
               break
             }
             break
@@ -59,34 +76,34 @@ export const keyboardNavigation = {
       if (this.focusedComponent === 'grid') {
         switch (event.keyCode) {
           case 40: // Down key
-            this.$refs.grid.$refs.card[this.i + this.switchRow].setfocus()
-            this.i = (this.i + this.switchRow)
+            this.$refs.grid.$refs.card[this.cardIndex + this.switchRow].setfocus()
+            this.cardIndex = (this.cardIndex + this.switchRow)
             break
           case 38: // Up key
-            if (this.i >= this.switchRow) {
-              this.$refs.grid.$refs.card[this.i - this.switchRow].setfocus()
-              this.i = (this.i - this.switchRow)
+            if (this.cardIndex >= this.switchRow) {
+              this.$refs.grid.$refs.card[this.cardIndex - this.switchRow].setfocus()
+              this.cardIndex = (this.cardIndex - this.switchRow)
             }
             break
           case 39: // Right key
-            if (this.i < this.$refs.grid.$refs.card.length - 1) {
-              this.$refs.grid.$refs.card[this.i + 1].setfocus()
-              this.i++
+            if (this.cardIndex < this.$refs.grid.$refs.card.length - 1) {
+              this.$refs.grid.$refs.card[this.cardIndex + 1].setfocus()
+              this.cardIndex++
               break
             }
             break
           case 37: // Left key
-            if (this.i !== 0) {
-              this.$refs.grid.$refs.card[this.i - 1].setfocus()
-              this.i--
+            if (this.cardIndex !== 0) {
+              this.$refs.grid.$refs.card[this.cardIndex - 1].setfocus()
+              this.cardIndex--
               break
             }
             break
           case 27: // Escape Key
             const gridToNavbar = new Promise((resolve, reject) => {
               resolve(
-                this.$refs.navbar.$refs.menuelement[this.j].setfocus(),
-                this.i = 0
+                this.$refs.navbar.$refs.menuelement[this.menuIndex].setfocus(),
+                this.cardIndex = 0
               )
             })
             gridToNavbar
@@ -100,7 +117,7 @@ export const keyboardNavigation = {
           case 13: // Enter Key
             const gridToDetail = new Promise((resolve, reject) => {
               resolve(
-                this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.i].event,
+                this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.cardIndex].event,
                 this.focusedComponent = 'programDetail'
               )
             })
@@ -140,7 +157,7 @@ export const keyboardNavigation = {
             })
             detailToGrid
               .then(result => {
-                this.$refs.grid.$refs.card[this.i].setfocus()
+                this.$refs.grid.$refs.card[this.cardIndex].setfocus()
                 this.focusedComponent = 'grid'
               })
               .catch(error => {
@@ -158,6 +175,12 @@ export const keyboardNavigation = {
     },
     runAction (action) {
       this[action]()
+    },
+    leftMove(componentIndex) {
+      if (componentIndex !== 0) {
+        this.$el[componentIndex - 1].setfocus()
+        componentIndex--
+      }
     }
   }
 }
