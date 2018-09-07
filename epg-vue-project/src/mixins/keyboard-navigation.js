@@ -14,6 +14,7 @@ export const keyboardNavigation = {
       submenu: 0,
       switchRow: 5,
       focusedComponent: 'navbar',
+      focusedElement: null,
       navigationState
     }
   },
@@ -22,13 +23,15 @@ export const keyboardNavigation = {
       console.log(event.keyCode)
       // Navbar
       if (this.focusedComponent === 'navbar') {
-        this.$refs.navbar.$refs.menuelement[this.menuIndex].setfocus()
+        this.focusedElement = this.$refs.navbar.$refs.menuelement
+        console.log(this.focusedElement)
+        this.focusedElement[this.menuIndex].setfocus()
         switch (event.keyCode) {
           case 13: // Enter Key
-            if (this.$refs.navbar.$refs.menuelement[this.menuIndex].category.subcategories == null){
+            if (this.focusedElement[this.menuIndex].category.subcategories == null) {
               const navbarToGrid = new Promise((resolve, reject) => {
                 resolve(
-                  this.runAction(this.$refs.navbar.$refs.menuelement[this.menuIndex].category.action)
+                  this.runAction(this.focusedElement[this.menuIndex].category.action)
                 )
               })
               navbarToGrid
@@ -39,11 +42,10 @@ export const keyboardNavigation = {
                 .catch(error => {
                   console.error(error)
                 })
-              }
-            else {
+            } else {
               const navbarToSubnav = new Promise((resolve, reject) => {
                 resolve(
-                  this.runAction(this.$refs.navbar.$refs.menuelement[this.menuIndex].category.action)
+                  this.runAction(this.focusedElement[this.menuIndex].category.action)
                 )
               })
               navbarToSubnav
@@ -57,15 +59,15 @@ export const keyboardNavigation = {
             }
             break
           case 39: // Right key
-            if (this.menuIndex < this.$refs.navbar.$refs.menuelement.length - 1) {
-              this.$refs.navbar.$refs.menuelement[this.menuIndex + 1].setfocus()
+            if (this.menuIndex < this.focusedElement.length - 1) {
+              this.focusedElement[this.menuIndex + 1].setfocus()
               this.menuIndex++
               break
             }
             break
           case 37: // Left key
             if (this.menuIndex !== 0) {
-              this.$refs.navbar.$refs.menuelement[this.menuIndex - 1].setfocus()
+              this.focusedElement[this.menuIndex - 1].setfocus()
               this.menuIndex--
               break
             }
@@ -74,30 +76,33 @@ export const keyboardNavigation = {
       }
       // Program Grid
       if (this.focusedComponent === 'grid') {
+        this.focusedElement = this.$refs.grid.$refs.card
+        console.log(this.cardIndex) 
         switch (event.keyCode) {
           case 40: // Down key
-            this.$refs.grid.$refs.card[this.cardIndex + this.switchRow].setfocus()
+            this.focusedElement[this.cardIndex + this.switchRow].setfocus()
             this.cardIndex = (this.cardIndex + this.switchRow)
             break
           case 38: // Up key
             if (this.cardIndex >= this.switchRow) {
-              this.$refs.grid.$refs.card[this.cardIndex - this.switchRow].setfocus()
+              this.focusedElement[this.cardIndex - this.switchRow].setfocus()
               this.cardIndex = (this.cardIndex - this.switchRow)
             }
             break
           case 39: // Right key
-            if (this.cardIndex < this.$refs.grid.$refs.card.length - 1) {
-              this.$refs.grid.$refs.card[this.cardIndex + 1].setfocus()
+            if (this.cardIndex < this.focusedElement.length - 1) {
+              this.focusedElement[this.cardIndex + 1].setfocus()
               this.cardIndex++
               break
             }
             break
           case 37: // Left key
             if (this.cardIndex !== 0) {
-              this.$refs.grid.$refs.card[this.cardIndex - 1].setfocus()
+              this.focusedElement[this.cardIndex - 1].setfocus()
               this.cardIndex--
               break
-            }
+            }           
+//            this.leftMove(this.cardIndex)
             break
           case 27: // Escape Key
             const gridToNavbar = new Promise((resolve, reject) => {
@@ -117,7 +122,7 @@ export const keyboardNavigation = {
           case 13: // Enter Key
             const gridToDetail = new Promise((resolve, reject) => {
               resolve(
-                this.eventState.selectedEvent = this.$refs.grid.$refs.card[this.cardIndex].event,
+                this.eventState.selectedEvent = this.focusedElement[this.cardIndex].event,
                 this.focusedComponent = 'programDetail'
               )
             })
@@ -131,11 +136,12 @@ export const keyboardNavigation = {
             break
         }
       }
-      // Program Detail
+      // Detail
       if (this.focusedComponent === 'programDetail') {
+        this.focusedElement = this.$refs.grid.$refs.detail.$refs.button
         switch (event.keyCode) {
           case 39: // Right key
-            if (this.k < this.$refs.grid.$refs.detail.$refs.button.length - 1) {
+            if (this.k < this.focusedElement.length - 1) {
               this.$refs.button[this.k + 1].setfocus()
               this.k++
               break
@@ -143,7 +149,7 @@ export const keyboardNavigation = {
             break
           case 37: // Left key
             if (this.k !== 0) {
-              this.$refs.grid.$refs.detail.$refs.button[this.k - 1].setfocus()
+              this.focusedElement[this.k - 1].setfocus()
               this.k--
               break
             }
@@ -176,11 +182,17 @@ export const keyboardNavigation = {
     runAction (action) {
       this[action]()
     },
-    leftMove(componentIndex) {
+    leftMove (componentIndex) {
       if (componentIndex !== 0) {
-        this.$el[componentIndex - 1].setfocus()
+        console.log('left', componentIndex)
+        this.focusedElement[componentIndex - 1].setfocus()
         componentIndex--
       }
+                  // if (this.cardIndex !== 0) {
+            //   this.focusedElement[this.cardIndex - 1].setfocus()
+            //   this.cardIndex--
+            //   break
+            // }
     }
   }
 }
