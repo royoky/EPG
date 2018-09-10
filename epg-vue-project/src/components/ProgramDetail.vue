@@ -44,7 +44,7 @@ export default {
         FutureRecoSave: ['Recommander', 'Enregistrer'],
         FutureNotRecoSave: ['Ne plus recommander', 'Enregistrer'],
         FutureNotRecoNotSave: ['Ne plus recommander', 'Annuler l\'enregistrement'],
-        FutureRecoNotSave: ['Ne plus recommander', 'Enregistrer']
+        FutureRecoNotSave: ['Recommander', 'Annuler l\'enregistrement']
       },
       navigationState }
   },
