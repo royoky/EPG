@@ -29,7 +29,6 @@ export const displayMenuEvents = {
       return listOfEvents
     },
     getEventNow () {
-      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
@@ -38,7 +37,6 @@ export const displayMenuEvents = {
       this.navigationState.programList = listOfEvents.filter(element => element.start_date < endNow && element.end_date > this.navigationState.today)
     },
     getEventTonight () {
-      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
@@ -49,7 +47,6 @@ export const displayMenuEvents = {
       this.navigationState.programList = listOfEvents
     },
     getEventByCat () {
-      this.navigationState.channel = false
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }

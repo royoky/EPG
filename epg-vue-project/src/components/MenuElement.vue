@@ -27,11 +27,7 @@ div {
   background-color:#333;
   padding: 20px;
   &:focus {
-    border: 3px solid @primary-color !important;
+    border: 2px solid @primary-color !important;
   }
-}
-.focus {
-  background-color: chartreuse !important;
-  border: 3px blue solid !important;
 }
 </style>

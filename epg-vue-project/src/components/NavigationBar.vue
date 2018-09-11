@@ -21,14 +21,6 @@
           :category="channel"
         />
       </section>
-     <!-- <ul id="catNavBar">
-        <li @click="getEventByCat(100)">émissions</li>
-        <li @click="getEventByCat(10 )">films / séries</li>
-        <li @click="getEventByCat(50 )">jeunesse</li>
-        <li @click="getEventByCat(60 )">spectacle</li>
-        <li @click="getEventByCat(90 )">documentaire</li>
-        <li @click="getEventByCat(40)">sport</li>
-      </ul> -->
     </nav>
 </template>
 
