@@ -4,7 +4,8 @@ import { navigationState } from '../states/navigation-state'
 export const keyboardNavigation = {
   props: {
     category: Object,
-    event: Object
+    event: Object,
+    button: String
   },
   data () {
     return {
@@ -20,7 +21,7 @@ export const keyboardNavigation = {
   },
   methods: {
     arrowKeysListener (event) {
-      console.log(event.keyCode)
+      console.log(event.key)
       // Navbar
       if (this.focusedComponent === 'navbar') {
         this.focusedElement = this.$refs.navbar.$refs.menuelement
@@ -132,7 +133,7 @@ export const keyboardNavigation = {
           case 13: // Enter Key
             const gridToDetail = new Promise((resolve, reject) => {
               resolve(
-                this.eventState.selectedEvent = this.focusedElement[this.cardIndex].event
+                this.eventState.selectedEvent = Object.assign({ status: this.focusedElement[this.cardIndex].getProgress() }, this.focusedElement[this.cardIndex].event)
               )
             })
             gridToDetail

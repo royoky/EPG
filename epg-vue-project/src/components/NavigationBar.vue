@@ -49,7 +49,7 @@ export default {
     }
   },
   mounted () {
-    this.setfocus()
+//    this.setfocus()
     this.getEventNow()
   }
 }
@@ -57,9 +57,6 @@ export default {
 
 <style lang="less" scoped>
 @import "../assets/style-library.less";
-.focus {
-    background-color: @primary-color;
-  }
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -71,29 +68,5 @@ nav {
     display: flex;
     width: 100%;
   }
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    }
-// ul#catNavBar {
-//     display: none;
-//     }
-// ul#catNavBar.open {
-//     display: block;
-//     }
-li {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    :focus {
-      background-color: #111;
-    }
 }
 </style>

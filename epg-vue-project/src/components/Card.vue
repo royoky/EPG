@@ -69,7 +69,8 @@ div.card{
   flex-direction: row;
   flex-wrap: wrap;
   &:focus {
-    border: 3px solid @primary-color !important;
+    border: 2px solid @primary-color !important;
+    outline: none !important;
   }
   img {
     max-width: 100%;
@@ -101,8 +102,5 @@ div.card{
     padding: 5px;
     height: 15px;
   }
-}
-.focus {
-  border: 2px @primary-color solid !important;
 }
 </style>

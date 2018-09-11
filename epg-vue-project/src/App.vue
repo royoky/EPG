@@ -70,8 +70,5 @@ export default {
   color: #2c3e50;
   height: 100vh;
   overflow: hidden;
-  #app div:focus {
-    border: 3px solid @primary-color;
-  }
 }
 </style>

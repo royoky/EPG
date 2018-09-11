@@ -1,5 +1,5 @@
 <template>
-    <button :class="{ focus: isFocused }" @click=updateButton()>{{ textButton }}</button>
+    <button @click=updateButton()>{{ textButton }}</button>
 </template>
 
 <script>
@@ -50,7 +50,8 @@ export default {
 <style scoped lang="less">
 @import "../assets/style-library.less";
 
-  .focus {
+  &:focus {
     border: 2px @primary-color solid !important;
+    outline: none !important;
   }
   </style>

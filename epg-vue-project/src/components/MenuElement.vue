@@ -19,8 +19,6 @@ export default {
 @import "../assets/style-library.less";
 div {
   flex-grow: 1;
-  // display: flex;
-  // width: 100%;
   color: white;
   border: 1px grey solid;
   text-align: center;
@@ -28,6 +26,7 @@ div {
   padding: 20px;
   &:focus {
     border: 2px solid @primary-color !important;
+    outline: none !important;
   }
 }
 </style>
