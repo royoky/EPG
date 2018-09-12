@@ -19,19 +19,14 @@ export default {
 @import "../assets/style-library.less";
 div {
   flex-grow: 1;
-  // display: flex;
-  // width: 100%;
   color: white;
   border: 1px grey solid;
   text-align: center;
   background-color:#333;
   padding: 20px;
   &:focus {
-    border: 3px solid @primary-color !important;
+    border: 2px solid @primary-color !important;
+    outline: none !important;
   }
-}
-.focus {
-  background-color: chartreuse !important;
-  border: 3px blue solid !important;
 }
 </style>

@@ -21,14 +21,6 @@
           :category="channel"
         />
       </section>
-     <!-- <ul id="catNavBar">
-        <li @click="getEventByCat(100)">émissions</li>
-        <li @click="getEventByCat(10 )">films / séries</li>
-        <li @click="getEventByCat(50 )">jeunesse</li>
-        <li @click="getEventByCat(60 )">spectacle</li>
-        <li @click="getEventByCat(90 )">documentaire</li>
-        <li @click="getEventByCat(40)">sport</li>
-      </ul> -->
     </nav>
 </template>
 
@@ -57,7 +49,7 @@ export default {
     }
   },
   mounted () {
-    this.setfocus()
+//    this.setfocus()
     this.getEventNow()
   }
 }
@@ -65,9 +57,6 @@ export default {
 
 <style lang="less" scoped>
 @import "../assets/style-library.less";
-.focus {
-    background-color: @primary-color;
-  }
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -79,29 +68,5 @@ nav {
     display: flex;
     width: 100%;
   }
-}
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-    }
-// ul#catNavBar {
-//     display: none;
-//     }
-// ul#catNavBar.open {
-//     display: block;
-//     }
-li {
-    float: left;
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    :focus {
-      background-color: #111;
-    }
 }
 </style>

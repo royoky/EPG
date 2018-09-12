@@ -1,5 +1,5 @@
 <template>
-    <button>{{ button.name }}</button>
+    <button @click=updateButton()>{{ textButton }}</button>
 </template>
 
 <script>
@@ -9,7 +9,40 @@ export default {
   name: 'DetailButton',
   mixins: [keyboardNavigation],
   props: {
-    button: Object
+    button: String
+  },
+  data () {
+    return {
+      textButton: ''
+    }
+  },
+  created () {
+    this.textButton = this.button
+  },
+  methods: {
+    updateButton () {
+      let clickedButton = this.textButton
+      let newButton
+      switch (clickedButton) {
+        case 'Enregistrer':
+          this.textButton = 'Annuler l\'enregistrement'
+          newButton = this.button
+          break
+        case 'Annuler l\'enregistrement':
+          this.textButton = 'Enregistrer'
+          newButton = this.button
+          break
+        case 'Recommander':
+          this.textButton = 'Ne plus recommander'
+          newButton = this.button
+          break
+        case 'Ne plus recommander':
+          this.textButton = 'Recommander'
+          newButton = this.button
+          break
+      }
+      this.$emit('update-button', clickedButton)
+    }
   }
 }
 </script>
@@ -17,7 +50,8 @@ export default {
 <style scoped lang="less">
 @import "../assets/style-library.less";
 
-  .focus {
+  &:focus {
     border: 2px @primary-color solid !important;
+    outline: none !important;
   }
   </style>
