@@ -15,17 +15,18 @@ export const displayMenuEvents = {
     toggleCatNavBar () {
       this.navigationState.catNavbar = !this.navigationState.catNavbar
     },
-    getChannels () {
+    toggleChannels () {
       this.navigationState.channel = !this.navigationState.channel
     },
-    getEventByChannel (channelNumber) {
+    getEventByChannel () {
       let listOfEvents = this.navigationState.programAll
       let listOfChannels = this.navigationState.channelList
-      const channel = listOfChannels.find(element => element.number === channelNumber)
+      const channel = listOfChannels.find(element => element.number === this.category.number)
       listOfEvents = listOfEvents.filter(element => element.service_id === channel.id)
       listOfEvents.sort(function (a, b) {
         return a.start_date - b.start_date
       })
+      this.navigationState.programList = listOfEvents
       return listOfEvents
     },
     getEventNow () {
@@ -50,10 +51,10 @@ export const displayMenuEvents = {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.navigationState.selectedCategory = this.category.code
+      this.navigationState.selectedCategory = this.category
       try {
         let listOfCategories = this.navigationState.categoryList
-        listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory)
+        listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.category.code)
         listOfCategories = listOfCategories.map(element => element.id)
         let listOfEvents = this.navigationState.programAll
         listOfEvents = listOfCategories.map(element => {

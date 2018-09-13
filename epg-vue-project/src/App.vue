@@ -29,7 +29,6 @@ export default {
   async mounted () {
     try {
       const events = await fetch('data/GenericEvents.json')
-      // const response = await events.json()
       this.navigationState.programAll = await events.json()
     } catch (error) {
       console.error(error)
@@ -53,7 +52,7 @@ export default {
       console.error(error)
     }
     this.navigationState.channelList = this.navigationState.channelList.map(element => Object.assign({
-      action: `getEventByChannel(${element.number})`
+      action: `getEventByChannel`
     }, element))
     document.addEventListener('keydown', this.arrowKeysListener)
     this.loaded = true
