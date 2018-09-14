@@ -45,17 +45,11 @@ export const keyboardNavigation = {
             } else {
               const navbarToSubnav = new Promise((resolve, reject) => {
                 resolve(
-                  this.$refs.navbar.$refs.subnav[this.submenuIndex].setfocus(),
-                  console.log(this.$refs.navbar.$refs.subnav[this.submenuIndex]),
-                  console.log('this.navigationState.selectedCategory previous', this.navigationState.selectedCategory)
-                  
-                  
-                )
+                  this.$refs.navbar.$refs.subnav[this.submenuIndex].setfocus())
               })
               navbarToSubnav
                 .then(result => {
                   this.category = this.$refs.navbar.$refs.subnav[this.submenuIndex].category
-                  console.log('this.navigationState.selectedCategory next', this.navigationState.selectedCategory)
                   this.runAction(this.$refs.navbar.$refs.subnav[this.submenuIndex].category.action)
                   this.focusedComponent = 'subnav'
                 })
@@ -80,19 +74,9 @@ export const keyboardNavigation = {
         this.focusedElement[this.submenuIndex].setfocus()
         switch (event.keyCode) {
           case 13: // Enter Key
-            const subnavbarToGrid = new Promise((resolve, reject) => {
-              resolve(
-                //            this.category = this.focusedElement[this.submenuIndex].category
-              )
-            })
-            subnavbarToGrid
-              .then(result => {
-                this.$refs.grid.$refs.card[this.cardIndex].setfocus()
-                this.focusedComponent = 'grid'
-              })
-              .catch(error => {
-                console.error(error)
-              })
+            //  subnavbarToGrid
+            this.$refs.grid.$refs.card[this.cardIndex].setfocus()
+            this.focusedComponent = 'grid'
             break
           case 39: // Right key
             this.submenuIndex = this.moveRight(this.submenuIndex)
@@ -108,7 +92,6 @@ export const keyboardNavigation = {
             const subnavToNavbar = new Promise((resolve, reject) => {
               resolve(
                 this.$refs.navbar.$refs.menuelement[this.menuIndex].setfocus()
-                //                this.runAction(this.$refs.navbar.$refs.menuelement[this.menuIndex].category.action)
               )
             })
             subnavToNavbar
