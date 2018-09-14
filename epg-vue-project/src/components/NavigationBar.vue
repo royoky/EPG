@@ -7,7 +7,7 @@
         />
       <section id="subnavCat" class="subnav" v-if="this.navigationState.catNavbar">
         <MenuElement
-          ref="subnavCat"
+          ref="subnav"
           v-for="(subcategory, index ) in categories[2].subcategories"
           :key="index"
           :category="subcategory"
@@ -15,7 +15,7 @@
       </section>
       <section id="subnavChannel" class="subnav" v-if="this.navigationState.channel">
         <MenuElement
-          ref="subnavChannel"
+          ref="subnav"
           v-for="(channel, index ) in this.navigationState.channelList"
           :key="index"
           :category="channel"
