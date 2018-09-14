@@ -42,7 +42,7 @@ export default {
     displayTime () {
       // return moment(this.event.start_date, 'X').format('HH:mm')
       if (this.getProgress() > 1) {
-        return `${moment(this.endReplay, 'X').to(moment(navigationState.today, 'X'), true)} left`
+        return `${moment(this.event.endReplay, 'X').to(moment(navigationState.today, 'X'), true)} left`
       } else if (this.getProgress() < 0) {
         return moment(this.event.start_date, 'X').from(moment(navigationState.today, 'X'))
       }
