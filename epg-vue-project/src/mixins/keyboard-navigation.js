@@ -16,7 +16,8 @@ export const keyboardNavigation = {
       switchRow: 5,
       focusedComponent: 'navbar',
       focusedElement: null,
-      navigationState
+      navigationState,
+      subnavElement: this.category
     }
   },
   methods: {
@@ -29,19 +30,9 @@ export const keyboardNavigation = {
         switch (event.keyCode) {
           case 13: // Enter Key
             if (this.focusedElement[this.menuIndex].category.subcategories == null) {
-              const navbarToGrid = new Promise((resolve, reject) => {
-                resolve(
-                  this.runAction(this.focusedElement[this.menuIndex].category.action)
-                )
-              })
-              navbarToGrid
-                .then(result => {
-                  this.$refs.grid.$refs.card[this.cardIndex].setfocus()
-                  this.focusedComponent = 'grid'
-                })
-                .catch(error => {
-                  console.error(error)
-                })
+              // navbarToGrid
+              this.$refs.grid.$refs.card[this.cardIndex].setfocus()
+              this.focusedComponent = 'grid'
             } else {
               const navbarToSubnav = new Promise((resolve, reject) => {
                 resolve(
@@ -49,8 +40,8 @@ export const keyboardNavigation = {
               })
               navbarToSubnav
                 .then(result => {
-                  this.category = this.$refs.navbar.$refs.subnav[this.submenuIndex].category
-                  this.runAction(this.$refs.navbar.$refs.subnav[this.submenuIndex].category.action)
+                  this.navigationState.selectedCategory = this.$refs.navbar.$refs.subnav[this.submenuIndex].category
+                  this.runAction(this.navigationState.selectedCategory.action)
                   this.focusedComponent = 'subnav'
                 })
                 .catch(error => {
@@ -80,13 +71,13 @@ export const keyboardNavigation = {
             break
           case 39: // Right key
             this.submenuIndex = this.moveRight(this.submenuIndex)
-            this.category = this.focusedElement[this.submenuIndex].category
-            this.runAction(this.focusedElement[this.submenuIndex].category.action)
+            this.navigationState.selectedCategory = this.focusedElement[this.submenuIndex].category
+            this.runAction(this.navigationState.selectedCategory.action)
             break
           case 37: // Left key
             this.submenuIndex = this.moveLeft(this.submenuIndex)
-            this.category = this.focusedElement[this.submenuIndex].category
-            this.runAction(this.focusedElement[this.submenuIndex].category.action)
+            this.navigationState.selectedCategory = this.focusedElement[this.submenuIndex].category
+            this.runAction(this.navigationState.selectedCategory.action)
             break
           case 27: // Escape Key
             const subnavToNavbar = new Promise((resolve, reject) => {
