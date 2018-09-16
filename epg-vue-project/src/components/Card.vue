@@ -1,7 +1,8 @@
 <template>
     <div v-if="event.endReplay >= navigationState.today" class="card" @click="displayDetail()">
       <img :src="getUrl()" :alt="event.name">
-      <div class="channel">{{ event.service_id }}</div>
+      <img :src="getChannelUrl()" :alt="event.service_id" class="channel">
+      <!-- <div class="channel">{{ event.service_id }}</div> -->
       <div class="infos">{{ event.name }}</div>
       <div class="time" v-if="getProgress() > 1"> replay {{displayTime()}} </div>
       <div class="time" v-if="getProgress() < 0"> {{displayTime()}} </div>
@@ -36,6 +37,9 @@ export default {
     getUrl () {
       return `/data/${this.event.image}`
     },
+    getChannelUrl () {
+      return `/data/channelsLogos/${this.event.service_id}.png`
+    },
     displayDetail () {
       this.eventState.selectedEvent = Object.assign({ status: this.getProgress() }, this.event)
     },
@@ -60,7 +64,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 @import "../assets/style-library.less";
-div.card{
+.card{
   position: relative;
   width: 298px;
   height: 167px;
@@ -76,15 +80,15 @@ div.card{
     max-width: 100%;
     max-height: 100%;
   }
-  div.channel {
+  .channel {
     position: absolute;
-    background-color: @grey;
+//    background-color: @grey;
     color: #ffffff;
     padding: 5px;
-    top: 0;
-    right: 0;
+    top: 0px;
+    right: 2px;
   }
-  div.infos {
+  .infos {
     position: absolute;
     background-color: @grey;
     color: #ffffff;
@@ -93,7 +97,7 @@ div.card{
     bottom: 0px;
     z-index: 1;
   }
-  div.time {
+  .time {
     position: absolute;
     z-index: 1;
     bottom: 18px;

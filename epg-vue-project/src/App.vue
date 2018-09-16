@@ -26,7 +26,7 @@ export default {
       loaded: false
     }
   },
-  async mounted () {
+  async created () {
     try {
       const events = await fetch('data/GenericEvents.json')
       this.navigationState.programAll = await events.json()

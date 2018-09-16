@@ -32,7 +32,9 @@ export const keyboardNavigation = {
             if (this.focusedElement[this.menuIndex].category.subcategories == null) {
               // navbarToGrid
               this.$refs.grid.$refs.card[this.cardIndex].setfocus()
-              this.focusedComponent = 'grid'
+              setTimeout(() => {
+                this.setFocusedComponent('grid')
+              }, 1000)
             } else {
               const navbarToSubnav = new Promise((resolve, reject) => {
                 resolve(
@@ -42,7 +44,9 @@ export const keyboardNavigation = {
                 .then(result => {
                   this.navigationState.selectedCategory = this.$refs.navbar.$refs.subnav[this.submenuIndex].category
                   this.runAction(this.navigationState.selectedCategory.action)
-                  this.focusedComponent = 'subnav'
+                  setTimeout(() => {
+                    this.setFocusedComponent('subnav')
+                  }, 1000)
                 })
                 .catch(error => {
                   console.error(error)
@@ -67,7 +71,9 @@ export const keyboardNavigation = {
           case 13: // Enter Key
             //  subnavbarToGrid
             this.$refs.grid.$refs.card[this.cardIndex].setfocus()
-            this.focusedComponent = 'grid'
+            setTimeout(() => {
+              this.setFocusedComponent('grid')
+            }, 1000)
             break
           case 39: // Right key
             this.submenuIndex = this.moveRight(this.submenuIndex)
@@ -215,6 +221,9 @@ export const keyboardNavigation = {
         componentIndex++
         return componentIndex
       }
+    },
+    setFocusedComponent (component) {
+      this.focusedComponent = component
     }
   }
 }
