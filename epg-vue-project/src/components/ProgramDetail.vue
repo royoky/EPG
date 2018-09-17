@@ -17,7 +17,6 @@
         </div>
     </div>
 </template>
-      
 
 <script>
 import { eventState } from '../states/event-state'
@@ -65,33 +64,33 @@ export default {
       eventState.selectedEvent = null
     },
     getButtons () {
-    if (eventState.selectedEvent.status > 1) {
-      if (eventState.selectedEvent.bookmarked === false) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.PastReco }, this.eventState.selectedEvent)
-      } else {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.PastNotReco }, this.eventState.selectedEvent)
+      if (eventState.selectedEvent.status > 1) {
+        if (eventState.selectedEvent.bookmarked === false) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.PastReco }, this.eventState.selectedEvent)
+        } else {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.PastNotReco }, this.eventState.selectedEvent)
+        }
+      } else if (eventState.selectedEvent.status < 0) {
+        if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === false) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureRecoSave }, this.eventState.selectedEvent)
+        } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === false) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureNotRecoSave }, this.eventState.selectedEvent)
+        } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === true) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureNotRecoNotSave }, this.eventState.selectedEvent)
+        } else if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === true) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureRecoNotSave }, this.eventState.selectedEvent)
+        }
+      } else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
+        if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === false) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowRecoSave }, this.eventState.selectedEvent)
+        } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === false) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowNotRecoSave }, this.eventState.selectedEvent)
+        } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === true) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowNotRecoNotSave }, this.eventState.selectedEvent)
+        } else if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === true) {
+          this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowRecoNotSave }, this.eventState.selectedEvent)
+        }
       }
-    } else if (eventState.selectedEvent.status < 0) {
-      if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === false) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureRecoSave }, this.eventState.selectedEvent)
-      } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === false) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureNotRecoSave }, this.eventState.selectedEvent)
-      } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === true) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureNotRecoNotSave }, this.eventState.selectedEvent)
-      } else if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === true) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.FutureRecoNotSave }, this.eventState.selectedEvent)
-      }
-    } else if (eventState.selectedEvent.status > 0 && eventState.selectedEvent.status < 1) {
-      if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === false) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowRecoSave }, this.eventState.selectedEvent)
-      } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === false) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowNotRecoSave }, this.eventState.selectedEvent)
-      } else if (eventState.selectedEvent.bookmarked === true && eventState.selectedEvent.recorded === true) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowNotRecoNotSave }, this.eventState.selectedEvent)
-      } else if (eventState.selectedEvent.bookmarked === false && eventState.selectedEvent.recorded === true) {
-        this.eventState.selectedEvent = Object.assign({ buttons: this.buttons.NowRecoNotSave }, this.eventState.selectedEvent)
-      }
-    }
     },
     updateButton: (buttonName) => {
       let ind = navigationState.programAll.findIndex(program => {
@@ -128,7 +127,7 @@ export default {
 <style lang='less' scoped>
 @import "../assets/style-library.less";
 //variables
-// @channelURL: 
+// @channelURL:
 div#detail {
   width: 100%;
   position:relative;
@@ -141,7 +140,6 @@ div#detail {
   align-items: center;
   white-space: pre-line;
   justify-content: center;
-  
 
   #background {
     position: absolute;

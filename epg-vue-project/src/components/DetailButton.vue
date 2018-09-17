@@ -22,23 +22,18 @@ export default {
   methods: {
     updateButton () {
       let clickedButton = this.textButton
-      let newButton
       switch (clickedButton) {
         case 'Enregistrer':
           this.textButton = 'Annuler l\'enregistrement'
-          newButton = this.button
           break
         case 'Annuler l\'enregistrement':
           this.textButton = 'Enregistrer'
-          newButton = this.button
           break
         case 'Recommander':
           this.textButton = 'Ne plus recommander'
-          newButton = this.button
           break
         case 'Ne plus recommander':
           this.textButton = 'Recommander'
-          newButton = this.button
           break
       }
       this.$emit('update-button', clickedButton)
