@@ -23,7 +23,10 @@ export const displayMenuEvents = {
     getEventByChannel () {
       let listOfEvents = this.navigationState.programAll
       let listOfChannels = this.navigationState.channelList
-      const channel = listOfChannels.find(element => element.number === this.category.number)
+      if (this.category) {
+        this.navigationState.selectedCategory = this.category
+      }
+      const channel = listOfChannels.find(element => element.number === this.navigationState.selectedCategory.number)
       listOfEvents = listOfEvents.filter(element => element.service_id === channel.id)
       listOfEvents.sort(function (a, b) {
         return a.start_date - b.start_date
@@ -57,10 +60,12 @@ export const displayMenuEvents = {
       if (eventState.selectedEvent) {
         eventState.selectedEvent = null
       }
-      this.navigationState.selectedCategory = this.category
+      if (this.category) {
+        this.navigationState.selectedCategory = this.category
+      }
       try {
         let listOfCategories = this.navigationState.categoryList
-        listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.category.code)
+        listOfCategories = listOfCategories.filter(element => element.content_nibble_lvl_1 === this.navigationState.selectedCategory.code)
         listOfCategories = listOfCategories.map(element => element.id)
         let listOfEvents = this.navigationState.programAll
         listOfEvents = listOfCategories.map(element => {
