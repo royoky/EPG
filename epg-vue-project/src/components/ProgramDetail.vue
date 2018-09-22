@@ -1,7 +1,7 @@
 <template>
     <div id='detail'>
       <div id='background' :style="getBackground()"/>
-        <span class='close' @click="closeDetail">&times;</span>
+        <!-- <span class='close' @click="closeDetail">&times;</span> -->
         <div id='imgContainer'>
           <img :src="getUrl()" :alt="eventState.selectedEvent.name">
           <img :src="getChannelUrl()" :alt="eventState.selectedEvent.service_id" id='channel'>
@@ -150,10 +150,8 @@ div#detail {
     background-size: cover;
     filter: blur(5px);
     z-index: 0;
-    // background: #000 no-repeat center center;
-    // background-color: rgb(0, 0, 0);
-    // background-image: none;
-    // background-size: auto auto;
+    opacity: 0.3;
+    background-position-y: 20%;
   }
 
   p {
