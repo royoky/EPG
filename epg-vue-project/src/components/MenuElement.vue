@@ -1,7 +1,9 @@
 <template>
     <div
       @click="runAction(category.action)">
-      {{ category.name }}
+      <img v-if="(this.navigationState.channel && category.img !== null)"
+      :src="getChannelUrl()" :alt="category.id" class="channel">
+      <span v-if="(!(this.navigationState.channel && category.img !== null))">{{ category.name }}</span>
     </div>
 </template>
 <script>
@@ -10,7 +12,12 @@ import { displayMenuEvents } from '../mixins/displayMenuEvents'
 
 export default {
   name: 'MenuElement',
-  mixins: [keyboardNavigation, displayMenuEvents]
+  mixins: [keyboardNavigation, displayMenuEvents],
+  methods: {
+    getChannelUrl () {
+      return `/data/channelsLogos/${this.category.id}.png`
+    }
+  }
 }
 </script>
 
@@ -18,12 +25,14 @@ export default {
 <style scoped lang="less">
 @import "../assets/style-library.less";
 div {
+  display: flex;
   flex-grow: 1;
   color: white;
   border: 1px grey solid;
   text-align: center;
   background-color:#333;
-  padding: 20px;
+  padding: 30px;
+  justify-content: center;
   &:focus {
     border: 2px solid @primary-color !important;
     outline: none !important;
