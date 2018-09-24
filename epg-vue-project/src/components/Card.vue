@@ -96,14 +96,17 @@ export default {
     color: #ffffff;
     display: block;
     width: 100%;
-    bottom: -10px;
+    bottom: -5px;
     z-index: 1;
     font-size: larger;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .time {
     position: absolute;
     z-index: 1;
-    bottom: 18px;
+    bottom: 25px;
     background-color: lightgrey;
     color: black;
     padding: 5px;
