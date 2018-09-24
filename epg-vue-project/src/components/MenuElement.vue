@@ -1,8 +1,9 @@
 <template>
-    <div
+    <div class="menuElt"
       @click="runAction(category.action)">
-      <img v-if="(this.navigationState.channel && category.img !== null)"
-      :src="getChannelUrl()" :alt="category.id" class="channel">
+<!--       <img v-if="(this.navigationState.channel && category.img !== null)"
+      :src="getChannelUrl()" :alt="category.id" class="channel"> -->
+      <div v-if="(this.navigationState.channel && category.img !== null)" :style="getBackground()" class="channel"/>
       <span v-if="(!(this.navigationState.channel && category.img !== null))">{{ category.name }}</span>
     </div>
 </template>
@@ -16,7 +17,10 @@ export default {
   methods: {
     getChannelUrl () {
       return `/data/channelsLogos/${this.category.id}.png`
-    }
+    },
+    getBackground () {
+      return 'background-image: url(' + `/data/channelsLogos/${this.category.id}.png` + ');'
+    },
   }
 }
 </script>
@@ -24,7 +28,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
 @import "../assets/style-library.less";
-div {
+.menuElt {
   display: flex;
   flex-grow: 1;
   color: white;
@@ -36,6 +40,13 @@ div {
   &:focus {
     border: 5px solid @primary-color !important;
     outline: none !important;
+  }
+  .channel {
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    padding: 30px;
+    justify-content: center;
   }
 }
 </style>
