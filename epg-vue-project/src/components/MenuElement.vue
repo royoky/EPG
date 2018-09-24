@@ -20,7 +20,7 @@ export default {
     },
     getBackground () {
       return 'background-image: url(' + `/data/channelsLogos/${this.category.id}.png` + ');'
-    },
+    }
   }
 }
 </script>
@@ -35,18 +35,22 @@ export default {
   border: 1px grey solid;
   text-align: center;
   background-color:#333;
-  padding: 30px;
   justify-content: center;
+  padding: 5px;
+  span {
+    padding: 20px;
+  }
   &:focus {
     border: 5px solid @primary-color !important;
-    outline: none !important;
+    // outline: none !important;
   }
   .channel {
     background-repeat: no-repeat;
     background-position: center;
     display: flex;
-    padding: 30px;
     justify-content: center;
+    background-size: 80%;
+    padding: 30px;
   }
 }
 </style>

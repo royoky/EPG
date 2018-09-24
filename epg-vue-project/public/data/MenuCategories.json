@@ -1,7 +1,7 @@
 [
 { "name": "En ce moment", "action": "getEventNow", "subcategories": null, "img": null },
 { "name": "Ce soir", "action": "getEventTonight", "subcategories": null, "img": null },
-{ "name": "Categories", "action": "toggleCatNavBar", "subcategories": [
+{ "name": "Catégories", "action": "toggleCatNavBar", "subcategories": [
     { "name": "Emissions", "code": 100, "action": "getEventByCat" },
     { "name": "Films / Séries", "code": 10, "action": "getEventByCat" },
     { "name": "Jeunesse", "code": 50, "action": "getEventByCat" },
