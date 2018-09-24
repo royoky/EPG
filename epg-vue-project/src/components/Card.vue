@@ -68,14 +68,11 @@ export default {
 @import "../assets/style-library.less";
 .card{
   position: relative;
-  width: 298px;
-  height: 167px;
   border: 1px @secondary-color solid;
   display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   &:focus {
-    border: 2px solid @primary-color !important;
+    border: 5px solid @primary-color !important;
     outline: none !important;
   }
   img {
@@ -84,29 +81,29 @@ export default {
   }
   .channel {
     position: absolute;
-//    background-color: @grey;
     color: #ffffff;
     padding: 5px;
     top: 0px;
     right: 2px;
   }
   .infos {
-    position: absolute;
     background-color: @grey;
     color: #ffffff;
-    display: block;
+    display: flex;
     width: 100%;
-    bottom: -5px;
-    z-index: 1;
+    z-index: 2;
     font-size: larger;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    height: 28px;
+    justify-content: center;
+    align-items: center;
   }
   .time {
     position: absolute;
     z-index: 1;
-    bottom: 25px;
+    bottom: 40px;
     background-color: lightgrey;
     color: black;
     padding: 5px;

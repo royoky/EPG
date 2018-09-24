@@ -25,10 +25,10 @@ export default {
 
 </script>
 <style lang="less" scoped>
-    div#container {
-        width: 298px;
+    div.container {
+        width: 100%;
         position: absolute;
-        bottom: 0;
+        bottom: 26px;
         z-index: 1;
     }
 </style>

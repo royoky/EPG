@@ -50,8 +50,8 @@ main#mainview {
     height: 100vh;
     background-color: @secondary-color;
     display: grid;
-    grid-template-columns: 300px 300px 300px 300px 300px;
-    grid-template-rows: 180px 180px 180px 180px 180px;
+    grid-template-columns: repeat(5, 300px);
+    grid-template-rows: repeat(10, 200px);
     grid-gap: 15px;
     justify-content: space-between;
     overflow: hidden;

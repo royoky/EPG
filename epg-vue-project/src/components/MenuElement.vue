@@ -34,7 +34,7 @@ div {
   padding: 30px;
   justify-content: center;
   &:focus {
-    border: 2px solid @primary-color !important;
+    border: 5px solid @primary-color !important;
     outline: none !important;
   }
 }
