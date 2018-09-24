@@ -54,7 +54,7 @@ main#mainview {
     grid-template-rows: 180px 180px 180px 180px 180px;
     grid-gap: 15px;
     justify-content: space-between;
-    overflow: scroll;
+    overflow: hidden;
   }
 }
 .focus {

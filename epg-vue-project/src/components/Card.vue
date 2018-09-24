@@ -4,7 +4,7 @@
       <img :src="getChannelUrl()" :alt="event.service_id" class="channel">
       <!-- <div class="channel">{{ event.service_id }}</div> -->
       <div class="infos">{{ event.name }}</div>
-      <div class="time" v-if="getProgress() > 1"> replay {{displayTime()}} </div>
+      <div class="time" v-if="getProgress() > 1">Disponible encore {{displayTime()}} </div>
       <div class="time" v-if="getProgress() < 0"> {{displayTime()}} </div>
       <ProgressBar v-if="getProgress() > 0 && getProgress() < 1" :progress="getProgress()" :timeLeft="event.duration" :id="createId()"></ProgressBar>
     </div>
@@ -46,8 +46,10 @@ export default {
     displayTime () {
       // return moment(this.event.start_date, 'X').format('HH:mm')
       if (this.getProgress() > 1) {
-        return `${moment(this.event.endReplay, 'X').to(moment(navigationState.today, 'X'), true)} left`
+        moment.locale('fr')
+        return `${moment(this.event.endReplay, 'X').to(moment(navigationState.today, 'X'), true)}`
       } else if (this.getProgress() < 0) {
+        moment.locale('fr')
         return moment(this.event.start_date, 'X').from(moment(navigationState.today, 'X'))
       }
     },
@@ -94,15 +96,16 @@ export default {
     color: #ffffff;
     display: block;
     width: 100%;
-    bottom: 0px;
+    bottom: -10px;
     z-index: 1;
+    font-size: larger;
   }
   .time {
     position: absolute;
     z-index: 1;
     bottom: 18px;
-    background-color: @grey;
-    color: #ffffff;
+    background-color: lightgrey;
+    color: black;
     padding: 5px;
     height: 15px;
   }
